@@ -14,4 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "maib-frontend-staging" 
-          heroku_email: "wicaklearn@gmail.com"
+          heroku_email: "gteam.officials@gmail.com"
