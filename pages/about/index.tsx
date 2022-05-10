@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Button } from "../../components"
+import Link from "next/link";
+import { Button } from "../../components";
 
 const About = () => {
   return (
@@ -7,9 +7,9 @@ const About = () => {
       <h1>Halaman About</h1>
       <Link href={`/about/create`}>About Create</Link>
       <p>Using Button Component</p>
-      <Button/>
+      <Button />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
