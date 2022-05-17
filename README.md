@@ -1,20 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Struktur Folder
-
-### Komponen
-
-- Setiap komponen baru, buat folder dengan nama komponen yang diinginkan
-- Buat file bernama index.tsx didalam folder komponen tersebut
-- Untuk styling tiap komponen, buat file (nama_komponen).module.scss
-
-### Page
-
-- Setiap halaman baru, buat folder dengan nama halaman(url) yang diinginkan
-- Buat file bernama index.tsx didalam folder pages tersebut untuk halaman utama
-- Jika halaman baru memiliki prefix url yang sama, buat file pada folder yang sama dengan nama file yang diinginkan
-- Untuk styling belum tau
-
 ## Getting Started
 
 First, run the development server:
@@ -32,6 +17,21 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Penjelasan Struktur Folder
+
+### Komponen
+
+- Setiap komponen baru, buat folder dengan nama komponen yang diinginkan
+- Buat file bernama index.tsx didalam folder komponen tersebut
+- Untuk styling tiap komponen, buat file (nama_komponen).module.scss
+
+### Page
+
+- Setiap halaman baru, buat folder dengan nama halaman(url) yang diinginkan
+- Buat file bernama index.tsx didalam folder pages tersebut untuk halaman utama
+- Jika halaman baru memiliki prefix url yang sama, buat file pada folder yang sama dengan nama file yang diinginkan
+- Untuk styling belum tau
 
 ## Learn More
 
