@@ -1,9 +1,9 @@
-@import '~sanitize.css';
-@import '~sanitize.css/forms.css';
-@import '~sanitize.css/typography.css';
+@import "~sanitize.css";
+@import "~sanitize.css/forms.css";
+@import "~sanitize.css/typography.css";
 
 :root {
-  --primary-font: 'Inter', sans-serif;
+  --primary-font: "Inter", sans-serif;
 
   --display: 800 60px var(--primary-font);
 
@@ -34,37 +34,37 @@
   --footer: 10px var(--primary-font);
   --footer-semi: 10px var(--primary-font);
 
-  --dark-green-900: #001B13;
+  --dark-green-900: #001b13;
   --dark-green-800: #002113;
   --dark-green-700: #002914;
   --dark-green-600: #003114;
   --dark-green-500: #013912;
   --dark-green-400: #238838;
-  --dark-green-300: #50C35C;
-  --dark-green-200: #50C35C;
-  --dark-green-100: #C9F5C4;
+  --dark-green-300: #50c35c;
+  --dark-green-200: #50c35c;
+  --dark-green-100: #c9f5c4;
 
-  --neon-green-900: #5E6F13;
+  --neon-green-900: #5e6f13;
   --neon-green-800: #758620;
-  --neon-green-700: #94A733;
-  --neon-green-600: #B5C74A;
-  --neon-green-500: #D7E866;
-  --neon-green-400: #E5F18B;
-  --neon-green-300: #EFF8A4;
-  --neon-green-200: #F7FCC4;
-  --neon-green-100: #FBFDE1;
+  --neon-green-700: #94a733;
+  --neon-green-600: #b5c74a;
+  --neon-green-500: #d7e866;
+  --neon-green-400: #e5f18b;
+  --neon-green-300: #eff8a4;
+  --neon-green-200: #f7fcc4;
+  --neon-green-100: #fbfde1;
 
   --black: #202020;
-  --white:#FFFFFF;
+  --white: #ffffff;
 
-  --gray-100: #F6F8F8;
-  --gray-200: #E6EAEA;
-  --gray-300: #BECED0;
+  --gray-100: #f6f8f8;
+  --gray-200: #e6eaea;
+  --gray-300: #beced0;
   --gray-400: #869799;
-  --gray-500: #4B6163;
+  --gray-500: #4b6163;
 
-  --primary-color: var(--neon-green-500)
-  --secondary-color: var(--dark-green-500)
+  --primary-color: var(--neon-green-500);
+  --secondary-color: var(--dark-green-500);
 }
 
 html,
