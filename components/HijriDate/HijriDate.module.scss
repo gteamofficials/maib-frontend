@@ -1,0 +1,33 @@
+.hijriDate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 56px;
+  border-radius: 10px;
+  font: var(--heading-4);
+
+  &.event {
+    border: 1px solid var(--primary-color);
+  }
+
+  &.active {
+    background-color: var(--primary-color);
+  }
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+
+  .tip {
+    position: absolute;
+    border-radius: 10px;
+    padding: 8px;
+    color: black;
+    background: white;
+    border: 1px solid var(--primary-color);
+    z-index: 10;
+    white-space: nowrap;
+  }
+}
