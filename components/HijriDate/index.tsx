@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cn from "classnames";
 import styles from "./HijriDate.module.scss";
 
 type AppProps = {
@@ -8,20 +9,20 @@ type AppProps = {
 
 const HijriDate = ({ children, event }: AppProps) => {
   const [popUp, setPopUp] = useState(false);
-
-  const eventOnly = event ? styles.event : "";
-  const eventOnClick = popUp && event ? styles.popUp : "";
   const togglePopUp = () => setPopUp(!popUp);
 
   return (
     <button
       type="button"
-      className={`${styles.hijriDate} ${eventOnly} ${eventOnClick}`}
+      className={cn(styles.hijriDate, {
+        [styles.event]: event,
+        [styles.popUp]: event && popUp,
+      })}
       onClick={togglePopUp}
       disabled={!event}
     >
       <span>{children}</span>
-      {popUp && event && <span className={styles.detail}>{event}</span>}
+      {event && popUp && <span className={styles.detail}>{event}</span>}
     </button>
   );
 };
