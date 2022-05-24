@@ -7,21 +7,23 @@ type AppProps = {
 };
 
 const HijriDate = ({ children, event }: AppProps) => {
-  const [active, setActive] = useState(false);
+  const [popUp, setPopUp] = useState(false);
+
+  const eventOnly = event ? styles.event : "";
+  const eventOnClick = popUp && event ? styles.active : "";
+  const togglePopUp = () => setPopUp(!popUp);
 
   return (
-    <div className={styles.tooltip} onClick={() => setActive(!active)}>
-      <span
-        className={`${styles.hijriDate} ${event && styles.event} ${
-          active && event && styles.active
-        }`}
-      >
-        {children}
-      </span>
-      {active && event && (
-        <div className={`${styles.tip} ${styles.bottom}`}>{event}</div>
+    <button
+      type="button"
+      className={`${styles.tooltip} ${styles.hijriDate} ${eventOnly} ${eventOnClick}`}
+      onClick={togglePopUp}
+    >
+      <span>{children}</span>
+      {popUp && event && (
+        <span className={`${styles.tip} ${styles.bottom}`}>{event}</span>
       )}
-    </div>
+    </button>
   );
 };
 
