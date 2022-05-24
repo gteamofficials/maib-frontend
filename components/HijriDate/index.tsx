@@ -10,19 +10,18 @@ const HijriDate = ({ children, event }: AppProps) => {
   const [popUp, setPopUp] = useState(false);
 
   const eventOnly = event ? styles.event : "";
-  const eventOnClick = popUp && event ? styles.active : "";
+  const eventOnClick = popUp && event ? styles.popUp : "";
   const togglePopUp = () => setPopUp(!popUp);
 
   return (
     <button
       type="button"
-      className={`${styles.tooltip} ${styles.hijriDate} ${eventOnly} ${eventOnClick}`}
+      className={`${styles.hijriDate} ${eventOnly} ${eventOnClick}`}
       onClick={togglePopUp}
+      disabled={!event}
     >
       <span>{children}</span>
-      {popUp && event && (
-        <span className={`${styles.tip} ${styles.bottom}`}>{event}</span>
-      )}
+      {popUp && event && <span className={styles.detail}>{event}</span>}
     </button>
   );
 };

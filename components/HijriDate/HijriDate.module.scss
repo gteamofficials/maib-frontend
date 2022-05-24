@@ -1,7 +1,6 @@
 .hijriDate {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  position: relative;
   width: 58px;
   height: 56px;
   border-radius: 10px;
@@ -9,29 +8,24 @@
 
   &.event {
     border: 1px solid var(--primary-color);
+
+    .detail {
+      position: absolute;
+      left: 0;
+      bottom: calc(40px * -1);
+      z-index: 1;
+
+      font: var(--body-small);
+      color: var(--black);
+      background: var(--white);
+      border: 1px solid var(--primary-color);
+      border-radius: 10px;
+      white-space: nowrap;
+      padding: 8px;
+    }
   }
 
   &.popUp {
     background-color: var(--primary-color);
-  }
-}
-
-.tooltip {
-  display: inline-block;
-  position: relative;
-
-  .tip {
-    position: absolute;
-    left: 0;
-    bottom: calc(40px * -1);
-    z-index: 1;
-
-    font: var(--body-small);
-    color: var(--black);
-    background: var(--white);
-    border: 1px solid var(--primary-color);
-    border-radius: 10px;
-    white-space: nowrap;
-    padding: 8px;
   }
 }
