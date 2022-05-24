@@ -1,7 +1,5 @@
 {
-  "cssvar.files": [
-    "./styles/globals.scss"
-  ],
+  "cssvar.files": ["./styles/globals.scss"],
   "cssvar.extensions": [
     "css",
     "scss",
