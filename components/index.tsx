@@ -1,3 +1,4 @@
 import Button from "./button";
+import HijriDate from "./HijriDate";
 
-export { Button };
+export { Button, HijriDate };
