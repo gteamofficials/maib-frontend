@@ -1,10 +1,10 @@
 .container {
-  padding: 0 var(--size-7);
+  padding: 0 2rem;
 }
 
 .main {
   min-height: 100vh;
-  padding: var(--size-9) 0;
+  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,8 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: var(--size-7) 0;
-  border-top: var(--border-size-1) solid var(--gray-0);
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
 }
@@ -29,7 +29,7 @@
 }
 
 .title a {
-  color: var(--blue-7);
+  color: #0070f3;
   text-decoration: none;
 }
 
@@ -41,8 +41,8 @@
 
 .title {
   margin: 0;
-  line-height: var(--font-lineheight-3);
-  font-size: var(--font-size-8);
+  line-height: 1.15;
+  font-size: 4rem;
 }
 
 .title,
@@ -51,16 +51,16 @@
 }
 
 .description {
-  margin: var(--size-9) 0;
-  line-height: var(--font-lineheight-3);
-  font-size: var(--font-size-4);
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
 }
 
 .code {
-  background: var(--gray-3);
-  border-radius: var(--radius-2);
-  padding: var(--size-2);
-  font-size: var(--font-size-2);
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
@@ -74,13 +74,13 @@
 }
 
 .card {
-  margin: var(--size-3);
-  padding: var(--size-5);
+  margin: 1rem;
+  padding: 1.5rem;
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: var(--border-size-1) solid var(--gray-0);
-  border-radius: var(--radius-3);
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
 }
@@ -88,24 +88,24 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: var(--blue-7);
-  border-color: var(--blue-7);
+  color: #0070f3;
+  border-color: #0070f3;
 }
 
 .card h2 {
-  margin: 0 0 var(--size-3) 0;
-  font-size: var(--font-size-4);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
 }
 
 .card p {
   margin: 0;
-  font-size: var(--font-size-3);
-  line-height: var(--font-lineheight-3);
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .logo {
   height: 1em;
-  margin-left: var(--size-2);
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 600px) {
