@@ -1,8 +1,9 @@
 .SmallInfoCard {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 0px;
+  column-gap: 16px;
 
   width: 427px;
   height: 136px;
@@ -22,33 +23,26 @@
     position: relative;
   }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    height: 100%;
+  .header {
+    margin: 0;
+    font: var(--heading-4);
+    grid-area: 1 / 2 / 2 / 3;
+  }
 
-    .header {
-      margin: 0;
-      font: var(--heading-4);
-      grid-area: 1 / 2 / 2 / 3;
-    }
+  .date {
+    font: var(--body-small);
+    color: var(--gray-500);
+    grid-area: 2 / 2 / 3 / 3;
+  }
 
-    .date {
-      font: var(--body-small);
-      color: var(--gray-500);
-      grid-area: 2 / 2 / 3 / 3;
-    }
+  .action {
+    margin-top: auto;
+    text-decoration-line: underline;
+    color: #3b3fa6;
+    grid-area: 3 / 2 / 4 / 3;
 
-    .action {
-      margin-top: auto;
-      text-decoration-line: underline;
-      color: #3b3fa6;
-      grid-area: 3 / 2 / 4 / 3;
-
-      &:hover {
-        color: var(--white);
-      }
+    &:hover {
+      color: var(--white);
     }
   }
 }
