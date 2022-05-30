@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./SmallInfoCard.module.scss";
-import sampleImg from "../../public/samples/3.jpg";
+import Link from "next/link";
 
 type AppProps = {
   media: {
@@ -26,9 +26,9 @@ const SmallInfoCard = ({ media, title, date, href }: AppProps) => {
       </span>
       <h3 className={styles.header}>{title}</h3>
       <time className={styles.date}>{date}</time>
-      <a href={href} className={styles.action}>
-        Lihat detail
-      </a>
+      <Link href={href}>
+        <a className={styles.action}>Lihat detail</a>
+      </Link>
     </article>
   );
 };
