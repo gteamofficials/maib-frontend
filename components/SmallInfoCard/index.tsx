@@ -14,7 +14,7 @@ type AppProps = {
 
 const SmallInfoCard = ({ media, title, date, href }: AppProps) => {
   return (
-    <article className={styles.SmallInfoCard}>
+    <article className={styles.smallInfoCard}>
       <span className={styles.media}>
         <Image
           src={media.src}
