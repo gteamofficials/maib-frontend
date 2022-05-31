@@ -22,7 +22,6 @@ const MainInfoCard = ({ media, title, date, href }: AppProps) => {
           src={media.src}
           layout="fill"
           objectFit="cover"
-          quality={100}
         />
       </span>
       <div className={styles.content}>
