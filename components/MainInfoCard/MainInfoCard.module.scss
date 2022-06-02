@@ -1,74 +1,17 @@
 .mainInfoCard {
-  position: relative;
-  display: flex;
-
   width: 620px;
   height: 496px;
-
-  overflow: hidden;
-  border-radius: 10px;
   padding: 32px;
 
-  &:hover {
-    .image {
-      animation: scale-up 0.3s ease-in-out both;
-    }
+  .header {
+    font: var(--heading-3);
+    margin: 0;
+    padding-bottom: 16px;
+    color: var(--white);
   }
 
-  .media {
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: " ";
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.5) 58.75%,
-        rgba(0, 0, 0, 0.8) 75.36%,
-        #000000 100%
-      );
-    }
-  }
-
-  .content {
-    position: relative;
-    align-self: flex-end;
-
-    .header {
-      font: var(--heading-3);
-      margin: 0;
-      padding-bottom: 16px;
-      color: var(--white);
-    }
-
-    .date {
-      font: var(--body-large);
-      color: var(--gray-500);
-    }
-  }
-
-  .action {
-    color: transparent;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: " ";
-    }
-  }
-}
-
-@keyframes scale-up {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.25);
+  .date {
+    font: var(--body-large);
+    color: var(--gray-500);
   }
 }

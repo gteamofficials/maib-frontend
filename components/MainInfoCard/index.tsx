@@ -1,37 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
+import { CardProps } from "../../types/components";
+import ImageOverlayCard from "../ImageOverlayCard";
 import styles from "./MainInfoCard.module.scss";
 
-type AppProps = {
-  media: {
-    src: string;
-    alt: string;
-  };
-  title: string;
-  date: string;
-  href: string;
-};
-
-const MainInfoCard = ({ media, title, date, href }: AppProps) => {
+const MainInfoCard = ({ media, title, date, href }: CardProps) => {
   return (
-    <article className={styles.mainInfoCard}>
-      <span className={styles.media}>
-        <Image
-          className={styles.image}
-          alt={media.alt}
-          src={media.src}
-          layout="fill"
-          objectFit="cover"
-        />
-      </span>
-      <div className={styles.content}>
+    <ImageOverlayCard className={styles.mainInfoCard}>
+      <ImageOverlayCard.Media src={media.src} alt={media.alt} />
+      <ImageOverlayCard.Content>
         <h3 className={styles.header}>{title}</h3>
         <time className={styles.date}>{date}</time>
-      </div>
-      <Link href={href}>
-        <a className={styles.action}>Try it now</a>
-      </Link>
-    </article>
+      </ImageOverlayCard.Content>
+      <ImageOverlayCard.Action
+        href={href}
+        ariaLabel={`Baca lebih lanjut mengenai ${title}`}
+      />
+    </ImageOverlayCard>
   );
 };
 
