@@ -1,0 +1,17 @@
+.secondaryInfoCard {
+  width: 620px;
+  height: 264px;
+  padding: 32px;
+
+  .header {
+    font: var(--heading-3);
+    margin: 0;
+    padding-bottom: 16px;
+    color: var(--white);
+  }
+
+  .date {
+    font: var(--body-large);
+    color: var(--gray-500);
+  }
+}
