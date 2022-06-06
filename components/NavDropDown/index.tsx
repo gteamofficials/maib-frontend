@@ -1,10 +1,19 @@
 import { Menu } from "@headlessui/react";
 import cn from "classnames";
-import { Fragment } from "react";
+import Link from "next/link";
+import { Fragment, ReactNode } from "react";
 import { MdArrowDropDown, MdArrowRight } from "react-icons/md";
 import styles from "./NavDropDown.module.scss";
 
-const NavDropDown = ({ active }: { active?: boolean }) => {
+const NavDropDown = ({
+  active,
+  title,
+  children,
+}: {
+  active?: boolean;
+  title: string;
+  children: ReactNode;
+}) => {
   return (
     <Menu as="div" className={styles.navDropDown}>
       <Menu.Button as={Fragment}>
@@ -15,28 +24,27 @@ const NavDropDown = ({ active }: { active?: boolean }) => {
               [styles.active]: active && !open,
             })}
           >
-            Informasi {open ? <MdArrowDropDown /> : <MdArrowRight />}
+            {title} {open ? <MdArrowDropDown /> : <MdArrowRight />}
           </button>
         )}
       </Menu.Button>
-      <Menu.Items className={styles.items}>
-        <Menu.Item as="div" className={styles.item}>
-          {({ active }) => (
-            <a className={styles.link} href="/visi-misi">
-              Visi Misi
-            </a>
-          )}
-        </Menu.Item>
-        <Menu.Item as="div" className={styles.item}>
-          {({ active }) => (
-            <a className={styles.link} href="/sejarah">
-              Sejarah
-            </a>
-          )}
-        </Menu.Item>
-      </Menu.Items>
+      <Menu.Items className={styles.items}>{children}</Menu.Items>
     </Menu>
   );
 };
+
+const Item = ({ href, children }: { href: string; children: ReactNode }) => {
+  return (
+    <Menu.Item as="div" className={styles.item}>
+      {({ active }) => (
+        <Link href={href}>
+          <a className={styles.link}>{children}</a>
+        </Link>
+      )}
+    </Menu.Item>
+  );
+};
+
+NavDropDown.Item = Item;
 
 export default NavDropDown;
