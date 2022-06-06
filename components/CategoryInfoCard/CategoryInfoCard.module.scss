@@ -1,0 +1,44 @@
+.categoryInfoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 396px;
+  height: 517px;
+
+  background: white;
+
+  .media {
+    position: relative;
+    width: 396px;
+    height: 289px;
+  }
+
+  .header {
+    font: var(--heading-5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    height: calc(20px * 2);
+    margin: 0;
+  }
+
+  .date {
+    font: var(--caption-large);
+    color: var(--gray-400);
+  }
+
+  .body {
+    font: var(--body-small);
+    color: var(--gray-500);
+    margin: 0;
+    overflow: hidden;
+    line-height: 16px;
+    height: calc(16px * 6);
+  }
+
+  .action {
+    color: #3b3fa6;
+    text-decoration: underline;
+  }
+}
