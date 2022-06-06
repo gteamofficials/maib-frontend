@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CardProps } from "../../types/components";
+import { CardWithBodyProps } from "../../types/components";
 import styles from "./CategoryInfoCard.module.scss";
-
-interface CardPropsWithBody extends CardProps {
-  body: string;
-}
 
 const CategoryInfoCard = ({
   date,
@@ -13,7 +9,7 @@ const CategoryInfoCard = ({
   title,
   media,
   body,
-}: CardPropsWithBody) => {
+}: CardWithBodyProps) => {
   return (
     <article className={styles.categoryInfoCard}>
       <span className={styles.media}>

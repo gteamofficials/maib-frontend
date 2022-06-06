@@ -7,3 +7,7 @@ export interface CardProps {
   date: string;
   href: string;
 }
+
+export interface CardWithBodyProps extends CardProps {
+  body: string;
+}
