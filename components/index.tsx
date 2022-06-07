@@ -4,6 +4,7 @@ import MainInfoCard from "./MainInfoCard";
 import SecondaryInfoCard from "./SecondaryInfoCard";
 import AdditionalInfoCard from "./AdditionalInfoCard";
 import CategoryInfoCard from "./CategoryInfoCard";
+import Heading from "./Heading";
 
 export {
   Button,
@@ -11,5 +12,6 @@ export {
   MainInfoCard,
   SecondaryInfoCard,
   AdditionalInfoCard,
-  CategoryInfoCard
+  CategoryInfoCard,
+  Heading,
 };
