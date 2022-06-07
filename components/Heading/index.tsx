@@ -2,15 +2,15 @@ import cn from "classnames";
 import { ReactNode } from "react";
 import styles from "./Heading.module.scss";
 
-type TypographyTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-const Typography = ({
+const Heading = ({
   variant,
   as,
   children,
 }: {
-  variant: keyof JSX.IntrinsicElements & TypographyTag;
-  as: keyof JSX.IntrinsicElements & TypographyTag;
+  variant: keyof JSX.IntrinsicElements & HeadingTag;
+  as: keyof JSX.IntrinsicElements & HeadingTag;
   children: ReactNode;
 }) => {
   const Element = as;
@@ -30,4 +30,4 @@ const Typography = ({
   );
 };
 
-export default Typography;
+export default Heading;
