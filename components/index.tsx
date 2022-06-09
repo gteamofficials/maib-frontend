@@ -11,5 +11,5 @@ export {
   MainInfoCard,
   SecondaryInfoCard,
   AdditionalInfoCard,
-  CategoryInfoCard
+  CategoryInfoCard,
 };
