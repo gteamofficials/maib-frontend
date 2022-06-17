@@ -1,0 +1,43 @@
+.navDropDown {
+  position: relative;
+
+  .button {
+    border: none;
+    padding: 8px;
+    font: var(--heading-5);
+    cursor: pointer;
+    color: var(--white);
+    text-decoration: none;
+
+    &.active {
+      color: var(--black);
+      text-decoration: underline;
+    }
+
+    &.open {
+      background-color: var(--dark-green-700);
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .items {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-green-700);
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 12px;
+
+    .item {
+      padding: 0 8px;
+
+      .link {
+        font: var(--caption-large);
+        display: block;
+        padding: 8px;
+        border-bottom: 1px solid var(--white);
+        color: var(--white);
+      }
+    }
+  }
+}
