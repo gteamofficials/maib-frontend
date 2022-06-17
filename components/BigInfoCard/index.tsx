@@ -30,7 +30,7 @@ const BigInfoCard = ({ media, title, date, href, content }: AppProps) => {
       <time className={styles.date}>{date}</time>
       <p className={styles.content}>{content}</p>
       <Link href={href}>
-        <Button children="Selengkapnya" size="medium" variant="primary" disabled={false}></Button>
+        <Button children="Selengkapnya" size="medium" variant="primary" disabled={false} className={styles.link}></Button>
       </Link>
     </article>
   )
