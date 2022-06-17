@@ -1,0 +1,58 @@
+.imageOverlayCard {
+  position: relative;
+  display: flex;
+
+  overflow: hidden;
+  border-radius: 10px;
+
+  &:hover {
+    .image {
+      animation: scale-up 0.3s ease-in-out both;
+    }
+  }
+
+  .media {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: " ";
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.5) 58.75%,
+        rgba(0, 0, 0, 0.8) 75.36%,
+        #000000 100%
+      );
+    }
+  }
+
+  .content {
+    position: relative;
+    align-self: flex-end;
+  }
+
+  .action {
+    color: transparent;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: " ";
+    }
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
