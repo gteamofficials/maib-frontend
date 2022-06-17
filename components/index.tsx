@@ -6,6 +6,7 @@ import SecondaryInfoCard from "./SecondaryInfoCard";
 import AdditionalInfoCard from "./AdditionalInfoCard";
 import NavDropDown from "./NavDropDown";
 import CategoryInfoCard from "./CategoryInfoCard";
+import BigInfoCard from "./BigInfoCard";
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   SecondaryInfoCard,
   AdditionalInfoCard,
   NavDropDown,
-  CategoryInfoCard
+  CategoryInfoCard,
+  BigInfoCard
 };
