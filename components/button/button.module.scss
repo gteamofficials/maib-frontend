@@ -1,22 +1,22 @@
 .btn {
   border-radius: 32px;
-  box-shadow: 0px 4px 10px 0px #0000001A;
+  box-shadow: 0px 4px 10px 0px #0000001a;
   font-weight: 600;
 }
 
-.primary{
+.primary {
   background-color: #003114;
-  color:white;
+  color: white;
 }
 
-.large{
+.large {
   font-size: 24px;
   width: 142px;
   height: 61px;
   line-height: 32px;
 }
 
-.medium{
+.medium {
   width: 116px;
   height: 52px;
   left: 16px;
@@ -25,10 +25,10 @@
   line-height: 20px;
 }
 
-.primary:hover{
+.primary:hover {
   box-shadow: 0px 4px 10px 0px #00000026;
   border: 1px;
-  border-color: #D7E866;
+  border-color: #d7e866;
 }
 
 .primary:active {
@@ -36,30 +36,30 @@
 }
 
 .primary:disabled {
-  background-color: #BECED0;
+  background-color: #beced0;
   color: #869799;
 }
 
-.secondary{
+.secondary {
   border: 1px solid #003114;
   border-radius: 32px;
   color: #003114;
 }
 
-.secondary:hover{
-  background: #F7FCC4;
+.secondary:hover {
+  background: #f7fcc4;
   border: 1px solid #002914;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.secondary:active{
-  background: #FBFDE1;
+.secondary:active {
+  background: #fbfde1;
   color: #003114;
   border: 1px solid #003114;
   border-radius: 32px;
 }
 
-.secondary:disabled{
-  border: 1px solid #BECED0;
+.secondary:disabled {
+  border: 1px solid #beced0;
   color: #869799;
 }

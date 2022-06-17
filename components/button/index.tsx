@@ -11,16 +11,17 @@ type AppProps = {
 const Button = ({ size, children, disabled, variant }: AppProps) => {
   return (
     <button
-      className={cn(styles.btn,{
+      className={cn(styles.btn, {
         [styles.primary]: variant == "primary",
         [styles.secondary]: variant == "secondary",
         [styles.large]: size == "large",
         [styles.medium]: size == "medium",
       })}
-        disabled={disabled}>
+      disabled={disabled}
+    >
       {children}
     </button>
-  )
-}
+  );
+};
 
 export default Button;
