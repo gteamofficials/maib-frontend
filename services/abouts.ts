@@ -1,9 +1,12 @@
+import { AboutType } from '../types/response';
 import api from './api';
 
-const GetAll = () => {
-    return api.get(
+const GetAll = async () => {
+    const res = await api.get(
       `abouts?populate=*`
-    );
+    )
+    const response: AboutType[] = res.data.data
+    return response
 };
 
 const AboutServices = {
