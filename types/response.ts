@@ -32,6 +32,7 @@ export interface AboutType {
   };
 }
 
+
 export interface InformationType {
   attributes: {
     category: string;
@@ -43,5 +44,15 @@ export interface InformationType {
       data: ImageType[];
     };
     slug: string;
+  };
+}
+
+export interface ServiceType {
+  attributes: {
+    title: string;
+    description: string;
+    icon: {
+      data: ImageType;
+    };
   };
 }

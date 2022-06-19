@@ -3,7 +3,7 @@ import { Button } from "../../components";
 import AboutServices from "../../services/abouts";
 import { AboutType } from "../../types/response";
 
-const About = ({abouts}: {abouts: AboutType[]}) => {
+const About = ({ abouts }: { abouts: AboutType[] }) => {
   return (
     <div>
       <h1>Halaman About</h1>
@@ -15,14 +15,14 @@ const About = ({abouts}: {abouts: AboutType[]}) => {
 };
 
 export async function getStaticProps() {
-  const res = await AboutServices.GetAll()
-  const abouts: AboutType[] = res
+  const res = await AboutServices.GetAll();
+  const abouts: AboutType[] = res;
 
   return {
     props: {
       abouts,
     },
-  }
+  };
 }
 
 export default About;
