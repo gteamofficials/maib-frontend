@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import InformationServices from "../services/informations";
 import styles from "../styles/home.module.scss";
+import { InformationType } from "../types/response";
 
 const Home: NextPage = () => {
   return (
@@ -68,5 +70,16 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await InformationServices.GetAll({});
+  const informations: InformationType[] = res;
+
+  return {
+    props: {
+      informations,
+    },
+  };
+}
 
 export default Home;
