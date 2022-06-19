@@ -2,19 +2,15 @@ import styles from "./BigInfoCard.module.scss"
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../button";
+import { CardWithBodyProps } from "../../types/components";
 
-type AppProps = {
-    media: {
-        src: string;
-        alt: string;
-      };
-      title: string;
-      date: string;
-      href: string;
-      content: string;
-};
-
-const BigInfoCard = ({ media, title, date, href, content }: AppProps) => {
+const BigInfoCard = ({
+  date,
+  href,
+  title,
+  media,
+  body,
+}: CardWithBodyProps) => {
   return (
     <article className={styles.bigInfoCard}>
         <span className={styles.media}>
@@ -28,9 +24,9 @@ const BigInfoCard = ({ media, title, date, href, content }: AppProps) => {
       </span>
       <h3 className={styles.title}>{title}</h3>
       <time className={styles.date}>{date}</time>
-      <p className={styles.content}>{content}</p>
+      <p className={styles.content}>{body}</p>
       <Link href={href}>
-        <Button children="Selengkapnya" size="medium" variant="primary" disabled={false} className={styles.link}></Button>
+        <Button size="medium" variant="primary" className={styles.link}>Selengkapnya</Button>
       </Link>
     </article>
   )
