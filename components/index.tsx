@@ -17,6 +17,5 @@ export {
   AdditionalInfoCard,
   NavDropDown,
   CategoryInfoCard,
-  ServiceCard
+  ServiceCard,
 };
-
