@@ -1,6 +1,6 @@
 import styles from "./ServiceCard.module.scss"
-import cn from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
 type AppProps = {
   media: {
@@ -9,23 +9,25 @@ type AppProps = {
   };
   title: string;
   content: string;
+  href: string;
 };
 
-const ServiceCard = ({ media, title, content }: AppProps) => {
+const ServiceCard = ({ media, title, content, href }: AppProps) => {
   return (
-    <article className={styles.serviceCard}>
-        <span className={styles.media}>
-            <Image
-            src={media.src}
-            alt={media.alt}
-            width={104}
-            height={104}
-            objectFit="cover"
-            />
-        </span>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.content}>{content}</p>
-    </article>
+    <Link href={href}>
+      <article className={styles.serviceCard}>
+          <span className={styles.media}>
+              <Image
+                src={media.src}
+                alt={media.alt}
+                layout="fill"
+                objectFit="cover"
+              />
+          </span>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.content}>{content}</p>
+      </article>
+    </Link>
   )
 }
 
