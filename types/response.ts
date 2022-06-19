@@ -32,7 +32,6 @@ export interface AboutType {
   };
 }
 
-
 export interface InformationType {
   attributes: {
     category: string;
