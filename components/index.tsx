@@ -17,5 +17,5 @@ export {
   AdditionalInfoCard,
   NavDropDown,
   CategoryInfoCard,
-  Navbar
+  Navbar,
 };
