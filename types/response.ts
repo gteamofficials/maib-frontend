@@ -21,6 +21,15 @@ export interface ImageType {
   };
 }
 
+export interface AudioType {
+  attributes: {
+    name: string;
+    alternativeText: string;
+    caption: string;
+    url: string;
+  };
+}
+
 export interface AboutType {
   attributes: {
     category: string;
@@ -28,6 +37,15 @@ export interface AboutType {
     description: string;
     images: {
       data: ImageType[];
+    };
+  };
+}
+
+export interface PodcastType {
+  attributes: {
+    title: string;
+    audio: {
+      data: AudioType[];
     };
   };
 }
