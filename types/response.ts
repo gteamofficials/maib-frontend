@@ -31,3 +31,13 @@ export interface AboutType {
     };
   };
 }
+
+export interface ServiceType {
+  attributes: {
+    title: string;
+    description: string;
+    icon: {
+      data: ImageType[];
+    };
+  };
+}
