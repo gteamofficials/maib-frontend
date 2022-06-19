@@ -45,7 +45,7 @@ export interface PodcastType {
   attributes: {
     title: string;
     audio: {
-      data: AudioType[];
+      data: AudioType;
     };
   };
 }
