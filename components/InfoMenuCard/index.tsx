@@ -1,32 +1,32 @@
 import styles from "./InfoMenuCard.module.scss";
 import Image from "next/image";
+import { CardWithBodyProps } from "../../types/components";
+import Link from "next/link";
 
-type AppProps = {
-  media: {
-    src: string;
-    alt: string;
-  };
-  title: string;
-  date: string;
-  content: string;
-};
-
-const InfoMenuCard = ({ media, title, date, content }: AppProps) => {
+const InfoMenuCard = ({
+  date,
+  href,
+  title,
+  media,
+  body,
+}: CardWithBodyProps) => {
   return (
-    <article className={styles.infoMenuCard}>
-      <span className={styles.media}>
-        <Image
-          src={media.src}
-          alt={media.alt}
-          layout="fill"
-          objectFit="cover"
-          className={styles.media}
-        />
-      </span>
-      <h3 className={styles.title}>{title}</h3>
-      <time className={styles.date}>{date}</time>
-      <p className={styles.content}>{content}</p>
-    </article>
+    <Link href={href}>
+      <article className={styles.infoMenuCard}>
+        <span className={styles.media}>
+          <Image
+            src={media.src}
+            alt={media.alt}
+            layout="fill"
+            objectFit="cover"
+            className={styles.media}
+          />
+        </span>
+        <h3 className={styles.title}>{title}</h3>
+        <time className={styles.date}>{date}</time>
+        <p className={styles.content}>{body}</p>
+      </article>
+    </Link>
   );
 };
 
