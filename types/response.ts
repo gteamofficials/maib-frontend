@@ -37,7 +37,7 @@ export interface ServiceType {
     title: string;
     description: string;
     icon: {
-      data: ImageType[];
+      data: ImageType;
     };
   };
 }
