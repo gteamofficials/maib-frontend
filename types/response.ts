@@ -32,6 +32,20 @@ export interface AboutType {
   };
 }
 
+export interface InformationType {
+  attributes: {
+    category: string;
+    title: string;
+    description: string;
+    date: string;
+    coverImage: ImageType;
+    images: {
+      data: ImageType[];
+    };
+    slug: string;
+  };
+}
+
 export interface ServiceType {
   attributes: {
     title: string;
