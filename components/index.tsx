@@ -6,6 +6,7 @@ import SecondaryInfoCard from "./SecondaryInfoCard";
 import AdditionalInfoCard from "./AdditionalInfoCard";
 import NavDropDown from "./NavDropDown";
 import CategoryInfoCard from "./CategoryInfoCard";
+import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
 
 export {
@@ -17,5 +18,6 @@ export {
   AdditionalInfoCard,
   NavDropDown,
   CategoryInfoCard,
+  ButtonLink,
   ServiceCard,
 };
