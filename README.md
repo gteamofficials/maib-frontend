@@ -39,9 +39,9 @@ If you use vscode (and you should) download [Preview JS](https://marketplace.vis
 You can read more about the extension on their page. But if you don't here some summary.
 
 - [cssvar](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar) : intelisense for our global css var
-![cssvar](https://user-images.githubusercontent.com/73181490/169938438-66f91b5f-9420-4dfb-80f3-eccdb59cacbc.png)
+  ![cssvar](https://user-images.githubusercontent.com/73181490/169938438-66f91b5f-9420-4dfb-80f3-eccdb59cacbc.png)
 - [previewjs](https://marketplace.visualstudio.com/items?itemName=zenclabs.previewjs) : render component in an isolation page
-![preview js](https://user-images.githubusercontent.com/73181490/169938269-30c5fede-7fed-4feb-9f37-2129aa1ac2b2.png)
+  ![preview js](https://user-images.githubusercontent.com/73181490/169938269-30c5fede-7fed-4feb-9f37-2129aa1ac2b2.png)
 
 ## Learn More
 

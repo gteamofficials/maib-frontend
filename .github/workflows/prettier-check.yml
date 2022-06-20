@@ -1,0 +1,20 @@
+name: Runs Prettier Check on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - staging
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Prettier Check
+        uses: creyD/prettier_action@v4.2
+        with:
+          prettier_options: --check .
+          dry: True
