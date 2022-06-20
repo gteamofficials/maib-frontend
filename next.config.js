@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    strapiApiUrl: "localhost:1337/api",
+    strapiApiUrl: "https://maib-backend-staging.herokuapp.com/api/",
   },
 };
 
