@@ -6,6 +6,7 @@ import SecondaryInfoCard from "./SecondaryInfoCard";
 import AdditionalInfoCard from "./AdditionalInfoCard";
 import NavDropDown from "./NavDropDown";
 import CategoryInfoCard from "./CategoryInfoCard";
+import Slider from "./Slider";
 import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
 
@@ -16,6 +17,7 @@ export {
   MainInfoCard,
   SecondaryInfoCard,
   AdditionalInfoCard,
+  Slider,
   NavDropDown,
   CategoryInfoCard,
   ButtonLink,
