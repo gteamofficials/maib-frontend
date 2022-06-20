@@ -1,0 +1,13 @@
+.slider {
+  display: flex;
+
+  &.horizontal {
+    flex-direction: row;
+    gap: 18px;
+  }
+
+  &.vertical {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
