@@ -1,4 +1,4 @@
-import styles from "./ContentTitle.module.scss"
+import styles from "./ContentTitle.module.scss";
 import cn from "classnames";
 
 type AppProps = {
@@ -13,15 +13,17 @@ const ContentTitle = ({ children, active }: AppProps) => {
       <Heading
         className={cn(styles.heading, {
           [styles.h2]: active,
-          [styles.h4]: !active
+          [styles.h4]: !active,
         })}
       >
         {children}
       </Heading>
-        <hr className={cn(styles.hr, {
+      <hr
+        className={cn(styles.hr, {
           [styles.on]: active,
           [styles.off]: !active,
-        })}/>
+        })}
+      />
     </div>
   );
 };
