@@ -1,0 +1,63 @@
+.bigInfoCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.75fr 0.25fr 3fr 1fr;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+
+  padding: 24px;
+  position: absolute;
+  width: 781px;
+  height: 498px;
+
+  background: var(--white);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+
+  &:hover {
+    transition: 0.3s ease-in-out;
+    background: var(--neon-green-200);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .media {
+    grid-area: 1 / 1 / 5 / 2;
+    width: 360px;
+    height: 450px;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .title {
+    padding-top: 10px;
+    grid-area: 1 / 2 / 2 / 3;
+    width: 357px;
+    height: 64px;
+    line-height: 32px;
+    color: var(--black);
+    font: var(--heading-3);
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  .content {
+    grid-area: 3 / 2 / 4 / 3;
+    font: var(--body-large);
+    line-height: 20px;
+  }
+
+  .date {
+    grid-area: 2 / 2 / 3 / 3;
+    font: var(--body-large);
+    color: var(--gray-500);
+    line-height: 20px;
+    width: 357px;
+    height: 20px;
+  }
+
+  .link {
+    margin-top: auto;
+  }
+}
