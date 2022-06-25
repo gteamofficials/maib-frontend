@@ -3,14 +3,20 @@
   margin: 0 auto;
 }
 
-.carousel {
+.banner {
   position: relative;
   left: 0;
   height: 100vh;
   width: 100%;
-}
 
-.media {
-  height: 100vh;
-  width: 100%;
+  .media {
+    height: 100vh;
+    width: 100%;
+  }
+
+  .recentEvent {
+    position: relative;
+    z-index: 2;
+    margin: -120px auto;
+  }
 }
