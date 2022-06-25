@@ -1,0 +1,51 @@
+.recentEvent {
+  width: 908px;
+  height: 233px;
+  padding: 24px 40px;
+
+  display: grid;
+  grid-template-columns: 193px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 8px;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  background-color: var(--white);
+
+  .media {
+    grid-area: 1 / 1 / 4 / 2;
+    position: relative;
+  }
+
+  .title {
+    grid-area: 1 / 2 / 2 / 3;
+
+    font: var(--heading-2);
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0px;
+  }
+
+  .content {
+    grid-area: 2 / 2 / 3 / 3;
+    align-self: end;
+
+    font: var(--body-large);
+    line-height: 20px;
+    height: calc(20px * 5);
+    overflow: hidden;
+    margin: 0px;
+  }
+
+  .action {
+    grid-area: 3 / 2 / 4 / 3;
+    align-self: end;
+
+    text-decoration: underline;
+    color: #3b3fa6;
+  }
+}

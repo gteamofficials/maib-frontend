@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import Slider from "./Slider";
 import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
+import RecentEvent from "./RecentEvent";
 
 export {
   Button,
@@ -24,4 +25,5 @@ export {
   Navbar,
   ButtonLink,
   ServiceCard,
+  RecentEvent,
 };
