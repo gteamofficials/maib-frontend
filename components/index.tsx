@@ -12,6 +12,7 @@ import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
 import RecentEvent from "./RecentEvent";
 import SalahSchedule from "./SalahSchedule";
+import HijriCalendar from "./HijriCalendar";
 
 export {
   Button,
@@ -28,4 +29,5 @@ export {
   ServiceCard,
   RecentEvent,
   SalahSchedule,
+  HijriCalendar,
 };
