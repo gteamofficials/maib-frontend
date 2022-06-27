@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { RecentEvent, SalahSchedule } from "../components";
+import { HijriCalendar, RecentEvent, SalahSchedule } from "../components";
 import InformationServices from "../services/informations";
 import styles from "../styles/home.module.scss";
 import { InformationType } from "../types/response";
@@ -51,6 +51,7 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
       </section>
       <section className={cn(styles.desktop, styles.highlight)}>
         <SalahSchedule className={styles.salahSchedule} />
+        <HijriCalendar/>
       </section>
       <section></section>
     </>
