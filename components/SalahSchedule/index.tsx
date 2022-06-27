@@ -2,7 +2,7 @@ import { FiClock } from "react-icons/fi";
 import cn from "classnames";
 import styles from "./SalahSchedule.module.scss";
 
-const RecentEvent = ({ className }: { className?: string }) => {
+const SalahSchedule = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(styles.salahSchedule, {
@@ -66,4 +66,4 @@ const RecentEvent = ({ className }: { className?: string }) => {
   );
 };
 
-export default RecentEvent;
+export default SalahSchedule;
