@@ -56,7 +56,7 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
           className={styles.recentEvent}
         />
       </section>
-      <section className={cn(styles.desktop, styles.highlight)}>
+      <section className={styles.highlight}>
         <SalahSchedule className={styles.salahSchedule} />
         <HijriCalendar />
       </section>
