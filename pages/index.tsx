@@ -61,65 +61,68 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
         <HijriCalendar />
       </section>
       <section className={styles.services}>
-        <div className={styles.serviceCards}>
-          <ServiceCard
-            media={{
-              src: "https://source.unsplash.com/random/?city,night",
-              alt: "alt",
-            }}
-            title="Layanan Kurban"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-            href="https://www.google.com/"
-          />
-          <ServiceCard
-            media={{
-              src: "https://source.unsplash.com/random/?city,night",
-              alt: "alt",
-            }}
-            title="Layanan Kurban"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-            href="https://www.google.com/"
-          />
-          <ServiceCard
-            media={{
-              src: "https://source.unsplash.com/random/?city,night",
-              alt: "alt",
-            }}
-            title="Layanan Kurban"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-            href="https://www.google.com/"
-          />
-          <ServiceCard
-            media={{
-              src: "https://source.unsplash.com/random/?city,night",
-              alt: "alt",
-            }}
-            title="Layanan Kurban"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-            href="https://www.google.com/"
-          />
-        </div>
-        <div className={styles.serviceTexts}>
-          <div className={styles.upperTexts}>
-            <h4>Layanan Masjid Al-Ikhlas</h4>
-            <h1>Layanan yang terdapat pada Masjid Al-Ikhlas</h1>
-            <p>
-              Layanan terdekat yang akan dibuka Masjid Al-Ikhlas adalah qurban
-              idul adha
-            </p>
+        <div className={styles.servicesContent}>
+          <div className={styles.serviceCards}>
+            <ServiceCard
+              media={{
+                src: "https://source.unsplash.com/random/?city,night",
+                alt: "alt",
+              }}
+              title="Layanan Kurban"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+              href="https://www.google.com/"
+            />
+            <ServiceCard
+              media={{
+                src: "https://source.unsplash.com/random/?city,night",
+                alt: "alt",
+              }}
+              title="Layanan Kurban"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+              href="https://www.google.com/"
+            />
+            <ServiceCard
+              media={{
+                src: "https://source.unsplash.com/random/?city,night",
+                alt: "alt",
+              }}
+              title="Layanan Kurban"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+              href="https://www.google.com/"
+            />
+            <ServiceCard
+              media={{
+                src: "https://source.unsplash.com/random/?city,night",
+                alt: "alt",
+              }}
+              title="Layanan Kurban"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+              href="https://www.google.com/"
+            />
           </div>
-          <div className={styles.lowerTexts}>
-            <p>
-              Layanan dapat dilakukan dengan menghubungi kontak kami yang
-              tertera pada bagian bawah atau dapat dengan menekan tombol di
-              bawah ini.
-            </p>
-            <ButtonLink href="/contact" size="medium" variant="primary">
-              Kontak Kami
-            </ButtonLink>
+          <div className={styles.serviceTexts}>
+            <div className={styles.upperTexts}>
+              <h4>Layanan Masjid Al-Ikhlas</h4>
+              <h1>Layanan yang terdapat pada Masjid Al-Ikhlas</h1>
+              <p>
+                Layanan terdekat yang akan dibuka Masjid Al-Ikhlas adalah qurban
+                idul adha
+              </p>
+            </div>
+            <div className={styles.lowerTexts}>
+              <p>
+                Layanan dapat dilakukan dengan menghubungi kontak kami yang
+                tertera pada bagian bawah atau dapat dengan menekan tombol di
+                bawah ini.
+              </p>
+              <ButtonLink href="/contact" size="medium" variant="primary">
+                Kontak Kami
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>
+      <section></section>
     </>
   );
 };
