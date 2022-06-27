@@ -27,3 +27,47 @@
   align-items: center;
   padding: 225px 0;
 }
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 80px 88px;
+  background: linear-gradient(
+    109.53deg,
+    rgba(215, 232, 102, 0.8) 0.41%,
+    rgba(215, 232, 102, 0.3) 93.9%
+  );
+
+  .serviceCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .serviceTexts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h4 {
+      font: var(--heading-4);
+      margin: 0;
+      margin-bottom: 24px;
+      color: #606060;
+    }
+
+    h1 {
+      font: var(--heading-1);
+      margin: 0;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font: var(--body-large);
+      margin: 0;
+      margin-bottom: 24px;
+      color: #606060;
+    }
+  }
+}
