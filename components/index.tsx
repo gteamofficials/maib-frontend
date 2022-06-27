@@ -11,6 +11,7 @@ import Slider from "./Slider";
 import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
 import RecentEvent from "./RecentEvent";
+import SalahSchedule from "./SalahSchedule";
 
 export {
   Button,
@@ -26,4 +27,5 @@ export {
   ButtonLink,
   ServiceCard,
   RecentEvent,
+  SalahSchedule,
 };

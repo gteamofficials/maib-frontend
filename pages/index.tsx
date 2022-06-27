@@ -1,8 +1,9 @@
+import cn from "classnames";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { RecentEvent } from "../components";
+import { RecentEvent, SalahSchedule } from "../components";
 import InformationServices from "../services/informations";
 import styles from "../styles/home.module.scss";
 import { InformationType } from "../types/response";
@@ -48,7 +49,9 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
           className={styles.recentEvent}
         />
       </section>
-      <section className={styles.desktop}></section>
+      <section className={cn(styles.desktop, styles.highlight)}>
+        <SalahSchedule className={styles.salahSchedule} />
+      </section>
       <section></section>
     </>
   );
