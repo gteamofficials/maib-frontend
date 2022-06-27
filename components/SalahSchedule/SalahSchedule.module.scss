@@ -1,0 +1,60 @@
+.salahSchedule {
+  width: 620px;
+  background-color: var(--white);
+
+  .dawnTime {
+    border: 1px solid var(--gray-300);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+
+    .dawnTimeInner {
+      padding: 24px 16px;
+      margin: 32px 24.5px;
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+      border-radius: inherit;
+
+      .label {
+        margin: 0;
+        font: var(--heading-4);
+        line-height: 24px;
+      }
+
+      .time {
+        font: var(--heading-4);
+        line-height: 24px;
+      }
+    }
+  }
+
+  .salahTable {
+    background: var(--white);
+    padding: 32px 24px;
+    border: 1px solid var(--gray-300);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+
+    .th {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        font: var(--heading-4);
+        margin: 0;
+        color: var(--gray-400);
+      }
+    }
+
+    .tr {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+
+      h4 {
+        font: var(--heading-4);
+        margin: 0;
+      }
+    }
+  }
+}
