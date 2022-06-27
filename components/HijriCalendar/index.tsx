@@ -1,9 +1,8 @@
-import { ReactNode } from "react";
-import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import HijriDate from "../HijriDate";
 import styles from "./HijriCalendar.module.scss";
 
-const HijriCalendar = ({ children }: { children: ReactNode }) => {
+const HijriCalendar = () => {
   const Day = ["Ahd", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
   const startDay = "ahad";
 
