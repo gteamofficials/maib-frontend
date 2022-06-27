@@ -15,6 +15,7 @@
     padding: 24px;
     background-color: var(--primary-color);
     border-radius: 10px;
+    text-align: center;
   }
 
   .calendar {
@@ -33,6 +34,28 @@
       width: 58px;
       height: 56px;
       text-align: center;
+    }
+
+    .ahd {
+      grid-column-start: 1;
+    }
+    .sen {
+      grid-column-start: 2;
+    }
+    .sel {
+      grid-column-start: 3;
+    }
+    .rab {
+      grid-column-start: 4;
+    }
+    .kam {
+      grid-column-start: 5;
+    }
+    .jum {
+      grid-column-start: 6;
+    }
+    .sab {
+      grid-column-start: 7;
     }
   }
 
