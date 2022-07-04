@@ -94,6 +94,20 @@
       .infoVerticalCarousel {
         width: 464px;
         height: 441px;
+
+        .bullet {
+          width: 16px;
+          height: 16px;
+          display: inherit;
+          border-radius: 50%;
+          background-color: var(--gray-300);
+          margin: 10px 0;
+        }
+
+        .bulletActive {
+          opacity: 1;
+          background-color: var(--primary-color);
+        }
       }
     }
   }

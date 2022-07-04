@@ -9,7 +9,7 @@ import {
   RecentEvent,
   SalahSchedule,
   ServiceCard,
-  SmallInfoCard
+  SmallInfoCard,
 } from "../components";
 import BigInfoCard from "../components/BigInfoCard";
 import ContentTitle from "../components/ContentTitle";
@@ -157,6 +157,8 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
                   slidesPerView={3}
                   pagination={{
                     clickable: true,
+                    bulletActiveClass: styles.bulletActive,
+                    bulletClass: styles.bullet,
                   }}
                   className={styles.infoVerticalCarousel}
                 >
