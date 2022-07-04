@@ -73,3 +73,28 @@
     }
   }
 }
+
+.news {
+  width: 1264px;
+  margin: 0 auto;
+
+  .newsTab {
+    border: none;
+  }
+
+  .newsPanel {
+    display: flex;
+    gap: 24px;
+
+    .moreInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .infoVerticalCarousel {
+        width: 464px;
+        height: 441px;
+      }
+    }
+  }
+}

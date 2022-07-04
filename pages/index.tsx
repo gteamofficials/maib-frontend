@@ -1,8 +1,7 @@
-import cn from "classnames";
+import { Tab } from "@headlessui/react";
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Autoplay } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   ButtonLink,
@@ -10,7 +9,10 @@ import {
   RecentEvent,
   SalahSchedule,
   ServiceCard,
+  SmallInfoCard
 } from "../components";
+import BigInfoCard from "../components/BigInfoCard";
+import ContentTitle from "../components/ContentTitle";
 import InformationServices from "../services/informations";
 import styles from "../styles/home.module.scss";
 import { InformationType } from "../types/response";
@@ -122,7 +124,104 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
           </div>
         </div>
       </section>
-      <section></section>
+      <section className={styles.news}>
+        <Tab.Group>
+          <Tab.List>
+            <Tab className={styles.newsTab}>
+              {({ selected }) => (
+                <ContentTitle active={selected}>Berita</ContentTitle>
+              )}
+            </Tab>
+            <Tab className={styles.newsTab}>
+              {({ selected }) => (
+                <ContentTitle active={selected}>Article</ContentTitle>
+              )}
+            </Tab>
+          </Tab.List>
+          <Tab.Panels>
+            <Tab.Panel className={styles.newsPanel}>
+              <BigInfoCard
+                date={"Senin 12 July 2022"}
+                media={{
+                  src: "https://source.unsplash.com/random/?city,night",
+                  alt: "alt",
+                }}
+                title="Layanan Kurban"
+                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+                href="https://www.google.com/"
+              />
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <SwiperSlide key={i}>
+                      <SmallInfoCard
+                        date="Selasa | 9 Feb 2022"
+                        href="/random"
+                        media={{
+                          src: "https://source.unsplash.com/random/?islam",
+                          alt: "alt",
+                        }}
+                        title="Sharing Anak Yatim"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <ButtonLink href="/berita" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            </Tab.Panel>
+            <Tab.Panel className={styles.newsPanel}>
+              <BigInfoCard
+                date={"Senin 12 July 2022"}
+                media={{
+                  src: "https://source.unsplash.com/random/?city,night",
+                  alt: "alt",
+                }}
+                title="Layanan Kurban"
+                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
+                href="https://www.google.com/"
+              />
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <SwiperSlide key={i}>
+                      <SmallInfoCard
+                        date="Selasa | 9 Feb 2022"
+                        href="/random"
+                        media={{
+                          src: "https://source.unsplash.com/random/?islam",
+                          alt: "alt",
+                        }}
+                        title="Sharing Anak Yatim"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <ButtonLink href="/berita" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            </Tab.Panel>
+          </Tab.Panels>
+        </Tab.Group>
+      </section>
     </>
   );
 };
