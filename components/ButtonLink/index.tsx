@@ -1,4 +1,4 @@
-import styles from "./ButtonLink.module.scss";
+import styles from "../button/button.module.scss";
 import cn from "classnames";
 import { forwardRef } from "react";
 
