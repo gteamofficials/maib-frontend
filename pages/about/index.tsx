@@ -5,49 +5,58 @@ import AboutServices from "../../services/abouts";
 import { AboutType } from "../../types/response";
 import styles from "../../styles/about.module.scss";
 
+interface MapAbout {
+  [key: string]: AboutType[];
+}
+
 const About = ({ abouts }: { abouts: AboutType[] }) => {
-  console.log(abouts);
-  
-  const data = new Map(abouts.map(about => [about.attributes.category, about.attributes]))
-  console.log(data);
+  let data: MapAbout = {};
+  abouts.forEach((about) => {
+    if (!(about.attributes.category in data)) {
+      data[about.attributes.category] = [];
+    }
+    data[about.attributes.category].push(about);
+  });
+  // console.log(data["visi"]);
 
   return (
     <div>
       <div className={styles.visionSection}>
-        <h1>{abouts[0].attributes.title}</h1>
+        <h1>{data["visi"][0].attributes.title}</h1>
         <section>
-          <p>{abouts[0].attributes.description}</p>
-          {abouts[0].attributes.images.data.map((image)=>(
-            <Image src={process.env.baseUrl+image.attributes.url} width={100} height={100}/>
-          ))
-          }
-
+          <p>{data["visi"][0].attributes.description}</p>
+          {data["visi"][0].attributes.images.data.map((image) => (
+            <Image
+              src={process.env.baseUrl + image.attributes.url}
+              width={100}
+              height={100}
+              key={image.attributes.name}
+            />
+          ))}
         </section>
       </div>
 
-      <div className={styles.missionSection}>
+      {/* <div className={styles.missionSection}>
         <h1>{abouts[1].attributes.title}</h1>
         <section>
           <p>{abouts[1].attributes.description}</p>
-          {abouts[1].attributes.images.data.map((image)=>(
-            <Image src={process.env.baseUrl+image.attributes.url} width={100} height={100}/>
-          ))
-          }
-          
+          {abouts[1].attributes.images.data.map((image) => (
+            <Image
+              src={process.env.baseUrl + image.attributes.url}
+              width={100}
+              height={100}
+            />
+          ))}
         </section>
       </div>
-      
+
       <div className={styles.historySection}>
-        <h1>{abouts[1].attributes.title}</h1>
         <section>
-          <p>{abouts[1].attributes.description}</p>
-          {abouts[1].attributes.images.data.map((image)=>(
-            <Image src={process.env.baseUrl+image.attributes.url} width={100} height={100}/>
-          ))
-          }
-          
+          <h1>{abouts[2].attributes.title}</h1>
         </section>
-      </div>
+
+        <section></section>
+      </div> */}
     </div>
   );
 };
