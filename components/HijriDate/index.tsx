@@ -5,9 +5,10 @@ import styles from "./HijriDate.module.scss";
 type AppProps = {
   children: number;
   event?: string;
+  className?: string;
 };
 
-const HijriDate = ({ children, event }: AppProps) => {
+const HijriDate = ({ children, event, className }: AppProps) => {
   const [popUp, setPopUp] = useState(false);
   const togglePopUp = () => setPopUp(!popUp);
 
@@ -17,6 +18,7 @@ const HijriDate = ({ children, event }: AppProps) => {
       className={cn(styles.hijriDate, {
         [styles.event]: event,
         [styles.popUp]: event && popUp,
+        [className!]: className,
       })}
       onClick={togglePopUp}
       disabled={!event}

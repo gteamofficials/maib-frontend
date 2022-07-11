@@ -1,0 +1,73 @@
+.hijriCalendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 608px;
+  padding: 32px 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+
+  .month {
+    font: var(--heading-4);
+    margin: 0;
+    padding: 24px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    align-items: center;
+    column-gap: 4px;
+    row-gap: 8px;
+
+    .dayName {
+      font: var(--body-large);
+      color: var(--gray-500);
+      line-height: 56px;
+
+      width: 58px;
+      height: 56px;
+      text-align: center;
+    }
+
+    .ahd {
+      grid-column-start: 1;
+    }
+    .sen {
+      grid-column-start: 2;
+    }
+    .sel {
+      grid-column-start: 3;
+    }
+    .rab {
+      grid-column-start: 4;
+    }
+    .kam {
+      grid-column-start: 5;
+    }
+    .jum {
+      grid-column-start: 6;
+    }
+    .sab {
+      grid-column-start: 7;
+    }
+  }
+
+  .monthChanger {
+    display: flex;
+    justify-content: space-between;
+    font: var(--body-large);
+    color: var(--gray-500);
+
+    > * {
+      border: none;
+      padding: 0;
+    }
+  }
+}
