@@ -22,18 +22,23 @@ import {
 } from "../types/response";
 import SalahScheduleServices from "../services/salahSchedule";
 import HijriCalendarServices from "../services/hijriCalendar";
+import { useState } from "react";
 
 type LandingPageProps = {
-  informations: InformationType[];
+  news: InformationType[];
+  articles: InformationType[];
   salahSchedule: SalahScheduleType;
   hijriCalendar: HijriDateType[];
 };
 
 const Home: NextPage<LandingPageProps> = ({
-  informations,
+  news,
+  articles,
   salahSchedule,
   hijriCalendar,
 }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <>
       <section className={styles.banner}>
@@ -140,7 +145,7 @@ const Home: NextPage<LandingPageProps> = ({
         </div>
       </section>
       <section className={styles.news}>
-        <Tab.Group>
+        <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
           <Tab.List>
             <Tab className={styles.newsTab}>
               {({ selected }) => (
@@ -156,14 +161,15 @@ const Home: NextPage<LandingPageProps> = ({
           <Tab.Panels>
             <Tab.Panel className={styles.newsPanel}>
               <BigInfoCard
-                date={"Senin 12 July 2022"}
+                date={news[0].attributes.date}
                 media={{
-                  src: "https://source.unsplash.com/random/?city,night",
-                  alt: "alt",
+                  src: news[0].attributes.coverImage.data.attributes.url,
+                  alt: news[0].attributes.coverImage.data.attributes
+                    .alternativeText,
                 }}
-                title="Layanan Kurban"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-                href="https://www.google.com/"
+                title={news[0].attributes.title}
+                body={news[0].attributes.description}
+                href={`/infromation/${news[0].attributes.slug}`}
               />
               <div className={styles.moreInfo}>
                 <Swiper
@@ -177,19 +183,22 @@ const Home: NextPage<LandingPageProps> = ({
                   }}
                   className={styles.infoVerticalCarousel}
                 >
-                  {[...Array(6)].map((_, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date="Selasa | 9 Feb 2022"
-                        href="/random"
-                        media={{
-                          src: "https://source.unsplash.com/random/?islam",
-                          alt: "alt",
-                        }}
-                        title="Sharing Anak Yatim"
-                      />
-                    </SwiperSlide>
-                  ))}
+                  {news
+                    .filter((_, i) => i !== 0)
+                    .map((news, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={news.attributes.date}
+                          href={`/infromation/${news.attributes.slug}`}
+                          media={{
+                            src: news.attributes.coverImage.data.attributes.url,
+                            alt: news.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={news.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
                 <ButtonLink href="/berita" size="medium" variant="primary">
                   Lihat Semua
@@ -198,14 +207,15 @@ const Home: NextPage<LandingPageProps> = ({
             </Tab.Panel>
             <Tab.Panel className={styles.newsPanel}>
               <BigInfoCard
-                date={"Senin 12 July 2022"}
+                date={articles[0].attributes.date}
                 media={{
-                  src: "https://source.unsplash.com/random/?city,night",
-                  alt: "alt",
+                  src: articles[0].attributes.coverImage.data.attributes.url,
+                  alt: articles[0].attributes.coverImage.data.attributes
+                    .alternativeText,
                 }}
-                title="Layanan Kurban"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-                href="https://www.google.com/"
+                title={articles[0].attributes.title}
+                body={articles[0].attributes.description}
+                href={`/information/${articles[0].attributes.slug}`}
               />
               <div className={styles.moreInfo}>
                 <Swiper
@@ -219,21 +229,25 @@ const Home: NextPage<LandingPageProps> = ({
                   }}
                   className={styles.infoVerticalCarousel}
                 >
-                  {[...Array(6)].map((_, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date="Selasa | 9 Feb 2022"
-                        href="/random"
-                        media={{
-                          src: "https://source.unsplash.com/random/?islam",
-                          alt: "alt",
-                        }}
-                        title="Sharing Anak Yatim"
-                      />
-                    </SwiperSlide>
-                  ))}
+                  {articles
+                    .filter((_, i) => i !== 0)
+                    .map((article, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={article.attributes.date}
+                          href={`/information/${article.attributes.slug}`}
+                          media={{
+                            src: article.attributes.coverImage.data.attributes
+                              .url,
+                            alt: article.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={article.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
-                <ButtonLink href="/berita" size="medium" variant="primary">
+                <ButtonLink href="/artikel" size="medium" variant="primary">
                   Lihat Semua
                 </ButtonLink>
               </div>
@@ -247,6 +261,10 @@ const Home: NextPage<LandingPageProps> = ({
 
 export async function getStaticProps() {
   const informations: InformationType[] = await InformationServices.GetAll({});
+  const articles = informations.filter(
+    (article) => article.attributes.type === "Artikel"
+  );
+  const news = informations.filter((news) => news.attributes.type === "Berita");
 
   // TODO: Change props fetching startegy because getStaticProps only run in build
   const salahSchedule = await SalahScheduleServices.Today();
@@ -255,7 +273,8 @@ export async function getStaticProps() {
   return {
     props: {
       salahSchedule,
-      informations,
+      news,
+      articles,
       hijriCalendar,
     },
   };
