@@ -4,7 +4,11 @@ import { HijriDateType } from "../../types/response";
 import HijriDate from "../HijriDate";
 import styles from "./HijriCalendar.module.scss";
 
-const HijriCalendar = ({ hijriCalendar }: { hijriCalendar: HijriDateType[] }) => {
+const HijriCalendar = ({
+  hijriCalendar,
+}: {
+  hijriCalendar: HijriDateType[];
+}) => {
   const Day = ["Ahd", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
   const startDay: String = hijriCalendar[0].hijri.weekday.en;
 
@@ -38,7 +42,7 @@ const HijriCalendar = ({ hijriCalendar }: { hijriCalendar: HijriDateType[] }) =>
         ))}
       </div>
       <div className={styles.monthChanger}>
-        {/* Turned off because of hard time calling api
+        {/* TODO: Add this feature, Turned off because of hard time calling api
          <button>
           <MdKeyboardArrowLeft />
           Syaban

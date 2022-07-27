@@ -247,6 +247,8 @@ const Home: NextPage<LandingPageProps> = ({
 
 export async function getStaticProps() {
   const informations: InformationType[] = await InformationServices.GetAll({});
+
+  // TODO: Change props fetching startegy because getStaticProps only run in build
   const salahSchedule = await SalahScheduleServices.Today();
   const hijriCalendar = await HijriCalendarServices.ThisMonth();
 
