@@ -1,40 +1,45 @@
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import cn from "classnames";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { HijriDateType } from "../../types/response";
 import HijriDate from "../HijriDate";
 import styles from "./HijriCalendar.module.scss";
 
-const HijriCalendar = () => {
+const HijriCalendar = ({ hijriDate }: { hijriDate: HijriDateType[] }) => {
   const Day = ["Ahd", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
-  const startDay: String = "Sab";
+  const startDay: String = hijriDate[0].hijri.weekday.en;
 
   return (
     <div className={styles.hijriCalendar}>
-      <h4 className={styles.month}>Ramadhan 1443H</h4>
+      <h4
+        className={styles.month}
+      >{`${hijriDate[0].hijri.month.en} - ${hijriDate[0].hijri.year}`}</h4>
       <div className={styles.calendar}>
         {Day.map((day, i) => (
           <div className={styles.dayName} key={i}>
             {day}
           </div>
         ))}
-        {[...Array(30)].map((_, i) => (
+        {hijriDate.map((date, i) => (
           <HijriDate
             className={cn({
-              [styles.ahd]: i === 0 && startDay === "Ahd",
-              [styles.sen]: i === 0 && startDay === "Sen",
-              [styles.sel]: i === 0 && startDay === "Sel",
-              [styles.rab]: i === 0 && startDay === "Rab",
-              [styles.kam]: i === 0 && startDay === "Kam",
-              [styles.jum]: i === 0 && startDay === "Jum",
-              [styles.sab]: i === 0 && startDay === "Sab",
+              [styles.ahd]: i === 0 && startDay === "Al Ahad",
+              [styles.sen]: i === 0 && startDay === "Al Athnayn",
+              [styles.sel]: i === 0 && startDay === "Al Thalaata",
+              [styles.rab]: i === 0 && startDay === "Al Arba'a",
+              [styles.kam]: i === 0 && startDay === "Al Khamees",
+              [styles.jum]: i === 0 && startDay === "Al Juma'a",
+              [styles.sab]: i === 0 && startDay === "Al Sabt",
             })}
             key={i}
+            event={date.hijri.holidays.toString()}
           >
             {i + 1}
           </HijriDate>
         ))}
       </div>
       <div className={styles.monthChanger}>
-        <button>
+        {/* Turned off because of hard time calling api
+         <button>
           <MdKeyboardArrowLeft />
           Syaban
         </button>
@@ -42,6 +47,7 @@ const HijriCalendar = () => {
           Dzulqaidah
           <MdKeyboardArrowRight />
         </button>
+        */}
       </div>
     </div>
   );

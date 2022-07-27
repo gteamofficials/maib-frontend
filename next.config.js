@@ -6,7 +6,8 @@ const nextConfig = {
   },
   env: {
     strapiApiUrl: "https://maib-backend-staging.herokuapp.com/api/",
-    salahScheduleApiUrl: "https://api.myquran.com/v1/sholat/jadwal/1433"
+    salahScheduleApiUrl: "https://api.myquran.com/v1/sholat/jadwal/1433",
+    hijriDateApiUrl: "http://api.aladhan.com/v1/hToGCalendar/"
   },
 };
 
