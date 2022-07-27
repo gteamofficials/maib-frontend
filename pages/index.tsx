@@ -149,7 +149,7 @@ const Home: NextPage<LandingPageProps> = ({
             </Tab>
             <Tab className={styles.newsTab}>
               {({ selected }) => (
-                <ContentTitle active={selected}>Article</ContentTitle>
+                <ContentTitle active={selected}>Artikel</ContentTitle>
               )}
             </Tab>
           </Tab.List>
