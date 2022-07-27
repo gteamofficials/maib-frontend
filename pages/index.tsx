@@ -15,13 +15,15 @@ import BigInfoCard from "../components/BigInfoCard";
 import ContentTitle from "../components/ContentTitle";
 import InformationServices from "../services/informations";
 import styles from "../styles/home.module.scss";
-import { InformationType } from "../types/response";
+import { InformationType, SalahScheduleType } from "../types/response";
+import SalahScheduleServices from "../services/salahSchedule";
 
 type LandingPageProps = {
   informations: InformationType[];
+  salahSchedule: SalahScheduleType;
 };
 
-const Home: NextPage<LandingPageProps> = ({ informations }) => {
+const Home: NextPage<LandingPageProps> = ({ informations, salahSchedule }) => {
   return (
     <>
       <section className={styles.banner}>
@@ -59,7 +61,7 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
         />
       </section>
       <section className={styles.highlight}>
-        <SalahSchedule className={styles.salahSchedule} />
+        <SalahSchedule className={styles.salahSchedule} salahSchedule={salahSchedule} />
         <HijriCalendar />
       </section>
       <section className={styles.services}>
@@ -231,11 +233,12 @@ const Home: NextPage<LandingPageProps> = ({ informations }) => {
 };
 
 export async function getStaticProps() {
-  const res = await InformationServices.GetAll({});
-  const informations: InformationType[] = res;
+  const informations: InformationType[] = await InformationServices.GetAll({});
+  const salahSchedule = await SalahScheduleServices.Today();
 
   return {
     props: {
+      salahSchedule,
       informations,
     },
   };

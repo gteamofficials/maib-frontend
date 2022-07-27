@@ -73,3 +73,15 @@ export interface ServiceType {
     };
   };
 }
+
+export interface SalahScheduleType {
+  imsak: string;
+  subuh: string;
+  terbit: string;
+  dhuha: string;
+  dzuhur: string;
+  ashar: string;
+  maghrib: string;
+  isya: string;
+  date: string;
+}
