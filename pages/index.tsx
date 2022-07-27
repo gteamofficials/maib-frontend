@@ -21,18 +21,18 @@ import {
   SalahScheduleType,
 } from "../types/response";
 import SalahScheduleServices from "../services/salahSchedule";
-import HijriDateServices from "../services/hijriDate";
+import HijriCalendarServices from "../services/hijriCalendar";
 
 type LandingPageProps = {
   informations: InformationType[];
   salahSchedule: SalahScheduleType;
-  hijriDate: HijriDateType[];
+  hijriCalendar: HijriDateType[];
 };
 
 const Home: NextPage<LandingPageProps> = ({
   informations,
   salahSchedule,
-  hijriDate,
+  hijriCalendar,
 }) => {
   return (
     <>
@@ -75,7 +75,7 @@ const Home: NextPage<LandingPageProps> = ({
           className={styles.salahSchedule}
           salahSchedule={salahSchedule}
         />
-        <HijriCalendar hijriDate={hijriDate} />
+        <HijriCalendar hijriCalendar={hijriCalendar} />
       </section>
       <section className={styles.services}>
         <div className={styles.servicesContent}>
@@ -248,13 +248,13 @@ const Home: NextPage<LandingPageProps> = ({
 export async function getStaticProps() {
   const informations: InformationType[] = await InformationServices.GetAll({});
   const salahSchedule = await SalahScheduleServices.Today();
-  const hijriDate = await HijriDateServices.ThisMonth();
+  const hijriCalendar = await HijriCalendarServices.ThisMonth();
 
   return {
     props: {
       salahSchedule,
       informations,
-      hijriDate,
+      hijriCalendar,
     },
   };
 }

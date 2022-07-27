@@ -1,8 +1,8 @@
 import { getTodayHijriMonth, getTodayHijriYear } from "../utils/hijriDate";
-import { hijriDateApi } from "./api";
+import { hijriCalendarApi } from "./api";
 
 const ThisMonth = async () => {
-  const res = await hijriDateApi.get(
+  const res = await hijriCalendarApi.get(
     `${getTodayHijriMonth()}/${getTodayHijriYear()}`
   );
 
@@ -11,8 +11,8 @@ const ThisMonth = async () => {
   return response;
 };
 
-const SalahScheduleServices = {
+const HijriCalendarServices = {
   ThisMonth,
 };
 
-export default SalahScheduleServices;
+export default HijriCalendarServices;

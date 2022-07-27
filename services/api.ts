@@ -10,4 +10,4 @@ const instance = (baseURL: string | undefined) =>
 
 export const strapiApi = instance(process.env.strapiApiUrl);
 export const salahScheduleApi = instance(process.env.salahScheduleApiUrl);
-export const hijriDateApi = instance(process.env.hijriDateApiUrl);
+export const hijriCalendarApi = instance(process.env.hijriCalendarApiUrl);

@@ -4,22 +4,22 @@ import { HijriDateType } from "../../types/response";
 import HijriDate from "../HijriDate";
 import styles from "./HijriCalendar.module.scss";
 
-const HijriCalendar = ({ hijriDate }: { hijriDate: HijriDateType[] }) => {
+const HijriCalendar = ({ hijriCalendar }: { hijriCalendar: HijriDateType[] }) => {
   const Day = ["Ahd", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
-  const startDay: String = hijriDate[0].hijri.weekday.en;
+  const startDay: String = hijriCalendar[0].hijri.weekday.en;
 
   return (
     <div className={styles.hijriCalendar}>
       <h4
         className={styles.month}
-      >{`${hijriDate[0].hijri.month.en} - ${hijriDate[0].hijri.year}`}</h4>
+      >{`${hijriCalendar[0].hijri.month.en} - ${hijriCalendar[0].hijri.year}`}</h4>
       <div className={styles.calendar}>
         {Day.map((day, i) => (
           <div className={styles.dayName} key={i}>
             {day}
           </div>
         ))}
-        {hijriDate.map((date, i) => (
+        {hijriCalendar.map((date, i) => (
           <HijriDate
             className={cn({
               [styles.ahd]: i === 0 && startDay === "Al Ahad",
