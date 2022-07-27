@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: process.env.strapiApiUrl,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+const instance = (baseURL: string | undefined) =>
+  axios.create({
+    baseURL,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-export default instance;
+export const strapiApi = instance(process.env.strapiApiUrl);
+export const salahScheduleApi = instance(process.env.salahScheduleApiUrl);
