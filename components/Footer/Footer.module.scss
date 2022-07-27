@@ -1,0 +1,35 @@
+.footer {
+  padding: 12px 88px;
+  background-color: var(--dark-green-900);
+  color: var(--white);
+
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style-type: none;
+    }
+
+    .nestedList {
+      display: flex;
+      padding: 0;
+      margin: 0;
+
+      li {
+        list-style-type: none;
+        padding: 0 32px;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font: var(--body-small-semi);
+      gap: 8px;
+    }
+  }
+}

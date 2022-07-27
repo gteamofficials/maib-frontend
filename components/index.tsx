@@ -13,6 +13,7 @@ import ServiceCard from "./ServiceCard";
 import RecentEvent from "./RecentEvent";
 import SalahSchedule from "./SalahSchedule";
 import HijriCalendar from "./HijriCalendar";
+import Footer from "./Footer";
 
 export {
   Button,
@@ -30,4 +31,5 @@ export {
   RecentEvent,
   SalahSchedule,
   HijriCalendar,
+  Footer,
 };
