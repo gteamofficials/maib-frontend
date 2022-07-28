@@ -37,8 +37,6 @@ const Home: NextPage<LandingPageProps> = ({
   salahSchedule,
   hijriCalendar,
 }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
   return (
     <>
       <section className={styles.banner}>
@@ -145,7 +143,7 @@ const Home: NextPage<LandingPageProps> = ({
         </div>
       </section>
       <section className={styles.news}>
-        <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
+        <Tab.Group>
           <Tab.List>
             <Tab className={styles.newsTab}>
               {({ selected }) => (
