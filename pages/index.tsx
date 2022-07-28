@@ -9,20 +9,19 @@ import {
   RecentEvent,
   SalahSchedule,
   ServiceCard,
-  SmallInfoCard,
+  SmallInfoCard
 } from "../components";
 import BigInfoCard from "../components/BigInfoCard";
 import ContentTitle from "../components/ContentTitle";
+import HijriCalendarServices from "../services/hijriCalendar";
 import InformationServices from "../services/informations";
+import SalahScheduleServices from "../services/salahSchedule";
 import styles from "../styles/home.module.scss";
 import {
   HijriDateType,
   InformationType,
-  SalahScheduleType,
+  SalahScheduleType
 } from "../types/response";
-import SalahScheduleServices from "../services/salahSchedule";
-import HijriCalendarServices from "../services/hijriCalendar";
-import { useState } from "react";
 
 type LandingPageProps = {
   news: InformationType[];
