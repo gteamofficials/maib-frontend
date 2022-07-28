@@ -275,6 +275,7 @@ export async function getStaticProps() {
       articles,
       hijriCalendar,
     },
+    revalidate: 60,
   };
 }
 
