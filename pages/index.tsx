@@ -9,7 +9,7 @@ import {
   RecentEvent,
   SalahSchedule,
   ServiceCard,
-  SmallInfoCard
+  SmallInfoCard,
 } from "../components";
 import BigInfoCard from "../components/BigInfoCard";
 import ContentTitle from "../components/ContentTitle";
@@ -20,7 +20,7 @@ import styles from "../styles/home.module.scss";
 import {
   HijriDateType,
   InformationType,
-  SalahScheduleType
+  SalahScheduleType,
 } from "../types/response";
 
 type LandingPageProps = {
