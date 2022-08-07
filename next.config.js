@@ -6,7 +6,11 @@ const nextConfig = {
     baseUrl: "https://maib-backend-staging.herokuapp.com",
   },
   images: {
-    domains: ["maib-backend-staging.herokuapp.com"],
+    domains: [
+      "maib-backend-staging.herokuapp.com",
+      "source.unsplash.com",
+      "res.cloudinary.com",
+    ],
   },
 };
 

@@ -1,5 +1,78 @@
-.visionSection {
-  h1 {
+.container {
+  padding: 0 88px;
+}
+
+.vision {
+  position: relative;
+  margin: 7rem auto 0;
+  height: 590px;
+  background-color: antiquewhite;
+
+  &__title {
     font: var(--heading-1);
+    margin-bottom: 7rem;
+  }
+
+  &__content {
+    display: flex;
+    &__description {
+      font: var(--heading-3);
+      font-weight: 600;
+      max-width: 540px;
+    }
+    // &__images {
+    //   div > img {
+    //     position: absolute !important;
+    //     width: 732px !important;
+    //     height: 439px !important;
+    //     right: 0px !important;
+    //     top: 112px !important;
+    //   }
+    //   .image-wrapper__1 {
+    //     position: absolute !important;
+    //     width: 343px !important;
+    //     height: 343px !important;
+    //     right: 260px !important;
+    //     // top: 311px !important;
+    //   }
+    // }
+  }
+}
+
+.mission {
+  .container {
+    display: flex;
+  }
+  &__content {
+    flex: 1;
+    &__title {
+      font: var(--heading-1);
+      margin-bottom: 7rem;
+      text-align: right;
+    }
+    &__description {
+      width: 540px;
+      font: var(--heading-3);
+      font-weight: 600;
+      float: right;
+    }
+  }
+  &__images {
+    flex: 1;
+  }
+}
+
+.history {
+  &__title {
+    width: 100%;
+    height: 242px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-green-700);
+    h1 {
+      color: var(--white);
+      font: var(--heading-1);
+    }
   }
 }
