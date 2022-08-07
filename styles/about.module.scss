@@ -89,4 +89,19 @@
       font: var(--heading-1);
     }
   }
+  &__body {
+    div {
+      height: 563px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &__title {
+      margin: 0;
+      padding: 40px 88px;
+      width: 50%;
+      color: var(--white);
+      font: var(--heading-2);
+    }
+  }
 }
