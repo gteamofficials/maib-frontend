@@ -17,7 +17,7 @@
     &__description {
       font: var(--heading-3);
       font-weight: 600;
-      max-width: 50%;
+      max-width: 560px;
     }
     &__images {
       &__first {
@@ -52,7 +52,7 @@
     display: flex;
     justify-content: space-between;
     &__description {
-      width: 50%;
+      width: 560px;
       font: var(--heading-3);
       font-weight: 600;
     }
