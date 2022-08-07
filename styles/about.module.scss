@@ -4,61 +4,75 @@
 
 .vision {
   position: relative;
-  margin: 7rem auto 0;
-  height: 590px;
-  background-color: antiquewhite;
-
+  padding: 10rem 0;
+  min-height: 100vh;
   &__title {
     font: var(--heading-1);
     margin-bottom: 7rem;
   }
 
-  &__content {
+  &__body {
     display: flex;
+    justify-content: space-between;
     &__description {
       font: var(--heading-3);
       font-weight: 600;
-      max-width: 540px;
+      max-width: 50%;
     }
-    // &__images {
-    //   div > img {
-    //     position: absolute !important;
-    //     width: 732px !important;
-    //     height: 439px !important;
-    //     right: 0px !important;
-    //     top: 112px !important;
-    //   }
-    //   .image-wrapper__1 {
-    //     position: absolute !important;
-    //     width: 343px !important;
-    //     height: 343px !important;
-    //     right: 260px !important;
-    //     // top: 311px !important;
-    //   }
-    // }
+    &__images {
+      &__first {
+        width: 40%;
+        height: 439px;
+        position: absolute;
+        right: 0;
+        top: 30%;
+      }
+      &__second {
+        width: 343px;
+        height: 343px;
+        position: absolute;
+        right: 15%;
+        top: 50%;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.3);
+      }
+    }
   }
 }
 
 .mission {
-  .container {
-    display: flex;
+  position: relative;
+  min-height: 700px;
+
+  &__title {
+    font: var(--heading-1);
+    margin-bottom: 7rem;
+    text-align: right;
   }
-  &__content {
-    flex: 1;
-    &__title {
-      font: var(--heading-1);
-      margin-bottom: 7rem;
-      text-align: right;
-    }
+  &__body {
+    display: flex;
+    justify-content: space-between;
     &__description {
-      width: 540px;
+      width: 50%;
       font: var(--heading-3);
       font-weight: 600;
-      float: right;
     }
-  }
-  &__images {
-    flex: 1;
+    &__images {
+      &__first {
+        width: 40%;
+        height: 439px;
+        position: absolute;
+        left: 0px;
+        top: 20%;
+      }
+      &__second {
+        width: 343px;
+        height: 343px;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.3);
+      }
+    }
   }
 }
 

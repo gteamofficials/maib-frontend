@@ -10,47 +10,40 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
   const vision = abouts.filter(e=>e.attributes.category=='visi');
   const mission = abouts.filter(e=>e.attributes.category=='misi');
   const histories = abouts.filter(e=>e.attributes.category=='sejarah'); 
-  console.log(vision[0]);
 
   return (
     <div className={styles.about}>
+
       <section className={styles.vision}>
         <div className={styles.container}>
           <h1 className={styles.vision__title}>{vision[0].attributes.title}</h1>
-          <div className={styles.vision__content}>
-            <p className={styles.vision__content__description}>{vision[0].attributes.description}</p>
-            <div className={styles.vision__content__images}>
-              {vision[0].attributes.images.data.map((image,i) => (
-                <div className="images__wrapper">
-                    <Image
-                    src={image.attributes.url}
-                    width={100}
-                    height={100}
-                    key={image.attributes.name}  
-                    />
-                </div>
-                ))}
+          <div className={styles.vision__body}>
+            <p className={styles.vision__body__description}>{vision[0].attributes.description}</p>
+            <div className={styles.vision__body__images}>
+              <span className={styles.vision__body__images__first}>
+                <Image src={vision[0].attributes.images.data[0].attributes.url} layout={`fill`} />
+              </span>
+              <span className={styles.vision__body__images__second}>
+                <Image src={vision[0].attributes.images.data[1].attributes.url} layout={`fill`} />
+              </span>
             </div>
           </div>
         </div>
       </section>
-
       
       <section className={styles.mission}>
         <div className={styles.container}>
-          <div className={styles.mission__images}>
-            {mission[0].attributes.images.data.map((image,i) => (
-              <Image
-                src={image.attributes.url}
-                width={100}
-                height={100}
-                key={i}
-              />
-            ))}
-          </div>
-          <div className={styles.mission__content}>
-            <h1 className={styles.mission__content__title}>{mission[0].attributes.title}</h1>
-            <p className={styles.mission__content__description}>{mission[0].attributes.description}</p>
+          <h1 className={styles.mission__title}>{mission[0].attributes.title}</h1>
+          <div className={styles.mission__body}>
+            <div className={styles.mission__body__images}>
+              <span className={styles.mission__body__images__first}>
+                <Image src={mission[0].attributes.images.data[0].attributes.url} layout={`fill`} />
+              </span>
+              <span className={styles.mission__body__images__second}>
+                <Image src={mission[0].attributes.images.data[1].attributes.url} layout={`fill`} />
+              </span>
+            </div>
+            <p className={styles.mission__body__description}>{mission[0].attributes.description}</p>
           </div>
         </div>
       </section>
@@ -61,12 +54,13 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
               <h1>{histories[0].attributes.title}</h1>
           </div>
           <div className={styles.history__content}>
-          {histories.map(history=>
+          {histories.map((history,i)=>
             <div>
               <Image
                 src={history.attributes.images.data[0].attributes.url}
                 width={100}
                 height={100}
+                key={i}
                 />
               <p>{history.attributes.description}</p>
             </div>
