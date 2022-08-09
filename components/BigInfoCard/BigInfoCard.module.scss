@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 0.75fr 0.25fr 3fr 1fr;
   grid-column-gap: 16px;
-  grid-row-gap: 8px;
+  grid-row-gap: 16px;
 
   padding: 24px;
   width: 781px;
@@ -31,14 +31,14 @@
 
   .title {
     padding-top: 10px;
+    margin: 0 0 8px 0;
     grid-area: 1 / 2 / 2 / 3;
     width: 357px;
-    height: 64px;
     line-height: 32px;
+    height: calc(32px * 2);
+    overflow: hidden;
     color: var(--black);
     font: var(--heading-3);
-    margin-block-start: 0;
-    margin-block-end: 0;
   }
 
   .content {
@@ -46,6 +46,9 @@
     font: var(--body-large);
     line-height: 20px;
     margin: 0;
+    overflow: hidden;
+    line-height: 20px;
+    height: calc(20px * 11);
   }
 
   .date {
@@ -55,9 +58,5 @@
     line-height: 20px;
     width: 357px;
     height: 20px;
-  }
-
-  .link {
-    margin-top: auto;
   }
 }
