@@ -78,6 +78,10 @@
 .news {
   width: 1264px;
   margin: 160px auto 80px auto;
+  display: flex;
+  gap: 64px;
+  flex-direction: column;
+  justify-content: center;
 
   .newsTab {
     border: none;
