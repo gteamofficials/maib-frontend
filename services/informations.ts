@@ -6,7 +6,7 @@ const GetAll = async (params: {
   limit?: string;
   category?: string;
 }) => {
-  let url = "informations?populate=*&_sort=DESC";
+  let url = "informations?populate=%2A&sort=createdAt%3Adesc";
   if (params.type) {
     url += "&type=" + params.type;
   }
