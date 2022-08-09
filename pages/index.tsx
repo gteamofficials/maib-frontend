@@ -16,16 +16,19 @@ import {
 import HijriCalendarServices from "../services/hijriCalendar";
 import InformationServices from "../services/informations";
 import SalahScheduleServices from "../services/salahSchedule";
+import ServiceServices from "../services/services";
 import styles from "../styles/home.module.scss";
 import {
   HijriDateType,
   InformationType,
   SalahScheduleType,
+  ServiceType,
 } from "../types/response";
 
 type LandingPageProps = {
   news: InformationType[];
   articles: InformationType[];
+  services: ServiceType[];
   salahSchedule: SalahScheduleType;
   hijriCalendar: HijriDateType[];
 };
@@ -33,6 +36,7 @@ type LandingPageProps = {
 const Home: NextPage<LandingPageProps> = ({
   news,
   articles,
+  services,
   salahSchedule,
   hijriCalendar,
 }) => {
@@ -76,42 +80,18 @@ const Home: NextPage<LandingPageProps> = ({
       <section className={styles.services}>
         <div className={styles.servicesContent}>
           <div className={styles.serviceCards}>
-            <ServiceCard
-              media={{
-                src: "https://source.unsplash.com/random/?city,night",
-                alt: "alt",
-              }}
-              title="Layanan Kurban"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-              href="https://www.google.com/"
-            />
-            <ServiceCard
-              media={{
-                src: "https://source.unsplash.com/random/?city,night",
-                alt: "alt",
-              }}
-              title="Layanan Kurban"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-              href="https://www.google.com/"
-            />
-            <ServiceCard
-              media={{
-                src: "https://source.unsplash.com/random/?city,night",
-                alt: "alt",
-              }}
-              title="Layanan Kurban"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-              href="https://www.google.com/"
-            />
-            <ServiceCard
-              media={{
-                src: "https://source.unsplash.com/random/?city,night",
-                alt: "alt",
-              }}
-              title="Layanan Kurban"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum enim tellus mauris condimentum. Viverra enim faucibus lectus sapien dis. Nulla sed urna ac diam in purus."
-              href="https://www.google.com/"
-            />
+            {services.map((service, i) => (
+              <ServiceCard
+                key={i}
+                media={{
+                  src: service.attributes.icon.data.attributes.url,
+                  alt: service.attributes.icon.data.attributes.alternativeText,
+                }}
+                title={service.attributes.title}
+                content={service.attributes.description}
+                href="https://www.google.com/"
+              />
+            ))}
           </div>
           <div className={styles.serviceTexts}>
             <div className={styles.upperTexts}>
@@ -250,6 +230,7 @@ const Home: NextPage<LandingPageProps> = ({
 
 export async function getStaticProps() {
   const informations: InformationType[] = await InformationServices.GetAll({});
+  const services: ServiceType[] = await ServiceServices.GetAll();
   const articles = informations.filter(
     (article) => article.attributes.type === "Artikel"
   );
@@ -265,6 +246,7 @@ export async function getStaticProps() {
       news,
       articles,
       hijriCalendar,
+      services,
     },
     revalidate: 60,
   };
