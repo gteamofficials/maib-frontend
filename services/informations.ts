@@ -8,13 +8,14 @@ const GetAll = async (params: {
 }) => {
   let url = "informations?populate=*&_sort=DESC";
   if (params.type) {
-    url += "&type=" + params.type;
+    url += "&filters[type][$eq]=" + params.type;
   }
   if (params.limit) {
-    url += "&_limit=" + params.limit;
+    url += "&pagination[limit]=" + params.limit;
   }
+  //Need to be checked on params category
   if (params.category) {
-    url += "&category=" + params.category;
+    url += "&filters[category][$eq]=" + params.category;
   }
   const res = await api.get(url);
   const response: InformationType[] = res.data.data;
@@ -22,8 +23,10 @@ const GetAll = async (params: {
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(`informations/${slug}?populate=*&_sort=DESC`);
-  const response: InformationType[] = res.data.data;
+  const res = await api.get(
+    `informations?filters[slug][$eq]=${slug}&populate=*&_sort=DESC`
+  );
+  const response: InformationType[] = res.data.data[0];
   return response;
 };
 
