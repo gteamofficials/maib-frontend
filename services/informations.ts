@@ -6,7 +6,7 @@ const GetAll = async (params: {
   limit?: string;
   category?: string;
 }) => {
-  let url = "informations?populate=*&_sort=DESC";
+  let url = "/informations?populate=*&_sort=DESC";
   if (params.type) {
     url += "&type=" + params.type;
   }
@@ -22,7 +22,7 @@ const GetAll = async (params: {
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(`informations/${slug}?populate=*&_sort=DESC`);
+  const res = await api.get(`/informations/${slug}?populate=*&_sort=DESC`);
   const response: InformationType[] = res.data.data;
   return response;
 };
