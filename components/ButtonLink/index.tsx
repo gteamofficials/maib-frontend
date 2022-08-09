@@ -7,10 +7,11 @@ type AppProps = {
   size: "large" | "medium";
   href: string;
   variant: "primary" | "secondary";
+  className?: string;
 };
 
 const ButtonLink = forwardRef<HTMLAnchorElement, AppProps>(
-  ({ size, children, href, variant }, ref) => {
+  ({ size, children, href, variant, className }, ref) => {
     return (
       <a
         className={cn(styles.btn, {
@@ -18,6 +19,7 @@ const ButtonLink = forwardRef<HTMLAnchorElement, AppProps>(
           [styles.secondary]: variant == "secondary",
           [styles.large]: size == "large",
           [styles.medium]: size == "medium",
+          [className!]: className,
         })}
         href={href}
         ref={ref}
