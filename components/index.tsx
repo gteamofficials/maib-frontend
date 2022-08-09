@@ -10,6 +10,10 @@ import Navbar from "./Navbar";
 import Slider from "./Slider";
 import ButtonLink from "./ButtonLink";
 import ServiceCard from "./ServiceCard";
+import RecentEvent from "./RecentEvent";
+import SalahSchedule from "./SalahSchedule";
+import HijriCalendar from "./HijriCalendar";
+import Footer from "./Footer";
 
 export {
   Button,
@@ -24,4 +28,8 @@ export {
   Navbar,
   ButtonLink,
   ServiceCard,
+  RecentEvent,
+  SalahSchedule,
+  HijriCalendar,
+  Footer,
 };
