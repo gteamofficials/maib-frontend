@@ -4,15 +4,15 @@ import Image from "next/image";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
+  BigInfoCard,
   ButtonLink,
+  ContentTitle,
   HijriCalendar,
   RecentEvent,
   SalahSchedule,
   ServiceCard,
   SmallInfoCard,
 } from "../components";
-import BigInfoCard from "../components/BigInfoCard";
-import ContentTitle from "../components/ContentTitle";
 import HijriCalendarServices from "../services/hijriCalendar";
 import InformationServices from "../services/informations";
 import SalahScheduleServices from "../services/salahSchedule";

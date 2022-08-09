@@ -14,6 +14,8 @@ import RecentEvent from "./RecentEvent";
 import SalahSchedule from "./SalahSchedule";
 import HijriCalendar from "./HijriCalendar";
 import Footer from "./Footer";
+import BigInfoCard from "./BigInfoCard";
+import ContentTitle from "./ContentTitle";
 
 export {
   Button,
@@ -32,4 +34,6 @@ export {
   SalahSchedule,
   HijriCalendar,
   Footer,
+  BigInfoCard,
+  ContentTitle,
 };
