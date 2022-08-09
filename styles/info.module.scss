@@ -1,37 +1,204 @@
 .list {
-  width: 1264px;
-  margin: 0 auto;
-  display: flex;
+  display: flex; 
+  justify-content: center;
+  margin-bottom: 88px;
 
-  .category {
-    width: 781px;
+  .listContent {
+    width: 1264px;
     display: flex;
-    gap: 16px;
-    overflow: auto;
+    gap: 24px;
 
-    .heading {
-      font: var(--heading-3);
-      line-height: 32px;
-      padding: 8px 30px 8px 8px;
-      background-color: var(--primary-color);
+    
+    .category {
+      width: 781px;
+      
+      .categoryTab {
+        width: 781px;
+        display: flex;
+        overflow: auto;
+        margin-bottom: 32px;
+      }
+
+      .categoryContent {
+        width: 781px;
+        display: flex;
+        gap: 16px;
+      }
+  
+      .listInfoCategories {
+        width: 369px;
+        height: 536px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        overflow: hidden;
+  
+        .addCatInfoCard {
+          display: flex;
+          width: 369px;
+          height: 88px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.04);
+  
+          .contentCatInfo {
+            padding: 6px 0 6px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+  
+            .headerCatInfo {
+              font: var(--heading-5);
+              margin: 0;
+              padding-bottom: 12px;
+            }
+  
+            .dateCatInfo {
+              font: var(--caption-large);
+              color: var(--gray-500);
+            }
+          }
+  
+          .addCatInfo {
+            position: relative;
+            width: 88px;
+            height: 88px;
+            display: flex;
+            overflow: hidden;
+  
+            .mediaAddCatInfo {
+              &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                content: " ";
+                background: linear-gradient(
+                  180deg,
+                  rgba(0, 0, 0, 0) 0%,
+                  rgba(0, 0, 0, 0.5) 58.75%,
+                  rgba(0, 0, 0, 0.8) 75.36%,
+                  #000000 100%
+                );
+              }
+            }
+          }
+        }
+      }
+  
+      .heading {
+        font: var(--heading-3);
+        line-height: 32px;
+        padding: 8px 30px 8px 8px;
+        background-color: var(--primary-color);
+      }
+  
+      .label {
+        font: var(--body-large);
+        line-height: 20px;
+        width: 104px;
+        text-align: start;
+        border: none;
+        color: var(--gray-500);
+  
+        .selected {
+          color: var(--black);
+        }
+      }
     }
 
-    .label {
-      font: var(--body-large);
-      line-height: 20px;
-      width: 104px;
-      text-align: start;
-      border: none;
-      color: var(--gray-500);
+    .others {
+      width: 459px;
+      height: 602px;
 
-      .selected {
-        color: var(--black);
+      .othersHeader {
+
+      }
+
+      .othersContent {
+        display: flex;
+        flex-direction: column;
+
+        .othersCard {
+          display: flex;
+          width: 459px;
+          height: 67px;
+  
+          .contentOthersInfo {
+            padding: 6px 0 6px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+  
+            .headerOthersInfo {
+              font: var(--heading-5);
+              margin: 0;
+              padding-bottom: 8px;
+            }
+  
+            .catOthersInfo {
+              font: var(--caption-large);
+              color: var(--gray-500);
+            }
+          }
+        }
       }
     }
   }
+
 }
 
-.recent {
-  display: grid;
-  grid: 150px / auto auto auto;
+.main {
+  margin-top: 93px;
+  width: 100%;
+
+  .header {
+    height: 186px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    .headerContent {
+      width: 1264px;
+    }
+  }
+
+  .recent {
+    justify-content: center;
+    padding-top: 80px;
+  
+    .recentMainCards {
+      width: 1264px;
+      margin: 0 auto;
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 16px;
+      grid-row-gap: 16px;
+    }
+
+    .recentSecondCards {
+      width: 624px;
+      margin: 0 auto;
+      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 16px;
+    }
+
+    .recentAdditionalCards {
+      width: 624px;
+      margin: 0 auto;
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 16px;
+      grid-row-gap: 16px;
+    }
+  }
 }

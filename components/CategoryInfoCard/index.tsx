@@ -20,12 +20,14 @@ const CategoryInfoCard = ({
           objectFit="cover"
         />
       </span>
-      <h5 className={styles.header}>{title}</h5>
-      <time className={styles.date}>{date}</time>
-      <p className={styles.body}>{body}</p>
-      <Link href={href}>
-        <a className={styles.action}>Lihat detail</a>
-      </Link>
+      <div className={styles.content}>
+        <h5 className={styles.header}>{title}</h5>
+        <time className={styles.date}>{date}</time>
+        <p className={styles.body}>{body}</p>
+        <Link href={href}>
+          <a className={styles.action}>Lihat detail</a>
+        </Link>
+      </div>
     </article>
   );
 };

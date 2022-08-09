@@ -3,15 +3,19 @@ import api from "./api";
 
 const GetAll = async (params: {
   type?: string;
-  limit?: string;
-  category?: string;
+  limit?: number;
+  offset?: number;
+  category?: string | undefined;
 }) => {
-  let url = "informations?populate=*&_sort=DESC";
+  let url = "informations?populate=%2A&sort=createdAt%3Adesc";
   if (params.type) {
-    url += "&type=" + params.type;
+    url += "&filters[type][$eq]=" + params.type;
   }
   if (params.limit) {
-    url += "&_limit=" + params.limit;
+    url += "&pagination[limit]=" + params.limit;
+  }
+  if (params.offset) {
+    url += "&pagination[start]=" + params.offset;
   }
   if (params.category) {
     url += "&category=" + params.category;
@@ -22,8 +26,8 @@ const GetAll = async (params: {
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(`informations/${slug}?populate=*&_sort=DESC`);
-  const response: InformationType[] = res.data.data;
+  const res = await api.get(`informations/${slug}?populate=*`);
+  const response: InformationType = res.data.data;
   return response;
 };
 
