@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import InformationServices from "../../services/informations";
-import { InformationType } from "../../types/response";
+import { CategoryType, InformationType } from "../../types/response";
 import styles from "../../styles/info.module.scss";
 import ContentTitle from "../../components/ContentTitle";
 import { CardPropsMedia } from "../../types/components";
@@ -11,21 +11,25 @@ import { Tab } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import cn from "classnames";
 import Image from "next/image";
+import CategoryServices from "../../services/categories";
 
-const Information = ({infos}: {infos: InformationType[]}) => {
+const Information = ({infos, categories}: {infos: InformationType[], categories: CategoryType[]}) => {
   const router = useRouter();
   const { infoType } = router.query;
-  const [category, setCategory] = useState<string | undefined>()
-  const [infoCategories, setInfoCategories] = useState<InformationType[]>([])
+  const [category, setCategory] = useState<string>('semua')
+  const [infoCategories, setInfoCategories] = useState<InformationType[]>(infos)
+  const listCategory = ['semua']
+
+  categories.forEach(cat => {
+    listCategory.push(cat.attributes.category)
+  })
 
   useEffect(() => {
-    InformationServices.GetAll({type: mapSlug[String(infoType)], category: category})
-      .then(res => {
-        setInfoCategories(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    if (category !== 'semua') {
+      setInfoCategories(infos.filter(v => v.attributes.category.data.attributes.category == category))
+    } else {
+      setInfoCategories(infos)
+    }
   }, [category])
 
   const recent: InformationType[] = infos.filter((_, i) => i <= 3).map(rec => rec)
@@ -53,57 +57,122 @@ const Information = ({infos}: {infos: InformationType[]}) => {
       </section>
       <section className={styles.recent}>
         <div className={styles.recentMainCards}>
-          <MainInfoCard 
-            date={recent[0].attributes.date} 
-            title={recent[0].attributes.title} 
-            href={`/information/${recent[0].attributes.slug}`} 
-            media={recentMedia[0]}></MainInfoCard>
-          <div className={styles.recentSecondCards}>
-            <SecondaryInfoCard 
-              date={recent[1].attributes.date} 
-              title={recent[1].attributes.title} 
-              href={`/information/${recent[1].attributes.slug}`} 
-              media={recentMedia[1]}></SecondaryInfoCard>
-            <div className={styles.recentAdditionalCards}>
-              <AdditionalInfoCard 
-                date={recent[2].attributes.date} 
-                title={recent[2].attributes.title} 
-                href={`/information/${recent[2].attributes.slug}`} 
-                media={recentMedia[2]}></AdditionalInfoCard>
-              <AdditionalInfoCard 
-                date={recent[3].attributes.date} 
-                title={recent[3].attributes.title} 
-                href={`/information/${recent[3].attributes.slug}`} 
-                media={recentMedia[3]}></AdditionalInfoCard>
-            </div>
-          </div>
+          {recent.length == 4 ?
+            <>
+              <MainInfoCard 
+                date={recent[0].attributes.date} 
+                title={recent[0].attributes.title} 
+                href={`/information/${recent[0].attributes.slug}`} 
+                media={recentMedia[0]}></MainInfoCard>
+              <div className={styles.recentSecondCards}>
+                <SecondaryInfoCard 
+                  date={recent[1].attributes.date} 
+                  title={recent[1].attributes.title} 
+                  href={`/information/${recent[1].attributes.slug}`} 
+                  media={recentMedia[1]}></SecondaryInfoCard>
+                <div className={styles.recentAdditionalCards}>
+                  <AdditionalInfoCard 
+                    date={recent[2].attributes.date} 
+                    title={recent[2].attributes.title} 
+                    href={`/information/${recent[2].attributes.slug}`} 
+                    media={recentMedia[2]}></AdditionalInfoCard>
+                  <AdditionalInfoCard 
+                    date={recent[3].attributes.date} 
+                    title={recent[3].attributes.title} 
+                    href={`/information/${recent[3].attributes.slug}`} 
+                    media={recentMedia[3]}></AdditionalInfoCard>
+                </div>
+              </div>
+            </>
+          : recent.length == 3 ?
+            <>
+              <MainInfoCard 
+                date={recent[0].attributes.date} 
+                title={recent[0].attributes.title} 
+                href={`/information/${recent[0].attributes.slug}`} 
+                media={recentMedia[0]}></MainInfoCard>
+              <div className={styles.recentSecondCards}>
+                <SecondaryInfoCard 
+                  date={recent[1].attributes.date} 
+                  title={recent[1].attributes.title} 
+                  href={`/information/${recent[1].attributes.slug}`} 
+                  media={recentMedia[1]}></SecondaryInfoCard>
+                <SecondaryInfoCard 
+                  date={recent[2].attributes.date} 
+                  title={recent[2].attributes.title} 
+                  href={`/information/${recent[2].attributes.slug}`} 
+                  media={recentMedia[2]}></SecondaryInfoCard>
+              </div>
+            </>
+          : recent.length == 2 ?
+            <>
+              <MainInfoCard 
+                date={recent[0].attributes.date} 
+                title={recent[0].attributes.title} 
+                href={`/information/${recent[0].attributes.slug}`} 
+                media={recentMedia[0]}></MainInfoCard>
+              <MainInfoCard 
+                date={recent[1].attributes.date} 
+                title={recent[1].attributes.title} 
+                href={`/information/${recent[1].attributes.slug}`} 
+                media={recentMedia[1]}></MainInfoCard>
+            </>
+          : recent.length == 1 &&
+            <>
+              <MainInfoCard 
+                date={recent[0].attributes.date} 
+                title={recent[0].attributes.title} 
+                href={`/information/${recent[0].attributes.slug}`} 
+                media={recentMedia[0]}></MainInfoCard>
+              <div className={styles.recentSecondCards}>
+                <SecondaryInfoCard 
+                  date={recent[1].attributes.date} 
+                  title={recent[1].attributes.title} 
+                  href={`/information/${recent[1].attributes.slug}`} 
+                  media={recentMedia[1]}></SecondaryInfoCard>
+                <div className={styles.recentAdditionalCards}>
+                  <AdditionalInfoCard 
+                    date={recent[2].attributes.date} 
+                    title={recent[2].attributes.title} 
+                    href={`/information/${recent[2].attributes.slug}`} 
+                    media={recentMedia[2]}></AdditionalInfoCard>
+                  <AdditionalInfoCard 
+                    date={recent[3].attributes.date} 
+                    title={recent[3].attributes.title} 
+                    href={`/information/${recent[3].attributes.slug}`} 
+                    media={recentMedia[3]}></AdditionalInfoCard>
+                </div>
+              </div>
+            </>
+          }
         </div>
       </section>
       <section className={styles.list}>
         <div className={styles.listContent}>
           <div className={styles.category}>
             <Tab.Group as="div">
-              <Tab.List className={styles.categoryTab}>
+              <Tab.Group as="div" className={styles.listCategory}>
                 <Tab className={styles.heading}>Kategori</Tab>
-                {[...Array(10)].map((_, i) => (
-                  <Tab as={Fragment} key={i}>
-                    {({ selected }) => (
-                      <button
-                        className={cn(styles.label, {
-                          [styles.selected]: selected,
-                        })}
-                      >
-                        Tab {i}
-                      </button>
-                    )}
-                  </Tab>
-                ))}
-              </Tab.List>
-              {/* <Tab.Panels>
-                <Tab.Panel>Content 1</Tab.Panel>
-                <Tab.Panel>Content 2</Tab.Panel>
-                <Tab.Panel>Content 3</Tab.Panel>
-              </Tab.Panels> */}
+                <Tab.List className={styles.categoryTab}>
+                  {[...listCategory].map((v, i) => (
+                    <Tab as={Fragment} key={i}>
+                      {({ selected }) => {
+                        if (selected) setCategory(v)
+
+                        return (
+                          <button
+                            className={cn(styles.label, {
+                              [styles.selected]: selected,
+                            })}
+                          >
+                            {v.charAt(0).toUpperCase() + v.slice(1)}
+                          </button>
+                        )
+                      }}
+                    </Tab>
+                  ))}
+                </Tab.List>
+              </Tab.Group>
             </Tab.Group>
             <div className={styles.categoryContent}>
               {infoCategories.length > 0 &&
@@ -137,7 +206,9 @@ const Information = ({infos}: {infos: InformationType[]}) => {
             </div>
           </div>
           <div className={styles.others}>
-            <div className={styles.othersHeader}></div>
+            <div className={styles.othersHeader}>
+              <h3 className={styles.othersHeaderText}>Baca Artikel Lainnya</h3>
+            </div>
             <div className={styles.othersContent}>
               {infos.filter((_, i) => i > 3).map(info => (
                 <article className={styles.othersCard}>
@@ -185,9 +256,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     type: mapSlug[String(infoType)],
   })
 
+  const categories: CategoryType[] = await CategoryServices.GetAll({})
+
   return {
     props: {
-      infos
+      infos, 
+      categories
     }
   }
 }

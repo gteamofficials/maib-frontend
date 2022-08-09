@@ -7,16 +7,25 @@
     width: 1264px;
     display: flex;
     gap: 24px;
-
     
     .category {
       width: 781px;
+
+      .listCategory {
+        display: flex;
+        margin-bottom: 32px;
+      }
       
       .categoryTab {
         width: 781px;
         display: flex;
-        overflow: auto;
-        margin-bottom: 32px;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        box-shadow: inset 0px -3px var(--primary-color);
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
       }
 
       .categoryContent {
@@ -87,21 +96,24 @@
   
       .heading {
         font: var(--heading-3);
+        font-weight: 600 !important;
         line-height: 32px;
         padding: 8px 30px 8px 8px;
         background-color: var(--primary-color);
+        border: none;
       }
   
       .label {
         font: var(--body-large);
         line-height: 20px;
-        width: 104px;
-        text-align: start;
+        flex: 0 0 104px;
         border: none;
+        outline: none;
         color: var(--gray-500);
   
-        .selected {
+        &.selected {
           color: var(--black);
+          font-weight: 600;
         }
       }
     }
@@ -111,12 +123,25 @@
       height: 602px;
 
       .othersHeader {
+        box-shadow: inset 0px -3px var(--black);
+        margin-bottom: 32px;
 
+        .othersHeaderText {
+          display: inline-flex;
+          font: var(--heading-3);
+          color: var(--white);
+          font-weight: 600 !important;
+          line-height: 32px;
+          background-color: var(--black);
+          margin: 0;
+          padding: 8px 22px 8px 8px;
+        }
       }
 
       .othersContent {
         display: flex;
         flex-direction: column;
+        gap: 24px;
 
         .othersCard {
           display: flex;
@@ -166,7 +191,8 @@
 
   .recent {
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 56px;
+    padding-bottom: 40px;
   
     .recentMainCards {
       width: 1264px;

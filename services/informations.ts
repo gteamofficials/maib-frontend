@@ -18,7 +18,7 @@ const GetAll = async (params: {
     url += "&pagination[start]=" + params.offset;
   }
   if (params.category) {
-    url += "&category=" + params.category;
+    url += "&filters[category][category][$eq]" + params.category;
   }
   const res = await api.get(url);
   const response: InformationType[] = res.data.data;
