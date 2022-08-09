@@ -56,7 +56,9 @@ export interface InformationType {
     title: string;
     description: string;
     date: string;
-    coverImage: ImageType;
+    coverImage: {
+      data: ImageType;
+    };
     images: {
       data: ImageType[];
     };
