@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 0.75fr 0.25fr 3fr 1fr;
-  grid-column-gap: 8px;
+  grid-column-gap: 16px;
   grid-row-gap: 8px;
 
   padding: 24px;
@@ -45,6 +45,7 @@
     grid-area: 3 / 2 / 4 / 3;
     font: var(--body-large);
     line-height: 20px;
+    margin: 0;
   }
 
   .date {
