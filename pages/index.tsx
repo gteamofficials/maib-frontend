@@ -40,35 +40,29 @@ const Home: NextPage<LandingPageProps> = ({
     <>
       <section className={styles.banner}>
         <Swiper modules={[Autoplay]} autoplay={{ delay: 1500 }}>
-          <SwiperSlide>
-            <div className={styles.media}>
-              <Image
-                src={"https://source.unsplash.com/random/?city,night"}
-                alt="img"
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className={styles.media}>
-              <Image
-                src={"https://source.unsplash.com/random/?city,night"}
-                alt="img"
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-          </SwiperSlide>
+          {[...Array(3)].map((_, i) => (
+            <SwiperSlide key={i}>
+              <div className={styles.media}>
+                <Image
+                  src={
+                    "https://source.unsplash.com/random/?mosque,islam,ramadhan"
+                  }
+                  alt="img"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
         <RecentEvent
-          href="ramadhan halal"
-          title="Ramadan Halal Bihalal"
+          href={`/information/${news[0]?.attributes.slug}`}
+          title={news[0].attributes.title}
           media={{
-            src: "https://source.unsplash.com/random/?ramadhan",
-            alt: "random",
+            src: news[0]?.attributes.coverImage.data.attributes.url,
+            alt: news[0]?.attributes.coverImage.data.attributes.alternativeText,
           }}
-          body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu, proin suscipit ut eleifend amet nisi. Morbi felis scelerisque sit sit malesuada scelerisque. Vitae ac etiam consectetur quis egestas libero. Lacus, malesuada lobortis duis posuere sed. Ullamcorper tortor tempor vitae cras. Fermentum a in vitae, bibendum. Donec sollicitudin dolor praesent nibh elit libero sollicitudin. Pharetra neque integer nulla purus diam sit."
+          body={news[0]?.attributes.description}
           className={styles.recentEvent}
         />
       </section>
@@ -165,7 +159,7 @@ const Home: NextPage<LandingPageProps> = ({
               }}
               title={news[0]?.attributes.title}
               body={news[0]?.attributes.description}
-              href={`/infromation/${news[0]?.attributes.slug}`}
+              href={`/information/${news[0]?.attributes.slug}`}
             />
             <div className={styles.moreInfo}>
               <Swiper
@@ -185,7 +179,7 @@ const Home: NextPage<LandingPageProps> = ({
                     <SwiperSlide key={i}>
                       <SmallInfoCard
                         date={news.attributes.date}
-                        href={`/infromation/${news.attributes.slug}`}
+                        href={`/information/${news.attributes.slug}`}
                         media={{
                           src: news.attributes.coverImage.data.attributes.url,
                           alt: news.attributes.coverImage.data.attributes
