@@ -1,10 +1,7 @@
 import { CategoryType } from "../types/response";
 import api from "./api";
 
-const GetAll = async (params: {
-  limit?: number;
-  offset?: number;
-}) => {
+const GetAll = async (params: { limit?: number; offset?: number }) => {
   let url = "information-categories?populate=*";
   if (params.limit) {
     url += "&pagination[limit]=" + params.limit;

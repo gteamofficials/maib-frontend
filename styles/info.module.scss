@@ -1,5 +1,5 @@
 .list {
-  display: flex; 
+  display: flex;
   justify-content: center;
   margin-bottom: 88px;
 
@@ -7,7 +7,7 @@
     width: 1264px;
     display: flex;
     gap: 24px;
-    
+
     .category {
       width: 781px;
 
@@ -15,7 +15,7 @@
         display: flex;
         margin-bottom: 32px;
       }
-      
+
       .categoryTab {
         width: 781px;
         display: flex;
@@ -33,7 +33,7 @@
         display: flex;
         gap: 16px;
       }
-  
+
       .listInfoCategories {
         width: 369px;
         height: 536px;
@@ -41,38 +41,38 @@
         flex-direction: column;
         gap: 24px;
         overflow: hidden;
-  
+
         .addCatInfoCard {
           display: flex;
           width: 369px;
           height: 88px;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.04);
-  
+
           .contentCatInfo {
             padding: 6px 0 6px 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-  
+
             .headerCatInfo {
               font: var(--heading-5);
               margin: 0;
               padding-bottom: 12px;
             }
-  
+
             .dateCatInfo {
               font: var(--caption-large);
               color: var(--gray-500);
             }
           }
-  
+
           .addCatInfo {
             position: relative;
             width: 88px;
             height: 88px;
             display: flex;
             overflow: hidden;
-  
+
             .mediaAddCatInfo {
               &::after {
                 position: absolute;
@@ -93,7 +93,7 @@
           }
         }
       }
-  
+
       .heading {
         font: var(--heading-3);
         font-weight: 600 !important;
@@ -102,7 +102,7 @@
         background-color: var(--primary-color);
         border: none;
       }
-  
+
       .label {
         font: var(--body-large);
         line-height: 20px;
@@ -110,7 +110,7 @@
         border: none;
         outline: none;
         color: var(--gray-500);
-  
+
         &.selected {
           color: var(--black);
           font-weight: 600;
@@ -147,19 +147,19 @@
           display: flex;
           width: 459px;
           height: 67px;
-  
+
           .contentOthersInfo {
             padding: 6px 0 6px 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-  
+
             .headerOthersInfo {
               font: var(--heading-5);
               margin: 0;
               padding-bottom: 8px;
             }
-  
+
             .catOthersInfo {
               font: var(--caption-large);
               color: var(--gray-500);
@@ -169,7 +169,6 @@
       }
     }
   }
-
 }
 
 .main {
@@ -193,7 +192,7 @@
     justify-content: center;
     padding-top: 56px;
     padding-bottom: 40px;
-  
+
     .recentMainCards {
       width: 1264px;
       margin: 0 auto;

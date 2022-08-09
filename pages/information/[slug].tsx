@@ -7,7 +7,7 @@ import styles from "../../styles/info.module.scss";
 import ContentTitle from "../../components/ContentTitle";
 import InfoCardRecent from "../../components/InfoCardRecent";
 
-const Information = ({recent}: {recent: InformationType[]}) => {
+const Information = ({ recent }: { recent: InformationType[] }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -28,40 +28,40 @@ const Information = ({recent}: {recent: InformationType[]}) => {
 };
 
 interface IParams extends ParsedUrlQuery {
-  slug: string
+  slug: string;
 }
 
 interface mapSlug {
-  [slug: string]: string
+  [slug: string]: string;
 }
 
 const mapSlug: mapSlug = {
-  'news': 'Berita',
-  'article': 'Artikel'
-}
+  news: "Berita",
+  article: "Artikel",
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const arr: string[] = ['news', 'article']
+  const arr: string[] = ["news", "article"];
   const paths = arr.map((slug) => {
-      return {
-          params: { slug },
-      }
-  })
-  return { paths, fallback: false }
-}
+    return {
+      params: { slug },
+    };
+  });
+  return { paths, fallback: false };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as IParams
+  const { slug } = context.params as IParams;
 
   const recent: InformationType[] = await InformationServices.GetAll({
     type: mapSlug[slug],
-  })
+  });
 
   return {
     props: {
-      recent
-    }
-  }
-}
+      recent,
+    },
+  };
+};
 
 export default Information;
