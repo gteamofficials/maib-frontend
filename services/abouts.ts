@@ -1,8 +1,8 @@
 import { AboutType } from "../types/response";
-import api from "./api";
+import { strapiApi } from "./api";
 
 const GetAll = async () => {
-  const res = await api.get(`/abouts?populate=*`);
+  const res = await strapiApi.get(`abouts?populate=*`);
   const response: AboutType[] = res.data.data;
   return response;
 };

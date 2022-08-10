@@ -1,8 +1,16 @@
 import { FiClock } from "react-icons/fi";
 import cn from "classnames";
 import styles from "./SalahSchedule.module.scss";
+import { SalahScheduleType } from "../../types/response";
+import { iqomah } from "../../utils/date";
 
-const SalahSchedule = ({ className }: { className?: string }) => {
+const SalahSchedule = ({
+  className,
+  salahSchedule,
+}: {
+  className?: string;
+  salahSchedule: SalahScheduleType;
+}) => {
   return (
     <div
       className={cn(styles.salahSchedule, {
@@ -12,7 +20,7 @@ const SalahSchedule = ({ className }: { className?: string }) => {
       <div className={styles.dawnTime}>
         <div className={styles.dawnTimeInner}>
           <h4 className={styles.label}>Terbit Fajar</h4>
-          <time className={styles.time}>05:41</time>
+          <time className={styles.time}>{salahSchedule.terbit}</time>
         </div>
       </div>
       <div className={styles.salahTable}>
@@ -26,40 +34,40 @@ const SalahSchedule = ({ className }: { className?: string }) => {
             <FiClock />
             Subuh
           </h4>
-          <time>04.19</time>
-          <time>04.30</time>
+          <time>{salahSchedule.subuh}</time>
+          <time>{iqomah(salahSchedule.subuh)}</time>
         </div>
         <div className={styles.tr}>
           <h4>
             <FiClock />
             Dzuhur
           </h4>
-          <time>11.35</time>
-          <time>12.00</time>
+          <time>{salahSchedule.dzuhur}</time>
+          <time>{iqomah(salahSchedule.dzuhur)}</time>
         </div>
         <div className={styles.tr}>
           <h4>
             <FiClock />
             Ashar
           </h4>
-          <time>14.56</time>
-          <time>15.10</time>
+          <time>{salahSchedule.ashar}</time>
+          <time>{iqomah(salahSchedule.ashar)}</time>
         </div>
         <div className={styles.tr}>
           <h4>
             <FiClock />
             Magrib
           </h4>
-          <time>17.28</time>
-          <time>17.45</time>
+          <time>{salahSchedule.maghrib}</time>
+          <time>{iqomah(salahSchedule.maghrib)}</time>
         </div>
         <div className={styles.tr}>
           <h4>
             <FiClock />
             Isya
           </h4>
-          <time>18.41</time>
-          <time>18.55</time>
+          <time>{salahSchedule.isya}</time>
+          <time>{iqomah(salahSchedule.isya)}</time>
         </div>
       </div>
     </div>

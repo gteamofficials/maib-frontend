@@ -36,9 +36,10 @@
 
   .title {
     width: 266px;
-    height: 32px;
     font: var(--heading-3);
+    overflow: hidden;
     line-height: 32px;
+    max-height: calc(32px * 2);
     text-align: center;
     color: var(--black);
     margin-block-start: 1em;
@@ -51,7 +52,9 @@
     width: 266px;
     height: 91px;
     font: var(--body-small);
+    overflow: hidden;
     line-height: 16px;
+    height: calc(16px * 5);
     text-align: center;
     color: var(--gray-400);
   }

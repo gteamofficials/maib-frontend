@@ -56,11 +56,10 @@ export interface InformationType {
       data: CategoryType;
     };
     title: string;
+    type: string;
     description: string;
     date: string;
-    coverImage: {
-      data: ImageType;
-    };
+    coverImage: { data: ImageType };
     images: {
       data: ImageType[];
     };
@@ -81,5 +80,40 @@ export interface ServiceType {
 export interface CategoryType {
   attributes: {
     category: string;
+  };
+}
+
+export interface SalahScheduleType {
+  imsak: string;
+  subuh: string;
+  terbit: string;
+  dhuha: string;
+  dzuhur: string;
+  ashar: string;
+  maghrib: string;
+  isya: string;
+  date: string;
+}
+
+export interface HijriDateType {
+  hijri: {
+    date: string;
+    format: string;
+    day: string;
+    weekday: {
+      en: string;
+      ar: string;
+    };
+    month: {
+      number: number;
+      en: string;
+      ar: string;
+    };
+    year: string;
+    designation: {
+      abbreviated: string;
+      expanded: string;
+    };
+    holidays: string[];
   };
 }
