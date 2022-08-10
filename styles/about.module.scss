@@ -33,6 +33,7 @@
         font: var(--heading-3);
         font-weight: 600;
         @include tablet() {
+          max-width: 396px;
           font: var(--heading-4);
           font-weight: 600;
         }
