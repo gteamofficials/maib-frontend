@@ -16,11 +16,15 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
   return (
     <div className={styles.about}>
       <section className={styles.vision}>
-        <h1 className={styles.vision__title}>{vision[0].attributes.title}</h1>
         <div className={styles.vision__body}>
-          <p className={styles.vision__body__description}>
-            {vision[0].attributes.description}
-          </p>
+          <div className={styles.vision__body__content}>
+            <h1 className={styles.vision__body__content__title}>
+              {vision[0].attributes.title}
+            </h1>
+            <p className={styles.vision__body__content__description}>
+              {vision[0].attributes.description}
+            </p>
+          </div>
           <div className={styles.vision__body__images}>
             <span className={styles.vision__body__images__first}>
               <Image
@@ -39,7 +43,6 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
       </section>
 
       <section className={styles.mission}>
-        <h1 className={styles.mission__title}>{mission[0].attributes.title}</h1>
         <div className={styles.mission__body}>
           <div className={styles.mission__body__images}>
             <span className={styles.mission__body__images__first}>
@@ -55,9 +58,14 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
               />
             </span>
           </div>
-          <p className={styles.mission__body__description}>
-            {mission[0].attributes.description}
-          </p>
+          <div className={styles.mission__body__content}>
+            <h1 className={styles.mission__body__content__title}>
+              {mission[0].attributes.title}
+            </h1>
+            <p className={styles.mission__body__content__description}>
+              {mission[0].attributes.description}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -68,12 +76,12 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
         <div className={styles.history__body}>
           <Swiper
             modules={[Navigation]}
-            // grabCursor={true}
+            grabCursor={true}
             navigation={true}
-            // autoplay={{
-            //   delay: 5000,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
             centeredSlides={true}
           >
             {histories.map((history, i) => (
@@ -84,9 +92,9 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
                     backgroundImage: `url(${history.attributes.images.data[0].attributes.url})`,
                   }}
                 >
-                  <p className={styles.history__body__title}>
-                    {history.attributes.description}
-                  </p>
+                  <div className={styles.history__body__description}>
+                    <p>{history.attributes.description}</p>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
