@@ -1,12 +1,12 @@
 import { InformationType } from "../types/response";
-import api from "./api";
+import { strapiApi } from "./api";
 
 const GetAll = async (params: {
   type?: string;
   limit?: string;
   category?: string;
 }) => {
-  let url = "/informations?populate=*&_sort=DESC";
+  let url = "informations?populate=%2A&sort=createdAt%3Adesc";
   if (params.type) {
     url += "&type=" + params.type;
   }
@@ -16,13 +16,13 @@ const GetAll = async (params: {
   if (params.category) {
     url += "&category=" + params.category;
   }
-  const res = await api.get(url);
+  const res = await strapiApi.get(url);
   const response: InformationType[] = res.data.data;
   return response;
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(`/informations/${slug}?populate=*&_sort=DESC`);
+  const res = await strapiApi.get(`informations/${slug}?populate=*&_sort=DESC`);
   const response: InformationType[] = res.data.data;
   return response;
 };

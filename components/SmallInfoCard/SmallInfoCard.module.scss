@@ -28,6 +28,9 @@
     margin: 0;
     font: var(--heading-4);
     grid-area: 1 / 2 / 2 / 3;
+    overflow: hidden;
+    line-height: 24px;
+    height: 24px;
   }
 
   .date {
