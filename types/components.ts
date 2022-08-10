@@ -1,8 +1,10 @@
+export interface CardPropsMedia {
+  src: string;
+  alt: string;
+}
+
 export interface CardProps {
-  media: {
-    src: string;
-    alt: string;
-  };
+  media: CardPropsMedia;
   title: string;
   date: string;
   href: string;

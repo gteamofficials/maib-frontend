@@ -52,7 +52,9 @@ export interface PodcastType {
 
 export interface InformationType {
   attributes: {
-    category: string;
+    category: {
+      data: CategoryType;
+    };
     title: string;
     type: string;
     description: string;
@@ -72,6 +74,12 @@ export interface ServiceType {
     icon: {
       data: ImageType;
     };
+  };
+}
+
+export interface CategoryType {
+  attributes: {
+    category: string;
   };
 }
 
