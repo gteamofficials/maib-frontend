@@ -89,7 +89,6 @@ const Home: NextPage<LandingPageProps> = ({
                 }}
                 title={service.attributes.title}
                 content={service.attributes.description}
-                href="https://www.google.com/"
               />
             ))}
           </div>
