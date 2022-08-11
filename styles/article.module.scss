@@ -1,0 +1,68 @@
+.detailArticle {
+  width: 1264px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section1 {
+  width: 100%;
+  height: 511px;
+  position: relative;
+}
+
+.section2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 37px;
+  grid-row-gap: 0px;
+  height: 100%;
+
+  .left {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 632px;
+
+    .title {
+      font: var(--heading-1);
+      line-height: 56px;
+      color: var(--black);
+    }
+
+    .date {
+      // grid-area: 1 / 1 / 2 / 2;
+      line-height: 32px;
+      color: var(--gray-500);
+    }
+
+    .content {
+      text-align: justify;
+    }
+  }
+
+  .right {
+    margin-top: 150px;
+    grid-area: 1 / 2 / 2 / 3;
+    align-self: start;
+    width: 632px;
+    position: sticky;
+    top: 120px;
+
+    .media {
+      width: 558px;
+      height: 392px;
+    }
+  }
+}
+
+.section3 {
+  .artikelTerkini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+}

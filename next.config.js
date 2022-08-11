@@ -9,6 +9,9 @@ const nextConfig = {
     salahScheduleApiUrl: "https://api.myquran.com/v1/sholat/jadwal/1433",
     hijriCalendarApiUrl: "http://api.aladhan.com/v1/hToGCalendar/",
   },
+  images: {
+    domains: ["source.unsplash.com", "res.cloudinary.com"],
+  },
 };
 
 module.exports = nextConfig;

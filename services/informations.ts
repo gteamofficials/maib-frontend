@@ -17,6 +17,7 @@ const GetAll = async (params: {
   if (params.offset) {
     url += "&pagination[start]=" + params.offset;
   }
+  //Need to be checked on params category
   if (params.category) {
     url += "&filters[category][category][$eq]" + params.category;
   }
@@ -26,9 +27,10 @@ const GetAll = async (params: {
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(`informations/${slug}?populate=*`);
-  const response: InformationType = res.data.data;
-
+  const res = await api.get(
+    `informations?filters[slug][$eq]=${slug}&populate=*&_sort=DESC`
+  );
+  const response: InformationType[] = res.data.data[0];
   return response;
 };
 

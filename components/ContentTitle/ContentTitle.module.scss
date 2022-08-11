@@ -15,6 +15,7 @@
   margin-block-start: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+  margin-bottom: 8px;
 
   &.h4 {
     width: 298px;
@@ -41,11 +42,12 @@
 
   &.on {
     width: 298px;
-    height: 16px;
+    height: 8px;
   }
 
   &.off {
-    width: 6px;
-    height: 16px;
+    margin-top: 15px;
+    width: 3px;
+    height: 8px;
   }
 }
