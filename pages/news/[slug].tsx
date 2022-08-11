@@ -4,23 +4,19 @@ import InformationServices from "../../services/informations";
 import { DetailPage } from "../../templates";
 import { InformationType } from "../../types/response";
 
-const Article = ({
-  articles,
-  allArticles,
+const News = ({
+  news,
+  allNews,
 }: {
-  articles: InformationType;
-  allArticles: InformationType[];
+  news: InformationType;
+  allNews: InformationType[];
 }) => {
   return (
-    <DetailPage
-      information={articles}
-      allInformations={allArticles}
-      type="article"
-    />
+    <DetailPage information={news} allInformations={allNews} type="news" />
   );
 };
 
-interface AParams extends ParsedUrlQuery {
+interface NParams extends ParsedUrlQuery {
   slug: string;
 }
 
@@ -35,20 +31,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as AParams;
+  const { slug } = context.params as NParams;
 
-  const articles: InformationType[] = await InformationServices.GetBySlug(slug);
-  const allArticles: InformationType[] = await InformationServices.GetAll({
-    type: "Artikel",
+  const news: InformationType[] = await InformationServices.GetBySlug(slug);
+  const allNews: InformationType[] = await InformationServices.GetAll({
+    type: "Berita",
     limit: "6",
   });
 
   return {
     props: {
-      articles,
-      allArticles,
+      news,
+      allNews,
     },
   };
 };
 
-export default Article;
+export default News;
