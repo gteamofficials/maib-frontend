@@ -2,12 +2,14 @@
   width: 298px;
   height: 57px;
   display: flex;
+  gap: 1px;
   flex-direction: column;
   align-content: space-between;
   padding: 0px;
 }
 
 .heading {
+  text-align: start;
   margin: 0;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -17,13 +19,10 @@
 
   &.h4 {
     width: 298px;
-    height: 24px;
+    height: 40px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 34px;
     color: #beced0;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
   }
 
   &.h2 {
@@ -32,10 +31,6 @@
     font-weight: 700;
     font-size: 34px;
     color: #202020;
-    gap: 1px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
   }
 }
 

@@ -1,23 +1,27 @@
 import { InformationType } from "../types/response";
-import api from "./api";
+import { strapiApi } from "./api";
 
 const GetAll = async (params: {
   type?: string;
-  limit?: string;
-  category?: string;
+  limit?: number;
+  offset?: number;
+  category?: string | undefined;
 }) => {
-  let url = "informations?populate=*&_sort=DESC";
+  let url = "informations?populate=%2A&sort=createdAt%3Adesc";
   if (params.type) {
     url += "&filters[type][$eq]=" + params.type;
   }
   if (params.limit) {
     url += "&pagination[limit]=" + params.limit;
   }
+  if (params.offset) {
+    url += "&pagination[start]=" + params.offset;
+  }
   //Need to be checked on params category
   if (params.category) {
-    url += "&filters[category][$eq]=" + params.category;
+    url += "&filters[category][category][$eq]" + params.category;
   }
-  const res = await api.get(url);
+  const res = await strapiApi.get(url);
   const response: InformationType[] = res.data.data;
   return response;
 };
