@@ -27,7 +27,7 @@ const GetAll = async (params: {
 };
 
 const GetBySlug = async (slug: string) => {
-  const res = await api.get(
+  const res = await strapiApi.get(
     `informations?filters[slug][$eq]=${slug}&populate=*&_sort=DESC`
   );
   const response: InformationType[] = res.data.data[0];
