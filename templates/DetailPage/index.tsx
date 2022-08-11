@@ -61,8 +61,9 @@ const DetailPage = ({
         <section className={styles.section3}>
           <ContentTitle active>{`${displayType} Terkini`}</ContentTitle>
           <div className={styles.informationRecent}>
-            {allInformations.map((information) => (
+            {allInformations.map((information, i) => (
               <InfoCardRecent
+                key={i}
                 media={{
                   src: information.attributes.coverImage.data.attributes.url,
                   alt: information.attributes.coverImage.data.attributes
