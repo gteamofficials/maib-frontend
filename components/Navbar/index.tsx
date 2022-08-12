@@ -18,11 +18,13 @@ const Navbar = ({
         [styles.opaque]: opaque,
       })}
     >
-      <div className={styles.logo}>
-        <Image src={logo} alt="logo" width="64" height="64" />
-        <p>Masjid Al-Ikhlas Bulusan</p>
+      <div className={styles.content}>
+        <div className={styles.logo}>
+          <Image src={logo} alt="logo" width="64" height="64" />
+          <p>Masjid Al-Ikhlas Bulusan</p>
+        </div>
+        <ol className={styles.list}>{children}</ol>
       </div>
-      <ol className={styles.list}>{children}</ol>
     </nav>
   );
 };
