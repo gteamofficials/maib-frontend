@@ -1,21 +1,46 @@
 @import "./breakpoint";
 
 .vision {
-  margin: 10rem auto 18rem;
-  width: 1264px;
-  &__title {
-    font: var(--heading-1);
-    margin-bottom: 7rem;
+  margin: 10rem auto 20rem;
+  width: 100%;
+  max-width: 1264px;
+  @include tablet() {
+    max-width: 896px;
+    margin: 10rem auto;
+  }
+  @include mobile() {
+    max-width: 343px;
+    margin: 10rem auto 3rem;
   }
 
   &__body {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    &__description {
-      width: 540px;
-      font: var(--heading-3);
-      font-weight: 600;
+    &__content {
+      max-width: 540px;
+      &__title {
+        font: var(--heading-1);
+        margin-bottom: 7rem;
+        @include tablet() {
+          font: var(--heading-2);
+        }
+        @include mobile() {
+          font: var(--heading-4);
+          margin: 0;
+          padding: 17rem 0 0;
+        }
+      }
+      &__description {
+        font: var(--heading-3);
+        font-weight: 600;
+        @include tablet() {
+          max-width: 396px;
+          font: var(--heading-4);
+          font-weight: 600;
+        }
+        @include mobile {
+          font: var(--caption-large-semi);
+        }
+      }
     }
     &__images {
       &__first {
@@ -23,84 +48,204 @@
         height: 439px;
         position: absolute;
         right: -88px;
-        top: -5%;
+        top: 20%;
+        overflow: hidden;
+        @include tablet() {
+          width: 444px;
+          height: 318px;
+          right: 0;
+        }
+        @include mobile() {
+          width: 343px;
+          height: 205px;
+          top: 0;
+        }
       }
       &__second {
         width: 343px;
         height: 343px;
         position: absolute;
         right: 17%;
-        top: 55%;
-        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.3);
+        top: 60%;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.6);
+        @include tablet() {
+          width: 240px;
+          height: 240px;
+        }
+        @include mobile() {
+          width: 160px;
+          height: 160px;
+          top: 20%;
+          right: 0;
+          left: 12%;
+        }
       }
     }
   }
 }
 
 .mission {
-  width: 1264px;
-  margin: 15rem auto;
-  &__title {
-    font: var(--heading-1);
-    margin-bottom: 7rem;
-    text-align: right;
+  width: 100%;
+  max-width: 1264px;
+  margin: 10rem auto;
+  @include tablet() {
+    max-width: 896px;
   }
+  @include mobile() {
+    width: 100%;
+    max-width: 343px;
+    margin: 0 auto 2rem;
+  }
+
   &__body {
     position: relative;
     display: flex;
     justify-content: space-between;
-    &__description {
-      width: 560px;
-      font: var(--heading-3);
-      font-weight: 600;
+    @include mobile() {
+      flex-direction: column;
+    }
+    &__content {
+      max-width: 540px;
+      &__title {
+        font: var(--heading-1);
+        margin-bottom: 15rem;
+        text-align: right;
+        @include tablet() {
+          font: var(--heading-2);
+          margin-bottom: 7rem;
+        }
+        @include mobile() {
+          text-align: left;
+          font: var(--heading-4);
+          margin: 0;
+          padding: 17rem 0 0;
+        }
+      }
+      &__description {
+        font: var(--heading-3);
+        font-weight: 600;
+        @include tablet() {
+          max-width: 396px;
+          font: var(--heading-4);
+          font-weight: 600;
+        }
+        @include mobile {
+          font: var(--caption-large-semi);
+        }
+      }
     }
     &__images {
       &__first {
-        position: absolute;
         width: 732px;
         height: 439px;
+        position: absolute;
         left: -88px;
-        top: -3%;
+        top: 45%;
+        @include tablet() {
+          width: 444px;
+          height: 318px;
+          top: 45%;
+          left: 0;
+        }
+        @include mobile() {
+          width: 343px;
+          height: 205px;
+          top: 10%;
+        }
       }
       &__second {
         width: 343px;
         height: 343px;
         position: absolute;
-        top: -35%;
+        top: 30%;
         left: 18%;
-        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.6);
+        @include tablet() {
+          width: 240px;
+          height: 240px;
+          top: 25%;
+        }
+        @include mobile() {
+          width: 160px;
+          height: 160px;
+          top: 0;
+          left: 40%;
+        }
       }
     }
   }
 }
 
 .history {
-  width: 100%;
+  background-color: var(--dark-green-700);
   &__title {
     width: 100%;
+    max-width: 1264px;
     height: 242px;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--dark-green-700);
+    @include tablet() {
+      max-width: 896px;
+      max-height: 168px;
+    }
+    @include mobile() {
+      width: 100%;
+      max-width: 343px;
+      height: 120px;
+    }
+
     h1 {
       color: var(--white);
       font: var(--heading-1);
+      @include tablet() {
+        font: var(--heading-2);
+      }
+      @include mobile() {
+        font: var(--heading-4);
+      }
     }
   }
   &__body {
+    width: 100%;
     &__bg {
+      width: 100%;
       height: 563px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      @include tablet() {
+        height: 400px;
+      }
+      @include mobile() {
+        height: 563px;
+      }
     }
-    &__title {
-      margin: 0;
-      padding: 40px 0 0 88px;
-      width: 700px;
-      color: var(--white);
-      font: var(--heading-2);
+    &__description {
+      width: 100%;
+      max-width: 1264px;
+      margin: auto;
+      padding-top: 40px;
+      @include tablet() {
+        max-width: 896px;
+        padding-top: 32px;
+      }
+      @include mobile() {
+        max-width: 299px;
+      }
+      p {
+        max-width: 700px;
+        color: var(--white);
+        font: var(--heading-2);
+        @include tablet() {
+          font: var(--heading-3);
+          max-width: 436px;
+        }
+        @include mobile() {
+          font: var(--heading-5);
+        }
+      }
     }
   }
 }
