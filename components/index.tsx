@@ -16,6 +16,7 @@ import HijriCalendar from "./HijriCalendar";
 import Footer from "./Footer";
 import BigInfoCard from "./BigInfoCard";
 import ContentTitle from "./ContentTitle";
+import Ornament from "./Ornament";
 
 export {
   Button,
@@ -36,4 +37,5 @@ export {
   Footer,
   BigInfoCard,
   ContentTitle,
+  Ornament,
 };
