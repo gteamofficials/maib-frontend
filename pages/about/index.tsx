@@ -7,11 +7,19 @@ import "swiper/css/navigation";
 import styles from "../../styles/about.module.scss";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useAppContext } from "../../Layouts/Default";
+import { useMount } from "react-use";
 
 const About = ({ abouts }: { abouts: AboutType[] }) => {
   const vision = abouts.filter((e) => e.attributes.category == "visi");
   const mission = abouts.filter((e) => e.attributes.category == "misi");
   const histories = abouts.filter((e) => e.attributes.category == "sejarah");
+
+  const appCtx = useAppContext();
+
+  useMount(() => {
+    appCtx?.setActiveNav("about");
+  });
 
   return (
     <div className={styles.about}>

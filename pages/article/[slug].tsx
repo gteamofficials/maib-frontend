@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { useMount } from "react-use";
+import { useAppContext } from "../../Layouts/Default";
 import InformationServices from "../../services/informations";
 import { DetailPage } from "../../templates";
 import { InformationType } from "../../types/response";
@@ -11,6 +13,12 @@ const Article = ({
   articles: InformationType;
   allArticles: InformationType[];
 }) => {
+  const appCtx = useAppContext();
+
+  useMount(() => {
+    appCtx?.setActiveNav("information");
+  });
+
   return (
     <DetailPage
       information={articles}

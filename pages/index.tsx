@@ -1,6 +1,7 @@
 import { Tab } from "@headlessui/react";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -14,6 +15,7 @@ import {
   ServiceCard,
   SmallInfoCard,
 } from "../components";
+import { useAppContext } from "../Layouts/Default";
 import HijriCalendarServices from "../services/hijriCalendar";
 import InformationServices from "../services/informations";
 import SalahScheduleServices from "../services/salahSchedule";
@@ -41,6 +43,12 @@ const Home: NextPage<LandingPageProps> = ({
   salahSchedule,
   hijriCalendar,
 }) => {
+  const appCtx = useAppContext();
+
+  useMount(() => {
+    appCtx?.setActiveNav("landing");
+  });
+
   return (
     <>
       <section className={styles.banner}>
