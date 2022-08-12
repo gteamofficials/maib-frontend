@@ -14,6 +14,13 @@
     z-index: 2;
     margin: -120px auto;
   }
+
+  .ornament {
+    position: absolute;
+    bottom: -400px;
+    left: -150px;
+    z-index: 1;
+  }
 }
 
 .highlight {
@@ -23,6 +30,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 }
 
 .services {
@@ -31,6 +39,13 @@
     rgba(215, 232, 102, 0.8) 0.41%,
     rgba(215, 232, 102, 0.3) 93.9%
   );
+  position: relative;
+
+  .ornament {
+    position: absolute;
+    top: -400px;
+    right: -200px;
+  }
 
   .servicesContent {
     width: 1264px;

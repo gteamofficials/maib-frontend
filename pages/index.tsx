@@ -8,6 +8,7 @@ import {
   ButtonLink,
   ContentTitle,
   HijriCalendar,
+  Ornament,
   RecentEvent,
   SalahSchedule,
   ServiceCard,
@@ -69,6 +70,7 @@ const Home: NextPage<LandingPageProps> = ({
           body={news[0]?.attributes.description}
           className={styles.recentEvent}
         />
+        <Ornament className={styles.ornament} type="primary" scale={1.2} />
       </section>
       <section className={styles.highlight}>
         <SalahSchedule
@@ -78,6 +80,7 @@ const Home: NextPage<LandingPageProps> = ({
         <HijriCalendar hijriCalendar={hijriCalendar} />
       </section>
       <section className={styles.services}>
+        <Ornament className={styles.ornament} type="base" scale={1.2} />
         <div className={styles.servicesContent}>
           <div className={styles.serviceCards}>
             {services.map((service, i) => (
