@@ -12,12 +12,8 @@
     display: flex;
     align-items: center;
 
-    &.active {
-      color: var(--black);
-      text-decoration: underline;
-    }
-
     &.open {
+      color: white;
       background-color: var(--dark-green-700);
       border-radius: 10px 10px 0 0;
     }
