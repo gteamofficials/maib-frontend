@@ -7,11 +7,18 @@ import "swiper/css/navigation";
 import styles from "../../styles/about.module.scss";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useMount } from "react-use";
+import { useNavigationContext } from "../../action/navigation";
 
 const About = ({ abouts }: { abouts: AboutType[] }) => {
   const vision = abouts.filter((e) => e.attributes.category == "visi");
   const mission = abouts.filter((e) => e.attributes.category == "misi");
   const histories = abouts.filter((e) => e.attributes.category == "sejarah");
+
+  const [_, dispatch] = useNavigationContext();
+  useMount(() => {
+    dispatch("about");
+  });
 
   return (
     <div className={styles.about}>

@@ -1,12 +1,15 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import { DefaultLayout } from "../Layouts";
+import { NavigationContextProvider } from "../action/navigation";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <DefaultLayout>
-      <Component {...pageProps} />
-    </DefaultLayout>
+    <NavigationContextProvider>
+      <DefaultLayout>
+        <Component {...pageProps} />
+      </DefaultLayout>
+    </NavigationContextProvider>
   );
 }
 

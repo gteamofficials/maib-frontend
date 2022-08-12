@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { useMount } from "react-use";
+import { useNavigationContext } from "../../action/navigation";
 import InformationServices from "../../services/informations";
 import { DetailPage } from "../../templates";
 import { InformationType } from "../../types/response";
@@ -11,6 +13,11 @@ const Article = ({
   articles: InformationType;
   allArticles: InformationType[];
 }) => {
+  const [_, dispatch] = useNavigationContext();
+  useMount(() => {
+    dispatch("information");
+  });
+
   return (
     <DetailPage
       information={articles}

@@ -1,8 +1,10 @@
 import { Tab } from "@headlessui/react";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigationContext } from "../action/navigation";
 import {
   BigInfoCard,
   ButtonLink,
@@ -41,6 +43,11 @@ const Home: NextPage<LandingPageProps> = ({
   salahSchedule,
   hijriCalendar,
 }) => {
+  const [_, dispatch] = useNavigationContext();
+  useMount(() => {
+    dispatch("landing");
+  });
+
   return (
     <>
       <section className={styles.banner}>
