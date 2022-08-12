@@ -36,7 +36,7 @@ type LandingPageProps = {
   hijriCalendar: HijriDateType[];
 };
 
-const Home: NextPage<LandingPageProps> = ({
+const Landing: NextPage<LandingPageProps> = ({
   news,
   articles,
   services,
@@ -261,4 +261,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default Landing;
