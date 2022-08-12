@@ -16,6 +16,10 @@
     background-color: var(--secondary-color);
     color: var(--white);
     border: none;
+
+    .action {
+      color: var(--white);
+    }
   }
 
   .media {
@@ -44,9 +48,5 @@
     text-decoration-line: underline;
     color: #3b3fa6;
     grid-area: 3 / 2 / 4 / 3;
-
-    &:hover {
-      color: var(--white);
-    }
   }
 }
