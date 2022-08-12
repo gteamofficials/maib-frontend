@@ -90,7 +90,7 @@
   }
 }
 
-.news {
+.info {
   width: 1264px;
   margin: 160px auto 80px auto;
   display: flex;
@@ -98,11 +98,11 @@
   flex-direction: column;
   justify-content: center;
 
-  .newsTab {
+  .infoTab {
     border: none;
   }
 
-  .newsPanel {
+  .infoPanel {
     display: flex;
     gap: 24px;
 
