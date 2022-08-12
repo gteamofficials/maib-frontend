@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigationContext } from "../action/navigation";
 import {
   BigInfoCard,
   ButtonLink,
@@ -15,7 +16,6 @@ import {
   ServiceCard,
   SmallInfoCard,
 } from "../components";
-import { useAppContext } from "../Layouts/Default";
 import HijriCalendarServices from "../services/hijriCalendar";
 import InformationServices from "../services/informations";
 import SalahScheduleServices from "../services/salahSchedule";
@@ -43,10 +43,9 @@ const Home: NextPage<LandingPageProps> = ({
   salahSchedule,
   hijriCalendar,
 }) => {
-  const appCtx = useAppContext();
-
+  const [_, dispatch] = useNavigationContext();
   useMount(() => {
-    appCtx?.setActiveNav("landing");
+    dispatch("landing");
   });
 
   return (

@@ -1,35 +1,19 @@
 import Head from "next/head";
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import { ReactNode } from "react";
 import { useWindowScroll } from "react-use";
+import {
+  NavigationContextProvider,
+  useNavigationContext,
+} from "../../action/navigation";
 import { Footer, Navbar, NavDropDown } from "../../components";
 import styles from "./Default.module.scss";
 
-interface AppContextInterface {
-  setActiveNav: Dispatch<SetStateAction<string>>;
-}
-
-const AppCtx = createContext<AppContextInterface | null>(null);
-
-export function useAppContext() {
-  return useContext(AppCtx);
-}
-
 const DefaultLayout = ({ children }: { children: ReactNode }) => {
   const { y } = useWindowScroll();
-  const [activeNav, setActiveNav] = useState("landing");
-  const providerValue: AppContextInterface = {
-    setActiveNav,
-  };
+  const [activeNav] = useNavigationContext();
 
   return (
-    <AppCtx.Provider value={providerValue}>
+    <>
       <Head>
         <title>Masjid Al-Ikhlas</title>
         <meta name="description" content="Website Masjid Al-Ikhlas" />
@@ -52,7 +36,7 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
       </Navbar>
       <main className={styles.main}>{children}</main>
       <Footer />
-    </AppCtx.Provider>
+    </>
   );
 };
 

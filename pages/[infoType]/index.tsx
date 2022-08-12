@@ -17,8 +17,8 @@ import { Fragment, useEffect, useState } from "react";
 import cn from "classnames";
 import Image from "next/image";
 import CategoryServices from "../../services/categories";
-import { useAppContext } from "../../Layouts/Default";
 import { useMount } from "react-use";
+import { useNavigationContext } from "../../action/navigation";
 
 const Information = ({
   infos,
@@ -38,10 +38,9 @@ const Information = ({
     listCategory.push(cat.attributes.category);
   });
 
-  const appCtx = useAppContext();
-
+  const [_, dispatch] = useNavigationContext();
   useMount(() => {
-    appCtx?.setActiveNav("information");
+    dispatch("information");
   });
 
   useEffect(() => {

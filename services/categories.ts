@@ -1,5 +1,5 @@
 import { CategoryType } from "../types/response";
-import api from "./api";
+import { strapiApi } from "./api";
 
 const GetAll = async (params: { limit?: number; offset?: number }) => {
   let url = "information-categories?populate=*";
@@ -9,7 +9,7 @@ const GetAll = async (params: { limit?: number; offset?: number }) => {
   if (params.offset) {
     url += "&pagination[start]=" + params.offset;
   }
-  const res = await api.get(url);
+  const res = await strapiApi.get(url);
   const response: CategoryType[] = res.data.data;
   return response;
 };
