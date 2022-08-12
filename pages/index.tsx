@@ -86,7 +86,7 @@ const Home: NextPage<LandingPageProps> = ({
         />
         <HijriCalendar hijriCalendar={hijriCalendar} />
       </section>
-      <section className={styles.services}>
+      <section className={styles.services} id="services">
         <Ornament className={styles.ornament} type="base" scale={1.2} />
         <div className={styles.servicesContent}>
           <div className={styles.serviceCards}>
