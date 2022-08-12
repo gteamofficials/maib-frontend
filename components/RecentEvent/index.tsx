@@ -33,9 +33,7 @@ const RecentEvent = ({
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.content}>{body}</p>
       <Link href={href}>
-        <a className={styles.action}>
-          Lihat Detail
-        </a>
+        <a className={styles.action}>Lihat Detail</a>
       </Link>
     </article>
   );
