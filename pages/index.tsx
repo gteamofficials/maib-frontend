@@ -36,7 +36,7 @@ type LandingPageProps = {
   hijriCalendar: HijriDateType[];
 };
 
-const Home: NextPage<LandingPageProps> = ({
+const Landing: NextPage<LandingPageProps> = ({
   news,
   articles,
   services,
@@ -68,7 +68,7 @@ const Home: NextPage<LandingPageProps> = ({
           ))}
         </Swiper>
         <RecentEvent
-          href={`/information/${news[0]?.attributes.slug}`}
+          href={`/news/${news[0]?.attributes.slug}`}
           title={news[0].attributes.title}
           media={{
             src: news[0]?.attributes.coverImage.data.attributes.url,
@@ -117,28 +117,28 @@ const Home: NextPage<LandingPageProps> = ({
                 tertera pada bagian bawah atau dapat dengan menekan tombol di
                 bawah ini.
               </p>
-              <ButtonLink href="/contact" size="medium" variant="primary">
+              <ButtonLink href="#" size="medium" variant="primary">
                 Kontak Kami
               </ButtonLink>
             </div>
           </div>
         </div>
       </section>
-      <Tab.Group as="section" className={styles.news}>
+      <Tab.Group as="section" className={styles.info}>
         <Tab.List>
-          <Tab className={styles.newsTab}>
+          <Tab className={styles.infoTab}>
             {({ selected }) => (
               <ContentTitle active={selected}>Berita</ContentTitle>
             )}
           </Tab>
-          <Tab className={styles.newsTab}>
+          <Tab className={styles.infoTab}>
             {({ selected }) => (
               <ContentTitle active={selected}>Artikel</ContentTitle>
             )}
           </Tab>
         </Tab.List>
         <Tab.Panels>
-          <Tab.Panel className={styles.newsPanel}>
+          <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
               date={news[0]?.attributes.date}
               media={{
@@ -148,7 +148,7 @@ const Home: NextPage<LandingPageProps> = ({
               }}
               title={news[0]?.attributes.title}
               body={news[0]?.attributes.description}
-              href={`/information/${news[0]?.attributes.slug}`}
+              href={`/news/${news[0]?.attributes.slug}`}
             />
             <div className={styles.moreInfo}>
               <Swiper
@@ -168,7 +168,7 @@ const Home: NextPage<LandingPageProps> = ({
                     <SwiperSlide key={i}>
                       <SmallInfoCard
                         date={news.attributes.date}
-                        href={`/information/${news.attributes.slug}`}
+                        href={`/news/${news.attributes.slug}`}
                         media={{
                           src: news.attributes.coverImage.data.attributes.url,
                           alt: news.attributes.coverImage.data.attributes
@@ -179,12 +179,12 @@ const Home: NextPage<LandingPageProps> = ({
                     </SwiperSlide>
                   ))}
               </Swiper>
-              <ButtonLink href="/berita" size="medium" variant="primary">
+              <ButtonLink href="/news" size="medium" variant="primary">
                 Lihat Semua
               </ButtonLink>
             </div>
           </Tab.Panel>
-          <Tab.Panel className={styles.newsPanel}>
+          <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
               date={articles[0]?.attributes.date}
               media={{
@@ -194,7 +194,7 @@ const Home: NextPage<LandingPageProps> = ({
               }}
               title={articles[0]?.attributes.title}
               body={articles[0]?.attributes.description}
-              href={`/information/${articles[0]?.attributes.slug}`}
+              href={`/article/${articles[0]?.attributes.slug}`}
             />
             <div className={styles.moreInfo}>
               <Swiper
@@ -214,7 +214,7 @@ const Home: NextPage<LandingPageProps> = ({
                     <SwiperSlide key={i}>
                       <SmallInfoCard
                         date={article.attributes.date}
-                        href={`/information/${article.attributes.slug}`}
+                        href={`/article/${article.attributes.slug}`}
                         media={{
                           src: article.attributes.coverImage.data.attributes
                             .url,
@@ -226,7 +226,7 @@ const Home: NextPage<LandingPageProps> = ({
                     </SwiperSlide>
                   ))}
               </Swiper>
-              <ButtonLink href="/artikel" size="medium" variant="primary">
+              <ButtonLink href="/article" size="medium" variant="primary">
                 Lihat Semua
               </ButtonLink>
             </div>
@@ -261,4 +261,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default Landing;

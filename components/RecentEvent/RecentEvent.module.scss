@@ -44,7 +44,7 @@
   .action {
     grid-area: 3 / 2 / 4 / 3;
     align-self: end;
-
+    width: max-content;
     text-decoration: underline;
     color: #3b3fa6;
   }
