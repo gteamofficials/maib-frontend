@@ -15,16 +15,16 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar opaque={y > 0 ? true : false}>
-        <Navbar.Item active href="#">
+        <Navbar.Item active href="/">
           Beranda
         </Navbar.Item>
         <Navbar.Item>
           <NavDropDown title="Informasi">
-            <NavDropDown.Item href="visi-misi">Visi Misi</NavDropDown.Item>
-            <NavDropDown.Item href="sejarah">Sejarah</NavDropDown.Item>
+            <NavDropDown.Item href="news">Berita</NavDropDown.Item>
+            <NavDropDown.Item href="article">Artikel</NavDropDown.Item>
           </NavDropDown>
         </Navbar.Item>
-        <Navbar.Item href="#">Tentang</Navbar.Item>
+        <Navbar.Item href="/about">Tentang</Navbar.Item>
         <Navbar.Item href="#">Kontak</Navbar.Item>
       </Navbar>
       <main className={styles.main}>{children}</main>
