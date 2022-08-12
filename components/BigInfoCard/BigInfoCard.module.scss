@@ -30,21 +30,20 @@
   }
 
   .title {
-    padding-top: 10px;
     margin: 0 0 8px 0;
     grid-area: 1 / 2 / 2 / 3;
     width: 357px;
     line-height: 32px;
-    height: calc(32px * 2);
+    max-height: calc(32px * 2);
     overflow: hidden;
     color: var(--black);
     font: var(--heading-3);
+    align-self: end;
   }
 
   .content {
     grid-area: 3 / 2 / 4 / 3;
     font: var(--body-large);
-    line-height: 20px;
     margin: 0;
     overflow: hidden;
     line-height: 20px;
@@ -58,5 +57,10 @@
     line-height: 20px;
     width: 357px;
     height: 20px;
+  }
+
+  .action {
+    align-self: end;
+    margin-bottom: 16px;
   }
 }

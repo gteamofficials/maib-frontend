@@ -26,7 +26,7 @@ const BigInfoCard = ({ date, href, title, media, body }: CardWithBodyProps) => {
         size="medium"
         variant="primary"
         href={href}
-        className={styles.link}
+        className={styles.action}
       >
         Selangkapnya
       </ButtonLink>
