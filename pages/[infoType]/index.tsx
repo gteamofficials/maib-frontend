@@ -42,7 +42,7 @@ const Information = ({
   useMount(() => {
     dispatch("information");
   });
-  
+
   useEffect(() => {
     if (category !== "semua") {
       setInfoCategories(
@@ -68,7 +68,7 @@ const Information = ({
     src: rec.attributes.coverImage.data.attributes.url,
     alt: rec.attributes.coverImage.data.attributes.alternativeText,
   }));
-  
+
   return (
     <main className={styles.main}>
       <section className={styles.header}>
@@ -83,27 +83,39 @@ const Information = ({
               <MainInfoCard
                 date={recent[0].attributes.date}
                 title={recent[0].attributes.title}
-                href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[0].attributes.slug}`}
+                href={`/${
+                  mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                }/${recent[0].attributes.slug}`}
                 media={recentMedia[0]}
               ></MainInfoCard>
               <div className={styles.recentSecondCards}>
                 <SecondaryInfoCard
                   date={recent[1].attributes.date}
                   title={recent[1].attributes.title}
-                  href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[1].attributes.slug}`}
+                  href={`/${
+                    mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                  }/${recent[1].attributes.slug}`}
                   media={recentMedia[1]}
                 ></SecondaryInfoCard>
                 <div className={styles.recentAdditionalCards}>
                   <AdditionalInfoCard
                     date={recent[2].attributes.date}
                     title={recent[2].attributes.title}
-                    href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[2].attributes.slug}`}
+                    href={`/${
+                      mapSlug[String(infoType)] === "Artikel"
+                        ? "article"
+                        : "news"
+                    }/${recent[2].attributes.slug}`}
                     media={recentMedia[2]}
                   ></AdditionalInfoCard>
                   <AdditionalInfoCard
                     date={recent[3].attributes.date}
                     title={recent[3].attributes.title}
-                    href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[3].attributes.slug}`}
+                    href={`/${
+                      mapSlug[String(infoType)] === "Artikel"
+                        ? "article"
+                        : "news"
+                    }/${recent[3].attributes.slug}`}
                     media={recentMedia[3]}
                   ></AdditionalInfoCard>
                 </div>
@@ -114,20 +126,26 @@ const Information = ({
               <MainInfoCard
                 date={recent[0].attributes.date}
                 title={recent[0].attributes.title}
-                href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[0].attributes.slug}`}
+                href={`/${
+                  mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                }/${recent[0].attributes.slug}`}
                 media={recentMedia[0]}
               ></MainInfoCard>
               <div className={styles.recentSecondCards}>
                 <SecondaryInfoCard
                   date={recent[1].attributes.date}
                   title={recent[1].attributes.title}
-                  href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[1].attributes.slug}`}
+                  href={`/${
+                    mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                  }/${recent[1].attributes.slug}`}
                   media={recentMedia[1]}
                 ></SecondaryInfoCard>
                 <SecondaryInfoCard
                   date={recent[2].attributes.date}
                   title={recent[2].attributes.title}
-                  href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[2].attributes.slug}`}
+                  href={`/${
+                    mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                  }/${recent[2].attributes.slug}`}
                   media={recentMedia[2]}
                 ></SecondaryInfoCard>
               </div>
@@ -137,13 +155,17 @@ const Information = ({
               <MainInfoCard
                 date={recent[0].attributes.date}
                 title={recent[0].attributes.title}
-                href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[0].attributes.slug}`}
+                href={`/${
+                  mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                }/${recent[0].attributes.slug}`}
                 media={recentMedia[0]}
               ></MainInfoCard>
               <MainInfoCard
                 date={recent[1].attributes.date}
                 title={recent[1].attributes.title}
-                href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[1].attributes.slug}`}
+                href={`/${
+                  mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                }/${recent[1].attributes.slug}`}
                 media={recentMedia[1]}
               ></MainInfoCard>
             </>
@@ -153,27 +175,41 @@ const Information = ({
                 <MainInfoCard
                   date={recent[0].attributes.date}
                   title={recent[0].attributes.title}
-                  href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[0].attributes.slug}`}
+                  href={`/${
+                    mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                  }/${recent[0].attributes.slug}`}
                   media={recentMedia[0]}
                 ></MainInfoCard>
                 <div className={styles.recentSecondCards}>
                   <SecondaryInfoCard
                     date={recent[1].attributes.date}
                     title={recent[1].attributes.title}
-                    href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[1].attributes.slug}`}
+                    href={`/${
+                      mapSlug[String(infoType)] === "Artikel"
+                        ? "article"
+                        : "news"
+                    }/${recent[1].attributes.slug}`}
                     media={recentMedia[1]}
                   ></SecondaryInfoCard>
                   <div className={styles.recentAdditionalCards}>
                     <AdditionalInfoCard
                       date={recent[2].attributes.date}
                       title={recent[2].attributes.title}
-                      href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[2].attributes.slug}`}
+                      href={`/${
+                        mapSlug[String(infoType)] === "Artikel"
+                          ? "article"
+                          : "news"
+                      }/${recent[2].attributes.slug}`}
                       media={recentMedia[2]}
                     ></AdditionalInfoCard>
                     <AdditionalInfoCard
                       date={recent[3].attributes.date}
                       title={recent[3].attributes.title}
-                      href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${recent[3].attributes.slug}`}
+                      href={`/${
+                        mapSlug[String(infoType)] === "Artikel"
+                          ? "article"
+                          : "news"
+                      }/${recent[3].attributes.slug}`}
                       media={recentMedia[3]}
                     ></AdditionalInfoCard>
                   </div>
@@ -217,13 +253,15 @@ const Information = ({
                   title={infoCategories[0].attributes.title}
                   body={infoCategories[0].attributes.description}
                   media={categoryMedia[0]}
-                  href={`/${mapSlug[String(infoType)]==="Artikel"? "article":"news"}/${infoCategories[0].attributes.slug}`}
+                  href={`/${
+                    mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
+                  }/${infoCategories[0].attributes.slug}`}
                 />
               )}
               <div className={styles.listInfoCategories}>
                 {infoCategories
                   .filter((_, i) => i > 0)
-                  .map((info,index) => (
+                  .map((info, index) => (
                     <article className={styles.addCatInfoCard} key={index}>
                       <div className={styles.addCatInfo}>
                         <span className={styles.mediaAddCatInfo}>
@@ -258,7 +296,7 @@ const Information = ({
             <div className={styles.othersContent}>
               {infos
                 .filter((_, i) => i > 3)
-                .map((info,index) => (
+                .map((info, index) => (
                   <article className={styles.othersCard} key={index}>
                     <div className={styles.contentOthersInfo}>
                       <h5 className={styles.headerOthersInfo}>
