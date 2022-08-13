@@ -25,8 +25,8 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
         </Navbar.Item>
         <Navbar.Item active={activeNav === "information"}>
           <NavDropDown title="Informasi">
-            <NavDropDown.Item href="news">Berita</NavDropDown.Item>
-            <NavDropDown.Item href="article">Artikel</NavDropDown.Item>
+            <NavDropDown.Item href="/news">Berita</NavDropDown.Item>
+            <NavDropDown.Item href="/article">Artikel</NavDropDown.Item>
           </NavDropDown>
         </Navbar.Item>
         <Navbar.Item href="/about" active={activeNav === "about"}>
