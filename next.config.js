@@ -10,7 +10,11 @@ const nextConfig = {
     hijriCalendarApiUrl: "http://api.aladhan.com/v1/hToGCalendar/",
   },
   images: {
-    domains: ["source.unsplash.com", "res.cloudinary.com"],
+    domains: [
+      "source.unsplash.com",
+      "res.cloudinary.com",
+      "images.unsplash.com",
+    ],
   },
 };
 

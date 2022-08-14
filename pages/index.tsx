@@ -1,4 +1,5 @@
 import { Tab } from "@headlessui/react";
+import { count } from "console";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useMount } from "react-use";
@@ -48,21 +49,20 @@ const Landing: NextPage<LandingPageProps> = ({
     dispatch("landing");
   });
 
+  const HomeImage = [
+    "https://images.unsplash.com/photo-1599230080795-a48439229cb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1187&q=80",
+    "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1134&q=80",
+    "https://images.unsplash.com/photo-1658472047673-8825f8639dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+  ];
+
   return (
     <>
       <section className={styles.banner}>
         <Swiper modules={[Autoplay]} autoplay={{ delay: 1500 }}>
-          {[...Array(3)].map((_, i) => (
+          {HomeImage.map((image, i) => (
             <SwiperSlide key={i}>
               <div className={styles.media}>
-                <Image
-                  src={
-                    "https://source.unsplash.com/random/?mosque,islam,ramadhan"
-                  }
-                  alt="img"
-                  layout="fill"
-                  objectFit="cover"
-                />
+                <Image src={image} alt="img" layout="fill" objectFit="cover" />
               </div>
             </SwiperSlide>
           ))}
@@ -106,10 +106,6 @@ const Landing: NextPage<LandingPageProps> = ({
             <div className={styles.upperTexts}>
               <h4>Layanan Masjid Al-Ikhlas</h4>
               <h1>Layanan yang terdapat pada Masjid Al-Ikhlas</h1>
-              <p>
-                Layanan terdekat yang akan dibuka Masjid Al-Ikhlas adalah qurban
-                idul adha
-              </p>
             </div>
             <div className={styles.lowerTexts}>
               <p>
@@ -140,7 +136,14 @@ const Landing: NextPage<LandingPageProps> = ({
         <Tab.Panels>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
-              date={news[0]?.attributes.date}
+              date={new Date(news[0]?.attributes.date).toLocaleDateString(
+                "id-ID",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              )}
               media={{
                 src: news[0]?.attributes.coverImage.data.attributes.url,
                 alt: news[0]?.attributes.coverImage.data.attributes
@@ -167,7 +170,14 @@ const Landing: NextPage<LandingPageProps> = ({
                   .map((news, i) => (
                     <SwiperSlide key={i}>
                       <SmallInfoCard
-                        date={news.attributes.date}
+                        date={new Date(news.attributes.date).toLocaleDateString(
+                          "id-ID",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }
+                        )}
                         href={`/news/${news.attributes.slug}`}
                         media={{
                           src: news.attributes.coverImage.data.attributes.url,
@@ -186,7 +196,14 @@ const Landing: NextPage<LandingPageProps> = ({
           </Tab.Panel>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
-              date={articles[0]?.attributes.date}
+              date={new Date(articles[0]?.attributes.date).toLocaleDateString(
+                "id-ID",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              )}
               media={{
                 src: articles[0]?.attributes.coverImage.data.attributes.url,
                 alt: articles[0]?.attributes.coverImage.data.attributes
@@ -213,7 +230,13 @@ const Landing: NextPage<LandingPageProps> = ({
                   .map((article, i) => (
                     <SwiperSlide key={i}>
                       <SmallInfoCard
-                        date={article.attributes.date}
+                        date={new Date(
+                          article.attributes.date
+                        ).toLocaleDateString("id-ID", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
                         href={`/article/${article.attributes.slug}`}
                         media={{
                           src: article.attributes.coverImage.data.attributes
