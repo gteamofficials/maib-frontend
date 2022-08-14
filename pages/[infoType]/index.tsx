@@ -19,6 +19,7 @@ import Image from "next/image";
 import CategoryServices from "../../services/categories";
 import { useMount } from "react-use";
 import { useNavigationContext } from "../../action/navigation";
+import Link from "next/link";
 
 const Information = ({
   infos,
@@ -53,7 +54,7 @@ const Information = ({
     } else {
       setInfoCategories(infos);
     }
-  }, [category]);
+  }, [category, infos]);
 
   const recent: InformationType[] = infos
     .filter((_, i) => i <= 3)
@@ -81,7 +82,14 @@ const Information = ({
           {recent.length == 4 ? (
             <>
               <MainInfoCard
-                date={recent[0].attributes.date}
+                date={new Date(recent[0].attributes.date).toLocaleDateString(
+                  "id-ID",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )}
                 title={recent[0].attributes.title}
                 href={`/${
                   mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -90,7 +98,14 @@ const Information = ({
               ></MainInfoCard>
               <div className={styles.recentSecondCards}>
                 <SecondaryInfoCard
-                  date={recent[1].attributes.date}
+                  date={new Date(recent[1].attributes.date).toLocaleDateString(
+                    "id-ID",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )}
                   title={recent[1].attributes.title}
                   href={`/${
                     mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -99,7 +114,13 @@ const Information = ({
                 ></SecondaryInfoCard>
                 <div className={styles.recentAdditionalCards}>
                   <AdditionalInfoCard
-                    date={recent[2].attributes.date}
+                    date={new Date(
+                      recent[2].attributes.date
+                    ).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                     title={recent[2].attributes.title}
                     href={`/${
                       mapSlug[String(infoType)] === "Artikel"
@@ -109,7 +130,13 @@ const Information = ({
                     media={recentMedia[2]}
                   ></AdditionalInfoCard>
                   <AdditionalInfoCard
-                    date={recent[3].attributes.date}
+                    date={new Date(
+                      recent[3].attributes.date
+                    ).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                     title={recent[3].attributes.title}
                     href={`/${
                       mapSlug[String(infoType)] === "Artikel"
@@ -124,7 +151,14 @@ const Information = ({
           ) : recent.length == 3 ? (
             <>
               <MainInfoCard
-                date={recent[0].attributes.date}
+                date={new Date(recent[0].attributes.date).toLocaleDateString(
+                  "id-ID",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )}
                 title={recent[0].attributes.title}
                 href={`/${
                   mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -133,7 +167,14 @@ const Information = ({
               ></MainInfoCard>
               <div className={styles.recentSecondCards}>
                 <SecondaryInfoCard
-                  date={recent[1].attributes.date}
+                  date={new Date(recent[1].attributes.date).toLocaleDateString(
+                    "id-ID",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )}
                   title={recent[1].attributes.title}
                   href={`/${
                     mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -141,7 +182,14 @@ const Information = ({
                   media={recentMedia[1]}
                 ></SecondaryInfoCard>
                 <SecondaryInfoCard
-                  date={recent[2].attributes.date}
+                  date={new Date(recent[2].attributes.date).toLocaleDateString(
+                    "id-ID",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )}
                   title={recent[2].attributes.title}
                   href={`/${
                     mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -153,7 +201,14 @@ const Information = ({
           ) : recent.length == 2 ? (
             <>
               <MainInfoCard
-                date={recent[0].attributes.date}
+                date={new Date(recent[0].attributes.date).toLocaleDateString(
+                  "id-ID",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )}
                 title={recent[0].attributes.title}
                 href={`/${
                   mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -161,7 +216,14 @@ const Information = ({
                 media={recentMedia[0]}
               ></MainInfoCard>
               <MainInfoCard
-                date={recent[1].attributes.date}
+                date={new Date(recent[1].attributes.date).toLocaleDateString(
+                  "id-ID",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )}
                 title={recent[1].attributes.title}
                 href={`/${
                   mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -173,7 +235,14 @@ const Information = ({
             recent.length == 1 && (
               <>
                 <MainInfoCard
-                  date={recent[0].attributes.date}
+                  date={new Date(recent[0].attributes.date).toLocaleDateString(
+                    "id-ID",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }
+                  )}
                   title={recent[0].attributes.title}
                   href={`/${
                     mapSlug[String(infoType)] === "Artikel" ? "article" : "news"
@@ -182,7 +251,13 @@ const Information = ({
                 ></MainInfoCard>
                 <div className={styles.recentSecondCards}>
                   <SecondaryInfoCard
-                    date={recent[1].attributes.date}
+                    date={new Date(
+                      recent[1].attributes.date
+                    ).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                     title={recent[1].attributes.title}
                     href={`/${
                       mapSlug[String(infoType)] === "Artikel"
@@ -193,7 +268,13 @@ const Information = ({
                   ></SecondaryInfoCard>
                   <div className={styles.recentAdditionalCards}>
                     <AdditionalInfoCard
-                      date={recent[2].attributes.date}
+                      date={new Date(
+                        recent[2].attributes.date
+                      ).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
                       title={recent[2].attributes.title}
                       href={`/${
                         mapSlug[String(infoType)] === "Artikel"
@@ -203,7 +284,13 @@ const Information = ({
                       media={recentMedia[2]}
                     ></AdditionalInfoCard>
                     <AdditionalInfoCard
-                      date={recent[3].attributes.date}
+                      date={new Date(
+                        recent[3].attributes.date
+                      ).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
                       title={recent[3].attributes.title}
                       href={`/${
                         mapSlug[String(infoType)] === "Artikel"
@@ -249,7 +336,13 @@ const Information = ({
             <div className={styles.categoryContent}>
               {infoCategories.length > 0 && (
                 <CategoryInfoCard
-                  date={infoCategories[0].attributes.date}
+                  date={new Date(
+                    infoCategories[0].attributes.date
+                  ).toLocaleDateString("id-ID", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
                   title={infoCategories[0].attributes.title}
                   body={infoCategories[0].attributes.description}
                   media={categoryMedia[0]}
@@ -262,29 +355,50 @@ const Information = ({
                 {infoCategories
                   .filter((_, i) => i > 0)
                   .map((info, index) => (
-                    <article className={styles.addCatInfoCard} key={index}>
-                      <div className={styles.addCatInfo}>
-                        <span className={styles.mediaAddCatInfo}>
-                          <Image
-                            src={info.attributes.coverImage.data.attributes.url}
-                            alt={
-                              info.attributes.coverImage.data.attributes
-                                .alternativeText
-                            }
-                            layout="fill"
-                            objectFit="cover"
-                          />
-                        </span>
-                      </div>
-                      <div className={styles.contentCatInfo}>
-                        <h5 className={styles.headerCatInfo}>
-                          {info.attributes.title}
-                        </h5>
-                        <time className={styles.dateCatInfo}>
-                          {info.attributes.date}
-                        </time>
-                      </div>
-                    </article>
+                    <Link
+                      key={index}
+                      href={`/${
+                        mapSlug[String(infoType)] === "Artikel"
+                          ? "article"
+                          : "news"
+                      }/${info.attributes.slug}`}
+                      passHref
+                    >
+                      <a>
+                        <article className={styles.addCatInfoCard}>
+                          <div className={styles.addCatInfo}>
+                            <span className={styles.mediaAddCatInfo}>
+                              <Image
+                                src={
+                                  info.attributes.coverImage.data.attributes.url
+                                }
+                                alt={
+                                  info.attributes.coverImage.data.attributes
+                                    .alternativeText
+                                }
+                                layout="fill"
+                                objectFit="cover"
+                              />
+                            </span>
+                          </div>
+
+                          <div className={styles.contentCatInfo}>
+                            <h5 className={styles.headerCatInfo}>
+                              {info.attributes.title}
+                            </h5>
+                            <time className={styles.dateCatInfo}>
+                              {new Date(
+                                info.attributes.date
+                              ).toLocaleDateString("id-ID", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
+                            </time>
+                          </div>
+                        </article>
+                      </a>
+                    </Link>
                   ))}
               </div>
             </div>
