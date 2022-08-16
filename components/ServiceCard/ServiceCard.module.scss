@@ -13,14 +13,13 @@
 
   &:hover {
     transition: 0.3s ease-in-out;
-    background-color: var(--dark-green-900);
-    color: var(--neon-green-500);
-    border: 2px solid var(--primary-color);
+    background-color: var(--neon-green-600);
+    color: var(--neon-green-600);
     box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 16px;
 
     .title {
-      color: var(--neon-green-500);
+      color: var(--dark-green-500);
     }
 
     .content {

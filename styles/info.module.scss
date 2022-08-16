@@ -50,6 +50,7 @@
 
           .contentCatInfo {
             padding: 6px 0 6px 8px;
+            width: 281px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -58,6 +59,14 @@
               font: var(--heading-5);
               margin: 0;
               padding-bottom: 12px;
+              line-height: 24px;
+              max-height: calc(24px * 2);
+              overflow: hidden;
+
+              &:hover {
+                color: var(--neon-green-600);
+                cursor: pointer;
+              }
             }
 
             .dateCatInfo {
@@ -70,7 +79,6 @@
             position: relative;
             width: 88px;
             height: 88px;
-            display: flex;
             overflow: hidden;
 
             .mediaAddCatInfo {
@@ -110,6 +118,7 @@
         border: none;
         outline: none;
         color: var(--gray-500);
+        cursor: pointer;
 
         &.selected {
           color: var(--black);
@@ -158,11 +167,18 @@
               font: var(--heading-5);
               margin: 0;
               padding-bottom: 8px;
+
+              &:hover {
+                color: var(--neon-green-600);
+                cursor: pointer;
+              }
             }
 
             .catOthersInfo {
               font: var(--caption-large);
               color: var(--gray-500);
+              padding-bottom: 8px;
+              border-bottom: 1px solid lightgray;
             }
           }
         }

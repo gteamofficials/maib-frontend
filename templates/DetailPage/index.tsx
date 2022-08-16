@@ -78,7 +78,7 @@ const DetailPage = ({
                     day: "numeric",
                   }
                 )}
-                href={`/${type}}/${information.attributes.slug}`}
+                href={`/${type}/${information.attributes.slug}`}
               />
             ))}
           </div>

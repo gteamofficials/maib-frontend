@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const articles: InformationType[] = await InformationServices.GetBySlug(slug);
   const allArticles: InformationType[] = await InformationServices.GetAll({
     type: "Artikel",
-    limit: "6",
+    limit: 6,
   });
 
   return {
