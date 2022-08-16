@@ -36,12 +36,18 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
             <span className={styles.vision__body__images__first}>
               <Image
                 src={vision[0].attributes.images.data[0].attributes.url}
+                alt={
+                  vision[0].attributes.images.data[0].attributes.alternativeText
+                }
                 layout={`fill`}
               />
             </span>
             <span className={styles.vision__body__images__second}>
               <Image
                 src={vision[0].attributes.images.data[1].attributes.url}
+                alt={
+                  vision[0].attributes.images.data[1].attributes.alternativeText
+                }
                 layout={`fill`}
               />
             </span>
@@ -55,12 +61,20 @@ const About = ({ abouts }: { abouts: AboutType[] }) => {
             <span className={styles.mission__body__images__first}>
               <Image
                 src={mission[0].attributes.images.data[0].attributes.url}
+                alt={
+                  mission[0].attributes.images.data[0].attributes
+                    .alternativeText
+                }
                 layout={`fill`}
               />
             </span>
             <span className={styles.mission__body__images__second}>
               <Image
                 src={mission[0].attributes.images.data[1].attributes.url}
+                alt={
+                  mission[0].attributes.images.data[1].attributes
+                    .alternativeText
+                }
                 layout={`fill`}
               />
             </span>

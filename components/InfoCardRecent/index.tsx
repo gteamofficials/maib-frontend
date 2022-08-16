@@ -5,7 +5,7 @@ import { CardProps } from "../../types/components";
 
 const InfoCardRecent = ({ date, href, title, media }: CardProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <article className={styles.infoCardRecent}>
         <span className={styles.media}>
           <Image
