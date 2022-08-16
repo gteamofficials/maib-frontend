@@ -1,0 +1,17 @@
+.additionalInfoCard {
+  width: 306px;
+  height: 240px;
+  padding: 16px;
+
+  .header {
+    font: var(--heading-5);
+    margin: 0;
+    padding-bottom: 8px;
+    color: var(--white);
+  }
+
+  .date {
+    font: var(--caption-large);
+    color: var(--gray-500);
+  }
+}

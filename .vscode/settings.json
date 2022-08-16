@@ -1,0 +1,14 @@
+{
+  "cssvar.files": ["./styles/globals.scss"],
+  "cssvar.extensions": [
+    "css",
+    "scss",
+    "sass",
+    "html",
+    "jsx",
+    "tsx",
+    "module.css",
+    "module.scss",
+    "module.sass"
+  ]
+}

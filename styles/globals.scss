@@ -1,9 +1,84 @@
+@import "sanitize.css";
+@import "sanitize.css/forms.css";
+@import "sanitize.css/typography.css";
+
+@import "swiper/css";
+@import "swiper/css/autoplay";
+@import "swiper/css/pagination";
+
+:root {
+  --primary-font: "Inter", sans-serif;
+
+  --display: 800 60px var(--primary-font);
+
+  --heading-1: 800 48px var(--primary-font);
+  --heading-2: 800 34px var(--primary-font);
+  --heading-3: 800 24px var(--primary-font);
+  --heading-4: 700 20px var(--primary-font);
+  --heading-5: 700 16px var(--primary-font);
+  --heading-6: 700 14px var(--primary-font);
+
+  --heading-small-1: 800 34px var(--primary-font);
+  --heading-small-2: 800 24px var(--primary-font);
+  --heading-small-3: 800 20px var(--primary-font);
+  --heading-small-4: 700 16px var(--primary-font);
+  --heading-small-5: 700 14px var(--primary-font);
+  --heading-small-6: 700 12px var(--primary-font);
+
+  --body-large: 16px var(--primary-font);
+  --body-large-semi: 600 16px var(--primary-font);
+  --body-small: 14px var(--primary-font);
+  --body-small-semi: 600 14px var(--primary-font);
+
+  --caption-large: 12px var(--primary-font);
+  --caption-large-semi: 600 12px var(--primary-font);
+  --caption-small: 11px var(--primary-font);
+  --caption-small-semi: 600 11px var(--primary-font);
+
+  --footer: 10px var(--primary-font);
+  --footer-semi: 10px var(--primary-font);
+
+  --dark-green-900: #001b13;
+  --dark-green-800: #002113;
+  --dark-green-700: #002914;
+  --dark-green-600: #003114;
+  --dark-green-500: #013912;
+  --dark-green-400: #238838;
+  --dark-green-300: #50c35c;
+  --dark-green-200: #50c35c;
+  --dark-green-100: #c9f5c4;
+
+  --neon-green-900: #5e6f13;
+  --neon-green-800: #758620;
+  --neon-green-700: #94a733;
+  --neon-green-600: #b5c74a;
+  --neon-green-500: #d7e866;
+  --neon-green-400: #e5f18b;
+  --neon-green-300: #eff8a4;
+  --neon-green-200: #f7fcc4;
+  --neon-green-100: #fbfde1;
+
+  --black: #202020;
+  --white: #ffffff;
+
+  --gray-100: #f6f8f8;
+  --gray-200: #e6eaea;
+  --gray-300: #beced0;
+  --gray-400: #869799;
+  --gray-500: #4b6163;
+
+  --primary-color: var(--neon-green-500);
+  --secondary-color: var(--dark-green-500);
+
+  --tablet-width: 1024px;
+  --mobile-width: 375px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--primary-font);
 }
 
 a {

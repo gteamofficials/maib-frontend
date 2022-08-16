@@ -1,0 +1,53 @@
+.categoryInfoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 396px;
+  height: 517px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    transition: 0.3s ease-in-out;
+    background: var(--neon-green-200);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .content {
+    padding: 8px 16px;
+  }
+
+  .media {
+    position: relative;
+    width: 396px;
+    height: 289px;
+  }
+
+  .header {
+    font: var(--heading-5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .date {
+    font: var(--caption-large);
+    color: var(--gray-400);
+  }
+
+  .body {
+    font: var(--body-small);
+    color: var(--gray-500);
+    margin: 16px 0;
+    overflow: hidden;
+    line-height: 16px;
+    height: calc(16px * 6);
+  }
+
+  .action {
+    color: #3b3fa6;
+    text-decoration: underline;
+  }
+}

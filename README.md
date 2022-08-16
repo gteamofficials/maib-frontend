@@ -18,6 +18,31 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Penjelasan Struktur Folder
+
+### Komponen
+
+- Setiap komponen baru, buat folder dengan nama komponen yang diinginkan
+- Buat file bernama index.tsx didalam folder komponen tersebut
+- Untuk styling tiap komponen, buat file (nama_komponen).module.scss
+
+### Page
+
+- Setiap halaman baru, buat folder dengan nama halaman(url) yang diinginkan
+- Buat file bernama index.tsx didalam folder pages tersebut untuk halaman utama
+- Jika halaman baru memiliki prefix url yang sama, buat file pada folder yang sama dengan nama file yang diinginkan
+- Untuk styling belum
+
+## Development Tips
+
+If you use vscode (and you should) download [Preview JS](https://marketplace.visualstudio.com/items?itemName=zenclabs.previewjs) and [CSS Var Autocomplete](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar) to make your development day easier.
+You can read more about the extension on their page. But if you don't here some summary.
+
+- [cssvar](https://marketplace.visualstudio.com/items?itemName=phoenisx.cssvar) : intelisense for our global css var
+  ![cssvar](https://user-images.githubusercontent.com/73181490/169938438-66f91b5f-9420-4dfb-80f3-eccdb59cacbc.png)
+- [previewjs](https://marketplace.visualstudio.com/items?itemName=zenclabs.previewjs) : render component in an isolation page
+  ![preview js](https://user-images.githubusercontent.com/73181490/169938269-30c5fede-7fed-4feb-9f37-2129aa1ac2b2.png)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
