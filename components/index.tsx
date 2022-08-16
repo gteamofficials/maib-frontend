@@ -17,6 +17,7 @@ import Footer from "./Footer";
 import BigInfoCard from "./BigInfoCard";
 import ContentTitle from "./ContentTitle";
 import Ornament from "./Ornament";
+import HeadTitle from "./HeadTitle";
 
 export {
   Button,
@@ -38,4 +39,5 @@ export {
   BigInfoCard,
   ContentTitle,
   Ornament,
+  HeadTitle,
 };
