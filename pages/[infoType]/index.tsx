@@ -73,7 +73,7 @@ const Information = ({
 
   return (
     <>
-    <HeadTitle>{mapSlug[String(infoType)]}</HeadTitle>
+      <HeadTitle>{mapSlug[String(infoType)]}</HeadTitle>
       <main className={styles.main}>
         <section className={styles.header}>
           <div className={styles.headerContent}>
