@@ -28,7 +28,9 @@ const DetailPage = ({
       <section className={styles.section1}>
         <Image
           src={information.attributes.coverImage.data.attributes.url}
-          alt={information.attributes.coverImage.data.attributes.alternativeText}
+          alt={
+            information.attributes.coverImage.data.attributes.alternativeText
+          }
           layout="fill"
           objectFit="cover"
         />
