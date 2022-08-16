@@ -5,8 +5,8 @@ import ContentTitle from "../../components/ContentTitle";
 import InfoCardRecent from "../../components/InfoCardRecent";
 import styles from "./DetailPage.module.scss";
 import { InformationType } from "../../types/response";
-import Head from "next/head";
 import { HeadTitle } from "../../components";
+import ReactMarkdown from "react-markdown";
 
 const DetailPage = ({
   information,
@@ -44,9 +44,9 @@ const DetailPage = ({
             <div className={styles.left}>
               <h1 className={styles.title}>{information.attributes.title}</h1>
               <h3 className={styles.date}>{dateId}</h3>
-              <p className={styles.content}>
+              <ReactMarkdown className={styles.content}>
                 {information.attributes.description}
-              </p>
+              </ReactMarkdown>
             </div>
             <div className={styles.right}>
               <Swiper modules={[Autoplay]} autoplay={{ delay: 2000 }} loop>
