@@ -11,7 +11,7 @@ const InfoMenuCard = ({
   body,
 }: CardWithBodyProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <article className={styles.infoMenuCard}>
         <span className={styles.media}>
           <Image
