@@ -6,7 +6,7 @@
   color: var(--white);
 
   @include tablet() {
-    width: var(--tablet-width);
+    width: 100%;
     padding-left: 64px;
     padding-right: 64px;
   }

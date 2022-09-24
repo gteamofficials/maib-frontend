@@ -12,11 +12,10 @@
     rgba(0, 0, 0, 0) 100%
   );
   text-underline-offset: 2px;
-  padding-left: 88px;
-  padding-right: 88px;
+  padding: 0 88px;
 
   @include tablet() {
-    width: var(--tablet-width);
+    padding: 0 64px;
   }
 
   .content {
