@@ -1,3 +1,5 @@
+@import "../../styles/breakpoint";
+
 .navbar {
   position: fixed;
   top: 0;
@@ -13,12 +15,20 @@
   padding-left: 88px;
   padding-right: 88px;
 
+  @include tablet() {
+    width: var(--tablet-width);
+  }
+
   .content {
     width: 1264px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include tablet() {
+      width: 100%;
+    }
   }
 
   &.opaque {

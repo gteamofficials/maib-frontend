@@ -1,11 +1,23 @@
+@import '../../styles/breakpoint';
+
 .footer {
   padding: 12px 88px;
   background-color: var(--dark-green-900);
   color: var(--white);
 
+  @include tablet() {
+    width: var(--tablet-width);
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
   .content {
     width: 1264px;
     margin: 0 auto;
+
+    @include tablet() {
+      width: 100%;
+    }
 
     .list {
       display: flex;
