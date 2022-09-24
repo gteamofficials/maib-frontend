@@ -13,19 +13,19 @@ const Navbar = ({
   opaque?: boolean;
 }) => {
   return (
-    <nav
+    <header
       className={cn(styles.navbar, {
         [styles.opaque]: opaque,
       })}
     >
-      <div className={styles.content}>
+      <nav className={styles.content}>
         <div className={styles.logo}>
           <Image src={logo} alt="logo" width="64" height="64" />
           <p>Masjid Al-Ikhlas Bulusan</p>
         </div>
         <ol className={styles.list}>{children}</ol>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
