@@ -64,6 +64,10 @@
     .item {
       padding: 8px;
       font: var(--heading-5);
+
+      @include tablet() {
+        font: var(--body-large-semi);
+      }
     }
   }
 }

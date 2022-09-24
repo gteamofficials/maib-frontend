@@ -1,4 +1,4 @@
-@import '../../styles/breakpoint';
+@import "../../styles/breakpoint";
 
 .footer {
   padding: 12px 88px;
@@ -25,6 +25,7 @@
       justify-content: space-between;
       padding: 0;
       margin: 0;
+      font: var(--footer-medium);
 
       li {
         list-style-type: none;
@@ -34,6 +35,7 @@
         display: flex;
         padding: 0;
         margin: 0;
+        font: var(--footer-semi);
 
         li {
           list-style-type: none;
@@ -44,7 +46,6 @@
       .logo {
         display: flex;
         align-items: center;
-        font: var(--body-small-semi);
         gap: 8px;
       }
     }
