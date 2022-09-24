@@ -10,6 +10,8 @@
     rgba(0, 0, 0, 0) 100%
   );
   text-underline-offset: 2px;
+  padding-left: 88px;
+  padding-right: 88px;
 
   .content {
     width: 1264px;
@@ -41,7 +43,7 @@
 
     background-color: var(--dark-green-900);
     color: var(--white);
-    padding: 16px;
+    padding: 16px 0;
   }
 
   .list {
