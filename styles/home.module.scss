@@ -1,3 +1,5 @@
+@import "../styles/breakpoint";
+
 .banner {
   position: relative;
   left: 0;
@@ -31,6 +33,12 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+
+  @include tablet() {
+    width: 100%;
+    padding-top: 195px;
+    padding-bottom: 120px;
+  }
 }
 
 .services {
