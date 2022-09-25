@@ -1,3 +1,5 @@
+@import "../../styles/breakpoint";
+
 .navbar {
   position: fixed;
   top: 0;
@@ -10,6 +12,17 @@
     rgba(0, 0, 0, 0) 100%
   );
   text-underline-offset: 2px;
+  padding: 0 88px;
+
+  @include tablet() {
+    padding: 0 64px;
+  }
+
+  @include mobile() {
+    padding: 0 24px 0 12px;
+    background-color: var(--dark-green-900);
+    color: var(--white);
+  }
 
   .content {
     width: 1264px;
@@ -17,6 +30,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include tablet() {
+      width: 100%;
+    }
+
+    @include mobile() {
+      display: grid;
+      height: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 64px 1fr;
+    }
+
+    .menu {
+      display: none;
+
+      @include mobile() {
+        display: block;
+        transform: rotate(90deg);
+        color: var(--gray-200);
+        justify-self: end;
+      }
+    }
   }
 
   &.opaque {
@@ -25,12 +60,21 @@
     .active {
       color: var(--primary-color);
       text-decoration: underline;
+
+      @include mobile() {
+        text-decoration: none;
+      }
     }
   }
 
   .active {
     color: var(--secondary-color);
     text-decoration: underline;
+
+    @include mobile() {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
   }
 
   .logo {
@@ -41,7 +85,27 @@
 
     background-color: var(--dark-green-900);
     color: var(--white);
-    padding: 16px;
+    padding: 16px 16px 16px 0;
+
+    @include mobile() {
+      padding: 14px 0;
+      font: var(--mobile-semi);
+    }
+
+    .icon {
+      position: relative;
+      width: 64px;
+      height: 64px;
+
+      @include mobile() {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    & p {
+      margin: 0;
+    }
   }
 
   .list {
@@ -50,9 +114,32 @@
     justify-content: space-evenly;
     align-items: center;
 
+    @include mobile() {
+      display: none;
+
+      &.mobileActive {
+        height: 100vh;
+        width: 100%;
+        display: block;
+        background-color: inherit;
+        grid-column: 1 / span 2;
+        padding: 0 48px;
+      }
+    }
+
     .item {
       padding: 8px;
       font: var(--heading-5);
+
+      @include tablet() {
+        font: var(--body-large-semi);
+      }
+
+      @include mobile() {
+        font: var(--phone-heading-3);
+        padding-left: 0;
+        border-bottom: 1px solid currentColor;
+      }
     }
   }
 }

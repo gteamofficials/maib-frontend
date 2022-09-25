@@ -4,6 +4,8 @@ import logo from "../../public/Logo.png";
 import Image from "next/image";
 import cn from "classnames";
 import Link from "next/link";
+import { MdBarChart } from "react-icons/md";
+import { useToggle } from "react-use";
 
 const Navbar = ({
   children,
@@ -12,20 +14,32 @@ const Navbar = ({
   children: ReactNode;
   opaque?: boolean;
 }) => {
+  const [mobileMenuOn, mobileMenuToggle] = useToggle(false);
+
   return (
-    <nav
+    <header
       className={cn(styles.navbar, {
         [styles.opaque]: opaque,
       })}
     >
-      <div className={styles.content}>
+      <nav className={styles.content}>
         <div className={styles.logo}>
-          <Image src={logo} alt="logo" width="64" height="64" />
+          <span className={styles.icon}>
+            <Image src={logo} alt="logo" layout="fill" objectFit="contain" />
+          </span>
           <p>Masjid Al-Ikhlas Bulusan</p>
         </div>
-        <ol className={styles.list}>{children}</ol>
-      </div>
-    </nav>
+        <MdBarChart className={styles.menu} onClick={mobileMenuToggle} />
+        <ol
+          className={cn(styles.list, {
+            [styles.mobileActive]: mobileMenuOn,
+          })}
+          onClick={mobileMenuToggle}
+        >
+          {children}
+        </ol>
+      </nav>
+    </header>
   );
 };
 

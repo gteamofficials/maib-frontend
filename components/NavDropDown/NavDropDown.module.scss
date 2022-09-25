@@ -1,21 +1,30 @@
+@import "../../styles/breakpoint";
+
 .navDropDown {
   position: relative;
   text-decoration: inherit;
 
   .button {
     border: none;
-    padding: 8px;
-    font: var(--heading-5);
+    font: inherit;
     cursor: pointer;
     color: inherit;
     text-decoration: inherit;
     display: flex;
     align-items: center;
 
+    @include mobile() {
+      padding-left: 0;
+    }
+
     &.open {
       color: white;
       background-color: var(--dark-green-700);
       border-radius: 10px 10px 0 0;
+
+      @include mobile() {
+        background-color: var(--dark-green-900);
+      }
     }
   }
 
@@ -27,6 +36,11 @@
     border-radius: 0 0 10px 10px;
     padding-bottom: 12px;
 
+    @include mobile() {
+      background-color: var(--dark-green-900);
+      position: relative;
+    }
+
     .item {
       padding: 0 8px;
 
@@ -34,8 +48,12 @@
         font: var(--caption-large);
         display: block;
         padding: 8px;
-        border-bottom: 1px solid var(--white);
+        border-bottom: 1px solid currentColor;
         color: var(--white);
+
+        @include mobile() {
+          font: var(--phone-heading-4);
+        }
       }
     }
   }
