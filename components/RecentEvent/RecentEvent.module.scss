@@ -1,3 +1,5 @@
+@import '../../styles/breakpoint';
+
 .recentEvent {
   width: 908px;
   height: 233px;
@@ -13,9 +15,17 @@
   border-radius: 16px;
   background-color: var(--white);
 
+  @include tablet () {
+    width: 664px;
+    height: 220px;
+    padding: 20px 24px;
+  }
+
   .media {
     grid-area: 1 / 1 / 4 / 2;
     position: relative;
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   .title {
