@@ -6,7 +6,6 @@
 
   .button {
     border: none;
-    padding: 8px;
     font: inherit;
     cursor: pointer;
     color: inherit;
@@ -49,7 +48,7 @@
         font: var(--caption-large);
         display: block;
         padding: 8px;
-        border-bottom: 1px solid var(--white);
+        border-bottom: 1px solid currentColor;
         color: var(--white);
 
         @include mobile() {
