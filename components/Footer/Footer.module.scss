@@ -37,6 +37,10 @@
         margin: 0;
         font: var(--footer-semi);
 
+        @include mobile () {
+          display: none;
+        }
+
         li {
           list-style-type: none;
           padding: 0 32px;
