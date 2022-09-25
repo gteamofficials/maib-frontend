@@ -1,3 +1,5 @@
+@import '../../styles/breakpoint';
+
 .hijriDate {
   display: inline-block;
   position: relative;
@@ -5,6 +7,12 @@
   height: 56px;
   border-radius: 10px;
   font: var(--heading-4);
+
+  @include tablet () {
+    width: 36px;
+    height: 36px;
+    font: var(--heading-5);
+  }
 
   &.event {
     border: 1px solid var(--primary-color);
