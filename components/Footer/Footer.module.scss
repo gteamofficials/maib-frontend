@@ -1,11 +1,23 @@
+@import "../../styles/breakpoint";
+
 .footer {
   padding: 12px 88px;
   background-color: var(--dark-green-900);
   color: var(--white);
 
+  @include tablet() {
+    width: 100%;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
   .content {
     width: 1264px;
     margin: 0 auto;
+
+    @include tablet() {
+      width: 100%;
+    }
 
     .list {
       display: flex;
@@ -13,6 +25,7 @@
       justify-content: space-between;
       padding: 0;
       margin: 0;
+      font: var(--footer-medium);
 
       li {
         list-style-type: none;
@@ -22,6 +35,11 @@
         display: flex;
         padding: 0;
         margin: 0;
+        font: var(--footer-semi);
+
+        @include mobile() {
+          display: none;
+        }
 
         li {
           list-style-type: none;
@@ -32,7 +50,6 @@
       .logo {
         display: flex;
         align-items: center;
-        font: var(--body-small-semi);
         gap: 8px;
       }
     }
