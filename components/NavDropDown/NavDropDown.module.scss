@@ -39,6 +39,7 @@
 
     @include mobile() {
       background-color: var(--dark-green-900);
+      position: relative;
     }
 
     .item {
