@@ -21,6 +21,7 @@
   @include mobile() {
     padding: 0 24px 0 12px;
     background-color: var(--dark-green-900);
+    color: var(--white);
   }
 
   .content {
@@ -59,12 +60,21 @@
     .active {
       color: var(--primary-color);
       text-decoration: underline;
+
+      @include mobile() {
+        text-decoration: none;
+      }
     }
   }
 
   .active {
     color: var(--secondary-color);
     text-decoration: underline;
+
+    @include mobile() {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
   }
 
   .logo {
@@ -121,6 +131,10 @@
 
       @include tablet() {
         font: var(--body-large-semi);
+      }
+
+      @include mobile() {
+        font: var(--phone-heading-3);
       }
     }
   }
