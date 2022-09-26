@@ -65,6 +65,11 @@
     align-items: center;
     gap: 40px;
 
+    @include tablet () {
+      width: 100%;
+      padding: 64px 24px;
+    }
+
     .serviceCards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
