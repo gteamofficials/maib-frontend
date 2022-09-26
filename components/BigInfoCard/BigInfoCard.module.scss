@@ -1,3 +1,5 @@
+@import "../../styles/breakpoint";
+
 .bigInfoCard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -14,6 +16,13 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
 
+  @include tablet() {
+    width: 551px;
+    height: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
   &:hover {
     transition: 0.3s ease-in-out;
     background: var(--neon-green-200);
@@ -27,6 +36,11 @@
     height: 450px;
     border-radius: 16px;
     position: relative;
+
+    @include tablet() {
+      width: 231px;
+      height: 471px;
+    }
   }
 
   .title {
@@ -39,6 +53,13 @@
     color: var(--black);
     font: var(--heading-3);
     align-self: end;
+
+    @include tablet() {
+      width: 256px;
+      font: var(--heading-4);
+      line-height: 24px;
+      max-height: calc(24px * 2);
+    }
   }
 
   .content {
@@ -48,6 +69,10 @@
     overflow: hidden;
     line-height: 20px;
     height: calc(20px * 11);
+
+    @include tablet () {
+      width: 256px;
+    }
   }
 
   .date {
@@ -57,6 +82,10 @@
     line-height: 20px;
     width: 357px;
     height: 20px;
+
+    @include tablet () {
+      font: var(--body-small);
+    }
   }
 
   .action {

@@ -120,6 +120,12 @@
   flex-direction: column;
   justify-content: center;
 
+  @include tablet() {
+    width: 100%;
+    margin: 120px 64px 80px 64px;
+    gap: 56px;
+  }
+
   .infoTab {
     border: none;
     cursor: pointer;
@@ -129,14 +135,23 @@
     display: flex;
     gap: 24px;
 
+    @include tablet() {
+      gap: 22px;
+    }
+
     .moreInfo {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: space-between;
 
       .infoVerticalCarousel {
         width: 464px;
         height: 441px;
+
+        @include tablet() {
+          width: 340px;
+        }
 
         .bullet {
           width: 16px;
