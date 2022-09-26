@@ -65,7 +65,7 @@
     align-items: center;
     gap: 40px;
 
-    @include tablet () {
+    @include tablet() {
       width: 100%;
       padding: 64px 24px;
     }
@@ -87,12 +87,20 @@
         margin: 0;
         margin-bottom: 24px;
         color: #606060;
+
+        @include tablet() {
+          font: var(--heading-5);
+        }
       }
 
       h1 {
         font: var(--heading-1);
         margin: 0;
         margin-bottom: 24px;
+
+        @include tablet() {
+          font: var(--heading-2);
+        }
       }
 
       p {
