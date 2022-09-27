@@ -46,7 +46,7 @@ const Landing: NextPage<LandingPageProps> = ({
   hijriCalendar,
 }) => {
   const [_, dispatch] = useNavigationContext();
-  const isMobile = useMedia("(min-width: 376px)");
+  const isMobile = useMedia("(max-width: 376px)", false);
   useMount(() => {
     dispatch("landing");
   });
@@ -92,21 +92,6 @@ const Landing: NextPage<LandingPageProps> = ({
         <Ornament className={styles.ornament} type="base" scale={1.2} />
         <div className={styles.servicesContent}>
           {isMobile ? (
-            <div className={styles.serviceCards}>
-              {services.map((service, i) => (
-                <ServiceCard
-                  key={i}
-                  media={{
-                    src: service.attributes.icon.data.attributes.url,
-                    alt: service.attributes.icon.data.attributes
-                      .alternativeText,
-                  }}
-                  title={service.attributes.title}
-                  content={service.attributes.description}
-                />
-              ))}
-            </div>
-          ) : (
             <div className={styles.serviceMobile}>
               <Swiper
                 spaceBetween={200}
@@ -133,6 +118,21 @@ const Landing: NextPage<LandingPageProps> = ({
                   </SwiperSlide>
                 ))}
               </Swiper>
+            </div>
+          ) : (
+            <div className={styles.serviceCards}>
+              {services.map((service, i) => (
+                <ServiceCard
+                  key={i}
+                  media={{
+                    src: service.attributes.icon.data.attributes.url,
+                    alt: service.attributes.icon.data.attributes
+                      .alternativeText,
+                  }}
+                  title={service.attributes.title}
+                  content={service.attributes.description}
+                />
+              ))}
             </div>
           )}
           <div className={styles.serviceTexts}>
@@ -187,6 +187,15 @@ const Landing: NextPage<LandingPageProps> = ({
               href={`/news/${news[0]?.attributes.slug}`}
             />
             {isMobile ? (
+              <ButtonLink
+                href="/news"
+                size="medium"
+                variant="primary"
+                className="mobileMoreInfo"
+              >
+                Lihat Semua
+              </ButtonLink>
+            ) : (
               <div className={styles.moreInfo}>
                 <Swiper
                   direction={"vertical"}
@@ -226,10 +235,6 @@ const Landing: NextPage<LandingPageProps> = ({
                   Lihat Semua
                 </ButtonLink>
               </div>
-            ) : (
-              <ButtonLink href="/news" size="medium" variant="primary">
-                Lihat Semua
-              </ButtonLink>
             )}
           </Tab.Panel>
           <Tab.Panel className={styles.infoPanel}>
@@ -252,6 +257,15 @@ const Landing: NextPage<LandingPageProps> = ({
               href={`/article/${articles[0]?.attributes.slug}`}
             />
             {isMobile ? (
+              <ButtonLink
+                href="/article"
+                size="medium"
+                variant="primary"
+                className="mobileMoreInfo"
+              >
+                Lihat Semua
+              </ButtonLink>
+            ) : (
               <div className={styles.moreInfo}>
                 <Swiper
                   direction={"vertical"}
@@ -291,10 +305,6 @@ const Landing: NextPage<LandingPageProps> = ({
                   Lihat Semua
                 </ButtonLink>
               </div>
-            ) : (
-              <ButtonLink href="/news" size="medium" variant="primary">
-                Lihat Semua
-              </ButtonLink>
             )}
           </Tab.Panel>
         </Tab.Panels>
