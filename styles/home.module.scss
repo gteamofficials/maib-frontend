@@ -205,6 +205,13 @@
       gap: 22px;
     }
 
+    @include mobile () {
+      width: max-content;
+      flex-direction: column;
+      align-items: center;
+      gap: 35px;
+    }
+
     .moreInfo {
       display: flex;
       flex-direction: column;

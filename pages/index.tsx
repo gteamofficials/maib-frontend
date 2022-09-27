@@ -2,6 +2,7 @@ import { Tab } from "@headlessui/react";
 import { count } from "console";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { Fragment } from "react";
 import { useMedia, useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -165,7 +166,7 @@ const Landing: NextPage<LandingPageProps> = ({
             )}
           </Tab>
         </Tab.List>
-        <Tab.Panels>
+        <Tab.Panels as={Fragment}>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
               date={new Date(news[0]?.attributes.date).toLocaleDateString(
@@ -185,46 +186,51 @@ const Landing: NextPage<LandingPageProps> = ({
               body={news[0]?.attributes.description}
               href={`/news/${news[0]?.attributes.slug}`}
             />
-            <div className={styles.moreInfo}>
-              <Swiper
-                direction={"vertical"}
-                modules={[Pagination]}
-                slidesPerView={3}
-                pagination={{
-                  clickable: true,
-                  bulletActiveClass: styles.bulletActive,
-                  bulletClass: styles.bullet,
-                }}
-                className={styles.infoVerticalCarousel}
-              >
-                {news
-                  .filter((_, i) => i !== 0)
-                  .map((news, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date={new Date(news.attributes.date).toLocaleDateString(
-                          "id-ID",
-                          {
+            {isMobile ? (
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                    bulletActiveClass: styles.bulletActive,
+                    bulletClass: styles.bullet,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {news
+                    .filter((_, i) => i !== 0)
+                    .map((news, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={new Date(
+                            news.attributes.date
+                          ).toLocaleDateString("id-ID", {
                             year: "numeric",
                             month: "long",
                             day: "numeric",
-                          }
-                        )}
-                        href={`/news/${news.attributes.slug}`}
-                        media={{
-                          src: news.attributes.coverImage.data.attributes.url,
-                          alt: news.attributes.coverImage.data.attributes
-                            .alternativeText,
-                        }}
-                        title={news.attributes.title}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
+                          })}
+                          href={`/news/${news.attributes.slug}`}
+                          media={{
+                            src: news.attributes.coverImage.data.attributes.url,
+                            alt: news.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={news.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+                <ButtonLink href="/news" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            ) : (
               <ButtonLink href="/news" size="medium" variant="primary">
                 Lihat Semua
               </ButtonLink>
-            </div>
+            )}
           </Tab.Panel>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
@@ -245,46 +251,51 @@ const Landing: NextPage<LandingPageProps> = ({
               body={articles[0]?.attributes.description}
               href={`/article/${articles[0]?.attributes.slug}`}
             />
-            <div className={styles.moreInfo}>
-              <Swiper
-                direction={"vertical"}
-                modules={[Pagination]}
-                slidesPerView={3}
-                pagination={{
-                  clickable: true,
-                  bulletActiveClass: styles.bulletActive,
-                  bulletClass: styles.bullet,
-                }}
-                className={styles.infoVerticalCarousel}
-              >
-                {articles
-                  .filter((_, i) => i !== 0)
-                  .map((article, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date={new Date(
-                          article.attributes.date
-                        ).toLocaleDateString("id-ID", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                        href={`/article/${article.attributes.slug}`}
-                        media={{
-                          src: article.attributes.coverImage.data.attributes
-                            .url,
-                          alt: article.attributes.coverImage.data.attributes
-                            .alternativeText,
-                        }}
-                        title={article.attributes.title}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-              <ButtonLink href="/article" size="medium" variant="primary">
+            {isMobile ? (
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                    bulletActiveClass: styles.bulletActive,
+                    bulletClass: styles.bullet,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {news
+                    .filter((_, i) => i !== 0)
+                    .map((news, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={new Date(
+                            news.attributes.date
+                          ).toLocaleDateString("id-ID", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                          href={`/news/${news.attributes.slug}`}
+                          media={{
+                            src: news.attributes.coverImage.data.attributes.url,
+                            alt: news.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={news.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+                <ButtonLink href="/news" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            ) : (
+              <ButtonLink href="/news" size="medium" variant="primary">
                 Lihat Semua
               </ButtonLink>
-            </div>
+            )}
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
