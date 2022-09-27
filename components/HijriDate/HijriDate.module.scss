@@ -1,4 +1,4 @@
-@import '../../styles/breakpoint';
+@import "../../styles/breakpoint";
 
 .hijriDate {
   display: inline-block;
@@ -8,14 +8,14 @@
   border-radius: 10px;
   font: var(--heading-4);
 
-  @include tablet () {
+  @include tablet() {
     width: 36px;
     height: 36px;
     font: var(--heading-5);
   }
 
-  @include mobile () {
-    font: var(--phone-body-regular)
+  @include mobile() {
+    font: var(--phone-body-regular);
   }
 
   &.event {
@@ -35,7 +35,7 @@
       white-space: nowrap;
       padding: 8px;
 
-      @include mobile () {
+      @include mobile() {
         font: var(--phone-body-regular);
       }
     }

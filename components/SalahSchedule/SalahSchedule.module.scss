@@ -75,7 +75,7 @@
       display: flex;
       justify-content: space-between;
 
-      @include mobile (){
+      @include mobile() {
         padding: 0 8px;
       }
 

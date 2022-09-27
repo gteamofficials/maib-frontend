@@ -55,7 +55,7 @@
     white-space: nowrap;
     margin: 0px;
 
-    @include mobile () {
+    @include mobile() {
       font: var(--phone-heading-2);
       line-height: 20px;
       height: 20px;
@@ -73,7 +73,7 @@
     overflow: hidden;
     margin: 0px;
 
-    @include mobile () {
+    @include mobile() {
       font: var(--phone-body-regular);
       line-height: 16px;
       height: calc(16px * 5);
@@ -87,7 +87,7 @@
     text-decoration: underline;
     color: #3b3fa6;
 
-    @include mobile () {
+    @include mobile() {
       align-self: start;
     }
   }
