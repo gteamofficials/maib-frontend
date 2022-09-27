@@ -127,7 +127,7 @@
       justify-content: space-around;
       height: 500px;
 
-      @include mobile () {
+      @include mobile() {
         height: 100%;
       }
 
@@ -141,7 +141,7 @@
           font: var(--heading-5);
         }
 
-        @include mobile () {
+        @include mobile() {
           font: var(--phone-heading-3);
         }
       }
@@ -155,7 +155,7 @@
           font: var(--heading-2);
         }
 
-        @include mobile () {
+        @include mobile() {
           font: var(--phone-heading-1);
         }
       }
@@ -165,8 +165,8 @@
         margin: 24px 0 24px 0;
         color: #606060;
 
-        @include mobile () {
-          font: var(--phone-body-regular)
+        @include mobile() {
+          font: var(--phone-body-regular);
         }
       }
     }
@@ -185,6 +185,11 @@
     width: 100%;
     margin: 120px 64px 80px 64px;
     gap: 56px;
+  }
+
+  @include mobile() {
+    margin: 40px 16px 24px 16px;
+    gap: 40px;
   }
 
   .infoTab {
