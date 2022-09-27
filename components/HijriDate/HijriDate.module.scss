@@ -14,6 +14,10 @@
     font: var(--heading-5);
   }
 
+  @include mobile () {
+    font: var(--phone-body-regular)
+  }
+
   &.event {
     border: 1px solid var(--primary-color);
 
@@ -30,6 +34,10 @@
       border-radius: 10px;
       white-space: nowrap;
       padding: 8px;
+
+      @include mobile () {
+        font: var(--phone-body-regular);
+      }
     }
   }
 

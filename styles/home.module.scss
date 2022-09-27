@@ -42,7 +42,8 @@
   }
 
   @include mobile () {
-    display: block;
+    flex-direction: column;
+    gap: 24px;
     padding-left: 16px;
     padding-right: 16px;
   }
