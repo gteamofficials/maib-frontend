@@ -102,6 +102,33 @@ const Landing: NextPage<LandingPageProps> = ({
               />
             ))}
           </div>
+          <div className={styles.serviceMobile}>
+            <Swiper
+              spaceBetween={200}
+              modules={[Pagination, Autoplay]}
+              autoplay={{ delay: 1500 }}
+              pagination={{
+                clickable: true,
+                bulletClass: styles.serviceBullet,
+                bulletActiveClass: styles.serviceBulletActive,
+              }}
+              className={styles.serviceSlider}
+            >
+              {services.map((service, i) => (
+                <SwiperSlide key={i}>
+                  <ServiceCard
+                    media={{
+                      src: service.attributes.icon.data.attributes.url,
+                      alt: service.attributes.icon.data.attributes
+                        .alternativeText,
+                    }}
+                    title={service.attributes.title}
+                    content={service.attributes.description}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
           <div className={styles.serviceTexts}>
             <div className={styles.upperTexts}>
               <h4>Layanan Masjid Al-Ikhlas</h4>
