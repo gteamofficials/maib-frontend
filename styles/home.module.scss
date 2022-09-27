@@ -205,11 +205,19 @@
       gap: 22px;
     }
 
-    @include mobile () {
+    @include mobile() {
       width: max-content;
       flex-direction: column;
       align-items: center;
       gap: 35px;
+    }
+
+    .mobileMoreInfo {
+      display: none;
+
+      @include mobile() {
+        display: block;
+      }
     }
 
     .moreInfo {
@@ -217,6 +225,10 @@
       flex-direction: column;
       align-items: flex-end;
       justify-content: space-between;
+
+      @include mobile() {
+        display: none;
+      }
 
       .infoVerticalCarousel {
         width: 464px;
