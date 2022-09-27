@@ -40,6 +40,12 @@
     padding-bottom: 120px;
     justify-content: space-evenly;
   }
+
+  @include mobile () {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .services {

@@ -9,8 +9,11 @@
 
   @include tablet() {
     width: 436px;
-    // height: 488px;
     gap: 16px;
+  }
+
+  @include mobile() {
+    width: 100%;
   }
 
   .dawnTime {
@@ -27,10 +30,16 @@
       border-radius: inherit;
       font: var(--heading-4);
 
-      @include tablet () {
+      @include tablet() {
         font: var(--heading-5);
         padding: 16px;
         margin: 24px;
+      }
+
+      @include mobile() {
+        font: var(--phone-heading-3);
+        padding: 12px;
+        margin: 12px 16px;
       }
 
       .label {
@@ -52,20 +61,28 @@
     border-radius: 10px;
     font: var(--heading-4);
 
-    @include tablet () {
+    @include tablet() {
       font: var(--heading-5);
       padding: 24px;
+    }
+
+    @include mobile() {
+      font: var(--phone-heading-4);
+      padding: 16px;
     }
 
     .th {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 16px;
+
+      @include mobile (){
+        padding: 0 8px;
+      }
 
       > :first-child {
         width: 160px;
 
-        @include tablet () {
+        @include tablet() {
           width: 116px;
         }
       }
@@ -84,8 +101,12 @@
       border: 1px solid var(--gray-300);
       border-radius: 10px;
 
-      @include tablet () {
+      @include tablet() {
         padding: 12px 16px;
+      }
+
+      @include mobile() {
+        margin-top: 8px;
       }
 
       > :first-child {
@@ -95,7 +116,7 @@
         align-items: center;
         gap: 16px;
 
-        @include tablet () {
+        @include tablet() {
           width: 100px;
         }
       }
