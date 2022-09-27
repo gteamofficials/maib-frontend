@@ -1,3 +1,5 @@
+@import "../styles/breakpoint";
+
 .banner {
   position: relative;
   left: 0;
@@ -31,6 +33,20 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+
+  @include tablet() {
+    width: 100%;
+    padding-top: 195px;
+    padding-bottom: 120px;
+    justify-content: space-evenly;
+  }
+
+  @include mobile() {
+    flex-direction: column;
+    gap: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .services {
@@ -56,10 +72,53 @@
     align-items: center;
     gap: 40px;
 
+    @include tablet() {
+      width: 100%;
+      padding: 64px 24px;
+    }
+
+    @include mobile() {
+      padding-left: 28px;
+      padding-right: 28px;
+      flex-direction: column;
+    }
+
     .serviceCards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+
+      @include mobile() {
+        display: none;
+      }
+    }
+
+    .serviceMobile {
+      display: none;
+
+      @include mobile() {
+        display: block;
+        width: 240px;
+      }
+
+      .serviceSlider {
+        height: 340px;
+
+        .serviceBullet {
+          width: 12px;
+          height: 12px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: var(--gray-400);
+          margin: 0 6px;
+        }
+
+        .serviceBulletActive {
+          width: 16px;
+          height: 16px;
+          background-color: var(--dark-green-900);
+        }
+      }
     }
 
     .serviceTexts {
@@ -68,23 +127,47 @@
       justify-content: space-around;
       height: 500px;
 
+      @include mobile() {
+        height: 100%;
+      }
+
       h4 {
         font: var(--heading-4);
         margin: 0;
         margin-bottom: 24px;
         color: #606060;
+
+        @include tablet() {
+          font: var(--heading-5);
+        }
+
+        @include mobile() {
+          font: var(--phone-heading-3);
+        }
       }
 
       h1 {
         font: var(--heading-1);
         margin: 0;
         margin-bottom: 24px;
+
+        @include tablet() {
+          font: var(--heading-2);
+        }
+
+        @include mobile() {
+          font: var(--phone-heading-1);
+        }
       }
 
       p {
         font: var(--body-large);
         margin: 24px 0 24px 0;
         color: #606060;
+
+        @include mobile() {
+          font: var(--phone-body-regular);
+        }
       }
     }
   }
@@ -98,6 +181,17 @@
   flex-direction: column;
   justify-content: center;
 
+  @include tablet() {
+    width: 100%;
+    margin: 120px 64px 80px 64px;
+    gap: 56px;
+  }
+
+  @include mobile() {
+    margin: 40px 16px 24px 16px;
+    gap: 40px;
+  }
+
   .infoTab {
     border: none;
     cursor: pointer;
@@ -107,14 +201,42 @@
     display: flex;
     gap: 24px;
 
+    @include tablet() {
+      gap: 22px;
+    }
+
+    @include mobile() {
+      width: max-content;
+      flex-direction: column;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .mobileMoreInfo {
+      display: none;
+
+      @include mobile() {
+        display: block;
+      }
+    }
+
     .moreInfo {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: space-between;
+
+      @include mobile() {
+        display: none;
+      }
 
       .infoVerticalCarousel {
         width: 464px;
         height: 441px;
+
+        @include tablet() {
+          width: 340px;
+        }
 
         .bullet {
           width: 16px;

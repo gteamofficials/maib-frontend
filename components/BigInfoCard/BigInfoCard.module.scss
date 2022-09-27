@@ -1,3 +1,5 @@
+@import "../../styles/breakpoint";
+
 .bigInfoCard {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -14,6 +16,23 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
 
+  @include tablet() {
+    width: 551px;
+    height: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @include mobile() {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 343px;
+    height: 541px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
   &:hover {
     transition: 0.3s ease-in-out;
     background: var(--neon-green-200);
@@ -27,6 +46,16 @@
     height: 450px;
     border-radius: 16px;
     position: relative;
+
+    @include tablet() {
+      width: 231px;
+      height: 471px;
+    }
+
+    @include mobile() {
+      width: 287px;
+      height: 164px;
+    }
   }
 
   .title {
@@ -39,6 +68,22 @@
     color: var(--black);
     font: var(--heading-3);
     align-self: end;
+
+    @include tablet() {
+      width: 256px;
+      font: var(--heading-4);
+      line-height: 24px;
+      max-height: calc(24px * 2);
+    }
+
+    @include mobile() {
+      width: 100%;
+      font: var(--phone-heading-3);
+      line-height: 16px;
+      max-height: calc(16px * 2);
+      margin: 0;
+      align-self: start;
+    }
   }
 
   .content {
@@ -48,6 +93,16 @@
     overflow: hidden;
     line-height: 20px;
     height: calc(20px * 11);
+
+    @include tablet() {
+      width: 256px;
+    }
+
+    @include mobile() {
+      font: var(--phone-body-regular);
+      line-height: 16px;
+      height: calc(16px * 10);
+    }
   }
 
   .date {
@@ -57,10 +112,24 @@
     line-height: 20px;
     width: 357px;
     height: 20px;
+
+    @include tablet() {
+      font: var(--body-small);
+    }
+
+    @include mobile() {
+      font: var(--phone-body-regular);
+      line-height: 15px;
+      height: 15px;
+    }
   }
 
   .action {
     align-self: end;
     margin-bottom: 16px;
+
+    @include mobile() {
+      margin: 0;
+    }
   }
 }

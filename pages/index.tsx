@@ -2,7 +2,8 @@ import { Tab } from "@headlessui/react";
 import { count } from "console";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useMount } from "react-use";
+import { Fragment } from "react";
+import { useMedia, useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigationContext } from "../action/navigation";
@@ -45,6 +46,7 @@ const Landing: NextPage<LandingPageProps> = ({
   hijriCalendar,
 }) => {
   const [_, dispatch] = useNavigationContext();
+  const isMobile = useMedia("(max-width: 376px)", false);
   useMount(() => {
     dispatch("landing");
   });
@@ -89,19 +91,50 @@ const Landing: NextPage<LandingPageProps> = ({
       <section className={styles.services} id="services">
         <Ornament className={styles.ornament} type="base" scale={1.2} />
         <div className={styles.servicesContent}>
-          <div className={styles.serviceCards}>
-            {services.map((service, i) => (
-              <ServiceCard
-                key={i}
-                media={{
-                  src: service.attributes.icon.data.attributes.url,
-                  alt: service.attributes.icon.data.attributes.alternativeText,
+          {isMobile ? (
+            <div className={styles.serviceMobile}>
+              <Swiper
+                spaceBetween={200}
+                modules={[Pagination, Autoplay]}
+                autoplay={{ delay: 1500 }}
+                pagination={{
+                  clickable: true,
+                  bulletClass: styles.serviceBullet,
+                  bulletActiveClass: styles.serviceBulletActive,
                 }}
-                title={service.attributes.title}
-                content={service.attributes.description}
-              />
-            ))}
-          </div>
+                className={styles.serviceSlider}
+              >
+                {services.map((service, i) => (
+                  <SwiperSlide key={i}>
+                    <ServiceCard
+                      media={{
+                        src: service.attributes.icon.data.attributes.url,
+                        alt: service.attributes.icon.data.attributes
+                          .alternativeText,
+                      }}
+                      title={service.attributes.title}
+                      content={service.attributes.description}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          ) : (
+            <div className={styles.serviceCards}>
+              {services.map((service, i) => (
+                <ServiceCard
+                  key={i}
+                  media={{
+                    src: service.attributes.icon.data.attributes.url,
+                    alt: service.attributes.icon.data.attributes
+                      .alternativeText,
+                  }}
+                  title={service.attributes.title}
+                  content={service.attributes.description}
+                />
+              ))}
+            </div>
+          )}
           <div className={styles.serviceTexts}>
             <div className={styles.upperTexts}>
               <h4>Layanan Masjid Al-Ikhlas</h4>
@@ -133,7 +166,7 @@ const Landing: NextPage<LandingPageProps> = ({
             )}
           </Tab>
         </Tab.List>
-        <Tab.Panels>
+        <Tab.Panels as={Fragment}>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
               date={new Date(news[0]?.attributes.date).toLocaleDateString(
@@ -153,46 +186,56 @@ const Landing: NextPage<LandingPageProps> = ({
               body={news[0]?.attributes.description}
               href={`/news/${news[0]?.attributes.slug}`}
             />
-            <div className={styles.moreInfo}>
-              <Swiper
-                direction={"vertical"}
-                modules={[Pagination]}
-                slidesPerView={3}
-                pagination={{
-                  clickable: true,
-                  bulletActiveClass: styles.bulletActive,
-                  bulletClass: styles.bullet,
-                }}
-                className={styles.infoVerticalCarousel}
+            {isMobile ? (
+              <ButtonLink
+                href="/news"
+                size="medium"
+                variant="primary"
+                className="mobileMoreInfo"
               >
-                {news
-                  .filter((_, i) => i !== 0)
-                  .map((news, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date={new Date(news.attributes.date).toLocaleDateString(
-                          "id-ID",
-                          {
+                Lihat Semua
+              </ButtonLink>
+            ) : (
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                    bulletActiveClass: styles.bulletActive,
+                    bulletClass: styles.bullet,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {news
+                    .filter((_, i) => i !== 0)
+                    .map((news, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={new Date(
+                            news.attributes.date
+                          ).toLocaleDateString("id-ID", {
                             year: "numeric",
                             month: "long",
                             day: "numeric",
-                          }
-                        )}
-                        href={`/news/${news.attributes.slug}`}
-                        media={{
-                          src: news.attributes.coverImage.data.attributes.url,
-                          alt: news.attributes.coverImage.data.attributes
-                            .alternativeText,
-                        }}
-                        title={news.attributes.title}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-              <ButtonLink href="/news" size="medium" variant="primary">
-                Lihat Semua
-              </ButtonLink>
-            </div>
+                          })}
+                          href={`/news/${news.attributes.slug}`}
+                          media={{
+                            src: news.attributes.coverImage.data.attributes.url,
+                            alt: news.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={news.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+                <ButtonLink href="/news" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            )}
           </Tab.Panel>
           <Tab.Panel className={styles.infoPanel}>
             <BigInfoCard
@@ -213,46 +256,56 @@ const Landing: NextPage<LandingPageProps> = ({
               body={articles[0]?.attributes.description}
               href={`/article/${articles[0]?.attributes.slug}`}
             />
-            <div className={styles.moreInfo}>
-              <Swiper
-                direction={"vertical"}
-                modules={[Pagination]}
-                slidesPerView={3}
-                pagination={{
-                  clickable: true,
-                  bulletActiveClass: styles.bulletActive,
-                  bulletClass: styles.bullet,
-                }}
-                className={styles.infoVerticalCarousel}
+            {isMobile ? (
+              <ButtonLink
+                href="/article"
+                size="medium"
+                variant="primary"
+                className="mobileMoreInfo"
               >
-                {articles
-                  .filter((_, i) => i !== 0)
-                  .map((article, i) => (
-                    <SwiperSlide key={i}>
-                      <SmallInfoCard
-                        date={new Date(
-                          article.attributes.date
-                        ).toLocaleDateString("id-ID", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                        href={`/article/${article.attributes.slug}`}
-                        media={{
-                          src: article.attributes.coverImage.data.attributes
-                            .url,
-                          alt: article.attributes.coverImage.data.attributes
-                            .alternativeText,
-                        }}
-                        title={article.attributes.title}
-                      />
-                    </SwiperSlide>
-                  ))}
-              </Swiper>
-              <ButtonLink href="/article" size="medium" variant="primary">
                 Lihat Semua
               </ButtonLink>
-            </div>
+            ) : (
+              <div className={styles.moreInfo}>
+                <Swiper
+                  direction={"vertical"}
+                  modules={[Pagination]}
+                  slidesPerView={3}
+                  pagination={{
+                    clickable: true,
+                    bulletActiveClass: styles.bulletActive,
+                    bulletClass: styles.bullet,
+                  }}
+                  className={styles.infoVerticalCarousel}
+                >
+                  {news
+                    .filter((_, i) => i !== 0)
+                    .map((news, i) => (
+                      <SwiperSlide key={i}>
+                        <SmallInfoCard
+                          date={new Date(
+                            news.attributes.date
+                          ).toLocaleDateString("id-ID", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                          href={`/news/${news.attributes.slug}`}
+                          media={{
+                            src: news.attributes.coverImage.data.attributes.url,
+                            alt: news.attributes.coverImage.data.attributes
+                              .alternativeText,
+                          }}
+                          title={news.attributes.title}
+                        />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+                <ButtonLink href="/news" size="medium" variant="primary">
+                  Lihat Semua
+                </ButtonLink>
+              </div>
+            )}
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

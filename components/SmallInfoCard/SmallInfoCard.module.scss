@@ -1,3 +1,5 @@
+@import "../../styles/breakpoint";
+
 .smallInfoCard {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -11,6 +13,12 @@
   padding: 16px;
   border: 1px solid var(--primary-color);
   border-radius: 10px;
+
+  @include tablet() {
+    width: 303px;
+    height: 116px;
+    column-gap: 8px;
+  }
 
   &:hover {
     background-color: var(--secondary-color);
@@ -39,12 +47,22 @@
     overflow: hidden;
     line-height: 24px;
     height: 24px;
+
+    @include tablet() {
+      font: var(--heading-5);
+      line-height: 20px;
+      height: 24px;
+    }
   }
 
   .date {
     font: var(--body-small);
     color: var(--gray-500);
     grid-area: 2 / 2 / 3 / 3;
+
+    @include tablet() {
+      font: var(--caption-large);
+    }
   }
 
   .action {

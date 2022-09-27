@@ -18,7 +18,7 @@ const ServiceCard = ({ media, title, content }: AppProps) => {
           src={media.src}
           alt={media.alt}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
         />
       </span>
       <h3 className={styles.title}>{title}</h3>
