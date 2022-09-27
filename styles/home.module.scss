@@ -127,6 +127,10 @@
       justify-content: space-around;
       height: 500px;
 
+      @include mobile () {
+        height: 100%;
+      }
+
       h4 {
         font: var(--heading-4);
         margin: 0;
@@ -135,6 +139,10 @@
 
         @include tablet() {
           font: var(--heading-5);
+        }
+
+        @include mobile () {
+          font: var(--phone-heading-3);
         }
       }
 
@@ -146,12 +154,20 @@
         @include tablet() {
           font: var(--heading-2);
         }
+
+        @include mobile () {
+          font: var(--phone-heading-1);
+        }
       }
 
       p {
         font: var(--body-large);
         margin: 24px 0 24px 0;
         color: #606060;
+
+        @include mobile () {
+          font: var(--phone-body-regular)
+        }
       }
     }
   }
