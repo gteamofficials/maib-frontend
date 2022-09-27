@@ -2,7 +2,7 @@ import { Tab } from "@headlessui/react";
 import { count } from "console";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { useMount } from "react-use";
+import { useMedia, useMount } from "react-use";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigationContext } from "../action/navigation";
@@ -45,6 +45,7 @@ const Landing: NextPage<LandingPageProps> = ({
   hijriCalendar,
 }) => {
   const [_, dispatch] = useNavigationContext();
+  const isMobile = useMedia("(min-width: 376px)");
   useMount(() => {
     dispatch("landing");
   });
@@ -89,46 +90,50 @@ const Landing: NextPage<LandingPageProps> = ({
       <section className={styles.services} id="services">
         <Ornament className={styles.ornament} type="base" scale={1.2} />
         <div className={styles.servicesContent}>
-          <div className={styles.serviceCards}>
-            {services.map((service, i) => (
-              <ServiceCard
-                key={i}
-                media={{
-                  src: service.attributes.icon.data.attributes.url,
-                  alt: service.attributes.icon.data.attributes.alternativeText,
-                }}
-                title={service.attributes.title}
-                content={service.attributes.description}
-              />
-            ))}
-          </div>
-          <div className={styles.serviceMobile}>
-            <Swiper
-              spaceBetween={200}
-              modules={[Pagination, Autoplay]}
-              autoplay={{ delay: 1500 }}
-              pagination={{
-                clickable: true,
-                bulletClass: styles.serviceBullet,
-                bulletActiveClass: styles.serviceBulletActive,
-              }}
-              className={styles.serviceSlider}
-            >
+          {isMobile ? (
+            <div className={styles.serviceCards}>
               {services.map((service, i) => (
-                <SwiperSlide key={i}>
-                  <ServiceCard
-                    media={{
-                      src: service.attributes.icon.data.attributes.url,
-                      alt: service.attributes.icon.data.attributes
-                        .alternativeText,
-                    }}
-                    title={service.attributes.title}
-                    content={service.attributes.description}
-                  />
-                </SwiperSlide>
+                <ServiceCard
+                  key={i}
+                  media={{
+                    src: service.attributes.icon.data.attributes.url,
+                    alt: service.attributes.icon.data.attributes
+                      .alternativeText,
+                  }}
+                  title={service.attributes.title}
+                  content={service.attributes.description}
+                />
               ))}
-            </Swiper>
-          </div>
+            </div>
+          ) : (
+            <div className={styles.serviceMobile}>
+              <Swiper
+                spaceBetween={200}
+                modules={[Pagination, Autoplay]}
+                autoplay={{ delay: 1500 }}
+                pagination={{
+                  clickable: true,
+                  bulletClass: styles.serviceBullet,
+                  bulletActiveClass: styles.serviceBulletActive,
+                }}
+                className={styles.serviceSlider}
+              >
+                {services.map((service, i) => (
+                  <SwiperSlide key={i}>
+                    <ServiceCard
+                      media={{
+                        src: service.attributes.icon.data.attributes.url,
+                        alt: service.attributes.icon.data.attributes
+                          .alternativeText,
+                      }}
+                      title={service.attributes.title}
+                      content={service.attributes.description}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
           <div className={styles.serviceTexts}>
             <div className={styles.upperTexts}>
               <h4>Layanan Masjid Al-Ikhlas</h4>
